@@ -1,4 +1,4 @@
-![Logo](https://imgur.com/40ggItu.png)
+![Logo](https://imgur.com/KfzOYFm.png)
 
 # Projeto Pesquisa e Inovação - Grupo 8
 
