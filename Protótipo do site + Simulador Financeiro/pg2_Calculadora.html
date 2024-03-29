@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PiraruTech | Simulador-Financeiro</title>
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+
+  <body style="margin: 0">
+    <div class="header">
+      <div class="container">
+        <div class="backgroung">
+          <h1 class="titulo">PiraruTech</h1>
+        </div>
+        <ul class="navbar">
+          <li>
+            <a
+              style="text-decoration: none; color: whitesmoke"
+              href="index.html"
+              >Inicial</a
+            >
+          </li>
+          <li>
+            <a
+              style="text-decoration: none; color: whitesmoke"
+              href="pg2_Calculadora.html"
+              >Simulador</a
+            >
+          </li>
+          <li>|</li>
+          <li>
+            <a
+              style="text-decoration: none; color: whitesmoke"
+              href="pg3_Login.html"
+              >Login</a
+            >
+          </li>
+          <li>
+            <a
+              style="text-decoration: none; color: whitesmoke"
+              href="pg4_cadastro.html"
+              >Cadastro</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="containerTUDOCalc">
+      
+      <div class="card">       
+        <div class="tituloB">Simulador Financeiro </div>
+        <p class="paragrafo">* campos obrigatorios</p>
+        <p class="paragrafo">% padrão 33%</p>
+        <input
+          required
+          type="number"
+          id="input_producaoT"
+          class="input_custos"
+          placeholder="Qual sua produção anual? (toneladas)*"
+        /><br />
+        <input
+          required
+          type="number"
+          id="input_precoKg"
+          class="input_custos"
+          placeholder="Qual preço de venda do kg do peixe (R$)*"
+        /><br />
+        <input
+          required
+          type="number"
+          id="input_perdaAnoT"
+          class="input_perca"
+          placeholder="Qual sua perda anual? (toneladas)*"
+        /><br />
+        <input
+          required
+          id="input_perdaAnoUmiTempP"
+          class="input_custos"
+          placeholder="Perda por temperatura/umidade (%)"
+        /><br />
+        <button onclick="calcularcustos()" class="botão_calc">Calcular</button>
+     
+      </div>
+
+      <div>
+        <div id="mensagens" class="div_textoExplicativo"></div>
+      
+        
+      </div>
+    </div> 
+    </div>
+  </body>
+</html>
+
+<script>
+  function calcularcustos() {
+    let ProduçãoT = Number(input_producaoT.value); // definição de variaveis inicio
+    let precoKg = Number(input_precoKg.value);
+    let perdaAnoT = Number(input_perdaAnoT.value);
+    let perdaAnoUmiTempP = Number(input_perdaAnoUmiTempP.value); // definição de variaveis fim
+
+    if (perdaAnoUmiTempP == 0) {
+      perdaAnoUmiTempP = 33; //perda padrão de 33%
+    }
+    perdaAnoUmiTempP /= 100; //conversão para fazer as contas
+
+    let porcentagemPerda = (100 * perdaAnoT) / ProduçãoT; // regra de 3 para descobrir a porcentagem de perda geral
+
+    let ganho = perdaAnoT - perdaAnoT * perdaAnoUmiTempP; 
+    
+    ganho = perdaAnoT - ganho; // ganhos em peso (tonelada)
+
+    let ganhoRs = ganho * 1000 * precoKg; // ganhos em Reais, baseado no kg no peixe
+
+    mensagens.innerHTML = ` <div class="cardTexto"> Você tem uma perda anual de ${porcentagemPerda}% na sua produção. Dos mesmos, ${
+      perdaAnoUmiTempP * 100
+    }% podem deixar de ocorrer com o nosso sistema de monitoramento, gerando ${ganho} Toneladas a mais por ano e um ganho de R$${ganhoRs} </div>`; // mensagem para o usuario
+  } 
+</script>

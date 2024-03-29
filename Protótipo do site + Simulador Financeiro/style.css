@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana;
+  background-color: whitesmoke;
+}
+.containerTUDO {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  background-color: #1A1F24;
+}
+.containerTUDOCalc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 98.2vw;
+  min-height: 98.2vh;
+  background-color: #1A1F24;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+.header {
+  border-bottom: 3px solid #067A83;
+  background-color: #262B30;
+}
+
+.navbar {
+  width: 400px;
+  display: flex;
+  color: rgb(255, 255, 255);
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+.header .container {
+  justify-content: space-between;
+}
+.mensagem {
+  display: flex;
+  justify-content: left;
+}
+.imagem {
+  height: 80px;
+  width: 200px;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.containerInput {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: auto;
+  margin-left: 20px;
+}
+
+.card {
+  width: 400px;
+  height: 550px;
+  border: 3px solid #067A83;
+  border-radius: 13px;
+  background-color: #1A1F24;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cardTexto {
+  font-family: "Courier New", Courier, monospace;
+  width: 400px;
+  height: fit-content;
+  border: 3px solid #067A83;
+  border-radius: 13px;
+  background-color: #1A1F24;
+  margin: 20px;
+  display: flex;
+  padding: 10px 10px;
+  align-items: center;
+  flex-direction: column;
+  float: right;
+}
+
+
+
+.titulo {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(100, 141, 150);
+}
+.tituloB {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  font-weight: 500;
+  color: #067A83;
+  position: relative;
+  top: -100px;
+}
+.paragrafo {
+  color: rgb(118, 108, 108);
+  position: relative;
+  font-size: 12px;
+  text-align: left;
+  top: 280px;
+  left: -100px;
+}
+.input_custos {
+  width: 320px;
+  border-radius: 3px;
+  border-color: transparent;
+  border-bottom: 2px solid rgb(181, 181, 181);
+  outline: 0;
+  text-align: center;
+  color: whitesmoke;
+  background-color: transparent;
+}
+
+.input_custos:focus,
+.input_custos:valid {
+  border-bottom: 2px solid rgb(68, 81, 89);
+}
+
+.input_perca {
+  width: 320px;
+  border-radius: 3px;
+  border-color: transparent;
+  border-bottom: 2px solid rgb(181, 181, 181);
+  outline: 0;
+  color: whitesmoke;
+  text-align: center;
+  background-color: transparent;
+}
+
+.input_perca:focus,
+.input_perca:valid {
+  border-bottom: 2px solid rgb(68, 81, 89);
+}
+.input_qualidade {
+  width: 320px;
+  border-radius: 3px;
+  border-color: transparent;
+  border-bottom: 2px solid rgb(181, 181, 181);
+  outline: 0;
+  color: whitesmoke;
+  text-align: center;
+  background-color: transparent;
+}
+.input_qualidade:focus,
+.input_qualidade:valid {
+  border-bottom: 2px solid rgb(68, 81, 89);
+}
+
+.botão_calc {
+  font-size: 15px;
+  padding: 10px 50px;
+  background-color: rgb(100, 141, 150);
+  color: rgb(8, 8, 8);
+  border-style: hidden;
+  border-radius: 15px;
+  border-color: rgb(100, 141, 150);
+  outline: 0;
+  font-weight: 500;
+}
+
+.div_textoExplicativo {
+  margin-right: 20px;
+  color: whitesmoke;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  text-align: left;
+}
+
