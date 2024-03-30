@@ -7,7 +7,7 @@
 ## Equipe do projeto
 
 - [@Kauan Paschoal](https://github.com/kauanpaschoal-dev)
-- [@]()
+- [@Gustavo Basi](https://github.com/GustavoBasi)
 - [@]()
 - [@]()
 - [@]()
