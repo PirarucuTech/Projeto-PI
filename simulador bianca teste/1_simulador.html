@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="2_pirarutech.css">
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div class="container-items">
+            <img src="3_logo.png" id="logo">
+            <div class="div_options">
+                <span><a href="1_inicial.html">Inicial</a></span>
+                <span><a href="1_simulador.html">Simulador financeiro</a></span>
+                <span><a href="1_nossoTrabalho.html">Nosso trabalho</a></span>
+                <span><a href="1_saibaMais.html">Saiba mais</a></span>
+            </div>
+            
+            <div class="btns_navbar">
+                <button class="btn_login" onclick="button_login()">Login</button>
+                <button class="btn_cadastro" onclick="button_cadastro()"> Cadastro </button>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="cards-calculadora">
+
+        <div id="div_card_inputs" class="card-inputs">
+            <span>Qual sua produção anual? (TON)</span><br>
+            <input type="number" class="input_producaoT input_card" required><br>
+            
+            <span>Qual preço de venda do kg do peixe (R$)</span><br>
+            <input type="number" class="input_precoKg input_card" required><br>
+            
+            <span>Qual sua perda anual? (TON)</span><br>
+            <input type="number" class="input_perdaAnoT input_card" required><br>
+
+            <span>Perda por temperatura/umidade (%)</span><br>
+            <input type="number" class="input_perdaAnoUmiTempP input_card" required><br>
+
+            <button onclick="button_calcular_prejuizos()" class="btn_calcular ">Calcular</button>
+        </div>
+
+        <div style="display: none;" id="div_card_resposta" class="card-resposta">
+            <span class="texto_explicacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac orci phasellus egestas tellus rutrum tellus pellentesque. Augue lacus viverra vitae congue eu consequat. Vitae congue mauris rhoncus aenean vel elit scelerisque. Urna et pharetra pharetra massa massa ultricies mi quis. Semper quis lectus nulla at volutpat diam ut. Mattis ullamcorper velit sed ullamcorper morbi. Placerat vestibulum lectus mauris ultrices eros in cursus turpis. Vestibulum lectus mauris ultrices eros. Sed enim ut sem viverra aliquet eget. Tincidunt vitae semper quis lectus nulla at. <br> <br>
+
+            Tempor id eu nisl nunc mi ipsum faucibus. Lectus quam id leo in vitae turpis massa. Elit ut aliquam purus sit amet luctus. Turpis tincidunt id aliquet risus feugiat in ante. Natoque penatibus et magnis dis parturient montes nascetur ridiculus. Odio aenean sed adipiscing diam donec adipiscing tristique risus. Urna neque viverra justo nec ultrices dui sapien eget mi. Quam quisque id diam vel quam elementum pulvinar. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Cras sed felis eget velit. Sodales ut etiam sit amet nisl purus in mollis. Neque vitae tempus quam pellentesque. Risus at ultrices mi tempus imperdiet. Metus vulputate eu scelerisque felis imperdiet. Etiam dignissim diam quis enim lobortis scelerisque. Sit amet mauris commodo quis imperdiet. Sodales ut eu sem integer.</span>
+        </div>
+
+    </div>
+      
+
+</body>
+
+</html>
+
+<script>
+    var primeiraVez = true
+
+    function mostrarDivResposta(){
+        var divResposta = document.getElementById("div_card_resposta")
+        divResposta.style.opacity = 1
+        divResposta.style.transform = "translateY(0%)"
+        divResposta.style.userSelect = "auto"
+        divResposta.style.display = "block"
+
+    }
+
+    function button_calcular_prejuizos(){
+        if (primeiraVez == true){
+            primeiraVez = false
+            mostrarDivResposta()
+        }
+
+        
+        //    alert('helo')
+
+    }
+
+</script>
