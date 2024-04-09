@@ -2,7 +2,7 @@
 
 # Projeto Pesquisa e Inovação - Grupo 8
 
-'descrição do projeto'
+Projeto de monitoramento de Temperatura e umidade no ambiente de criação de pirarucu, visando diminuir as perdas de clientes futuros.
 
 ## Equipe do projeto
 
