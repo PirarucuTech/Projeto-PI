@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #1A1F24;
+  box-sizing: border-box; 
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;   
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+button{
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;   
+  font-size: 15px;
+  color: aliceblue;
+
+}
+
+/* Navbar */
+
+#logo{
+  width: 4vw;
+  padding: 15px;
+  margin-top: 7px;
+
+  cursor: pointer;
+}
+
+.navbar{
+  width: 100vw;
+  height: 10vh;
+  border-bottom: 1px solid #267a83;
+  background-color: #0f1113;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+
+}
+
+.container-items{
+  width: 80%;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+.div_options{
+  list-style: none;
+  width: 50%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  gap: 50px;
+
+  white-space: nowrap;
+}
+
+.btns_navbar{
+  display: flex;
+  gap: 15px;
+}
+
+.btn_login{
+  border: 2px solid #267a83;
+  background-color: #1A1F24;
+
+  width: 7vw;
+  border-radius: 20px;
+  font-weight: 500;
+  
+  cursor: pointer;
+
+  transition: 0.2s;
+
+}
+
+.btn_cadastro{
+  background-color: #267a83;
+
+  width: 7vw;
+  border-radius: 20px;
+  font-weight: 500;
+  padding: 10px;
+  
+  cursor: pointer;
+  border: none;
+
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;   
+  font-size: 15px;
+
+  transition: 0.2s;
+
+}
+
+.btn_calcular{
+  background-color: #267a83;
+  width: 8vw;
+  height: 5vh;
+  border-radius: 15px;
+  border: none;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+}
+
+.btn_calcular:hover{
+  transform: scale(1.1);
+}
+
+.btn_login:hover{
+  background-color: #267a83;
+  border: #154045;
+  transform: scale(1.1)
+}
+
+.btn_cadastro:hover{
+  background-color: #267a83;
+  transform: scale(1.1)
+}
+
+
+.btn_calcular:active{
+  background-color: #154045;
+  transform: scale(1);
+}
+
+.btn_login:active{
+  background-color: #154045;
+  transform: scale(1);
+
+}
+
+.btn_cadastro:active{
+  background-color: #154045;
+  transform: scale(1);
+
+}
+
+/* Simulador Financeiro */
+
+
+.cards-calculadora{
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+}
+
+
+.card-inputs{
+  color: aliceblue;
+  background-color: #0f1113;  
+  width: 30%;
+  height: 80vh;
+
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;}
+    /* serve para ocultar as setinhas ao lado do input tipo number */
+
+.input_card {
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #303030;
+  border-bottom: 2px solid #9a9a9a;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #2d2d2d;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.input_card::placeholder {
+  color: #9a9a9a;
+}
+
+.input_card:hover {
+  background-color: #313131;
+}
+
+.input_card:active,
+.input_card:focus {
+  background-color: #1e1f20;
+  border: 1px solid #2d2d2d;
+  border-bottom: 2px solid #267a83;
+}
+
+
+.card-resposta{
+  background-color: #0f1113;
+  width: 50%;
+  height: 70vh;
+  
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 50px;
+  padding: 20px;
+ 
+  color: aliceblue;
+  font-size: large;
+ 
+}
+
+/* Tela Inicial */
+
+#logoHome{
+  width: 30vw;
+  height: 70vh;
+}
+
+.container-home{
+
+  height: 89vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container-content-home{
+  width: 30%;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.spanText1{
+  font-size: 50px;
+
+}
+
+.spanText2{
+  font-size: 20px;
+
+}
+
+.btnsTelaInicial{
+  width: 20vw;
+  height: 20vh;
+
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.btnLogCadHome{
+  background-color: #267a83;
+  width: 12vw;
+  height: 7vh;
+  border-radius: 25px;
+  border: none;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  
+}
+
+.btnLogCadHome:hover{
+  background-color: #267a83;
+  transform: scale(1.1)
+}
+
+
+.btnLogCadHome:active{
+  background-color: #154045;
+  transform: scale(1);
+}
+
