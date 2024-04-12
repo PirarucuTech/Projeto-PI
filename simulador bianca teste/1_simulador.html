@@ -12,19 +12,19 @@
     <div class="navbar">
 
         <div class="container-items">
-            <a href="1_inicial.html"><img src="3_logo.png" id="logo"></a> 
+            <a href="1_inicial.html"><img src="3_logo.png" id="logo"></a>
             <div class="div_options">
                 <span><a href="1_inicial.html">Inicial</a></span>
                 <span><a href="1_simulador.html">Simulador financeiro</a></span>
                 <span><a href="1_nossoTrabalho.html">Nosso trabalho</a></span>
                 <span><a href="1_saibaMais.html">Saiba mais</a></span>
             </div>
-            
+
             <div class="btns_navbar">
                 <button class="btn_login" onclick="button_login()">Login</button>
                 <button class="btn_cadastro" onclick="button_cadastro()"> Cadastro </button>
             </div>
-            
+
         </div>
 
     </div>
@@ -32,29 +32,20 @@
     <div class="cards-calculadora">
 
         <div id="div_card_inputs" class="card-inputs">
-            <span>Qual sua produção anual? (TON)</span><br>
-            <input type="number" class="input_producaoT input_card" required><br>
-            
-            <span>Qual preço de venda do kg do peixe (R$)</span><br>
-            <input type="number" class="input_precoKg input_card" required><br>
-            
-            <span>Qual sua perda anual? (TON)</span><br>
-            <input type="number" class="input_perdaAnoT input_card" required><br>
-
-            <span>Perda por temperatura/umidade (%)</span><br>
-            <input type="number" class="input_perdaAnoUmiTempP input_card" required><br>
+            <span>Informe a quantidade de Pirarucu:</span> <br>
+            <input required type="number" id="input_qtdPirarucu" class="input_card"><br>
+            <span>Informe a quantidade de aquários:</span> <br>
+            <input required type="number" id="input_qtdAquarios" class="input_card"> <br>
+            <span>Informe o preço por Quilo:</span> <br>
+            <input required type="number" id="input_precoKg" class="input_card"> <br>
 
             <button onclick="button_calcular_prejuizos()" class="btn_calcular ">Calcular</button>
         </div>
 
-        <div style="display: none;" id="div_card_resposta" class="card-resposta">
-            <span class="texto_explicacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac orci phasellus egestas tellus rutrum tellus pellentesque. Augue lacus viverra vitae congue eu consequat. Vitae congue mauris rhoncus aenean vel elit scelerisque. Urna et pharetra pharetra massa massa ultricies mi quis. Semper quis lectus nulla at volutpat diam ut. Mattis ullamcorper velit sed ullamcorper morbi. Placerat vestibulum lectus mauris ultrices eros in cursus turpis. Vestibulum lectus mauris ultrices eros. Sed enim ut sem viverra aliquet eget. Tincidunt vitae semper quis lectus nulla at. <br> <br>
-
-            Tempor id eu nisl nunc mi ipsum faucibus. Lectus quam id leo in vitae turpis massa. Elit ut aliquam purus sit amet luctus. Turpis tincidunt id aliquet risus feugiat in ante. Natoque penatibus et magnis dis parturient montes nascetur ridiculus. Odio aenean sed adipiscing diam donec adipiscing tristique risus. Urna neque viverra justo nec ultrices dui sapien eget mi. Quam quisque id diam vel quam elementum pulvinar. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Cras sed felis eget velit. Sodales ut etiam sit amet nisl purus in mollis. Neque vitae tempus quam pellentesque. Risus at ultrices mi tempus imperdiet. Metus vulputate eu scelerisque felis imperdiet. Etiam dignissim diam quis enim lobortis scelerisque. Sit amet mauris commodo quis imperdiet. Sodales ut eu sem integer.</span>
+        <div style="display: none; align-items: center;" id="div_card_resposta" class="card-resposta">
         </div>
-
     </div>
-      
+
 
 </body>
 
@@ -63,22 +54,45 @@
 <script>
     var primeiraVez = true
 
-    function mostrarDivResposta(){
+    function mostrarDivResposta() {
         var divResposta = document.getElementById("div_card_resposta")
         divResposta.style.opacity = 1
         divResposta.style.transform = "translateY(0%)"
         divResposta.style.userSelect = "auto"
-        divResposta.style.display = "block"
+        divResposta.style.display = "flex"
 
     }
 
-    function button_calcular_prejuizos(){
-        if (primeiraVez == true){
+    function button_calcular_prejuizos() {
+        if (primeiraVez == true) {
             primeiraVez = false
             mostrarDivResposta()
         }
+        calcularcustos()
 
 
+    }
+
+    function calcularcustos() {
+
+        const qtdPirarucuPorAquario = Number(input_qtdPirarucu.value)
+        const qtdAquarios = Number(input_qtdAquarios.value)
+        const precoKg = Number(input_precoKg.value)
+
+        let qtdPirarucus = qtdPirarucuPorAquario * qtdAquarios
+        let kilos = qtdPirarucus * 13
+        let kilosPerdidos = kilos * 0.33
+
+        let valorTotal = (kilos * precoKg)
+        let valorPerda = (kilosPerdidos * precoKg)
+
+        // peso é de 13kg o pirarucu, tendo um 1 ano
+        // porcentagem de perda no viveiro é de 33% dos pirarucus
+
+        div_card_resposta.innerHTML = ` <span style="text-align: center;"> Considerando que em média o peso de um pirarucu jovem,utilizado para comercialização, pesa em torno de <b>13kg</b>, e em média a perda no viveiro de pirarucus é de <b>33%</b>, você terá os resultados de: <br>
+        Vender toda a sua produção de pirarucu resultará em um lucro de <b style="color:green;">R$${valorTotal}</b> em toda sua produção.<br>
+        Se toda a sua produção de pirarucu sofrer uma perda, você terá uma perda de <b style="color:red;">R$${valorPerda}</b> na sua produção. </span> <br>
+        ` // mensagem para o usuario
     }
 
 </script>
