@@ -22,6 +22,35 @@ button{
 
 }
 
+
+body {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #267a83;
+  --sb-size: 12px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
 /* Navbar */
 
 #logo{
@@ -30,10 +59,12 @@ button{
   margin-top: 7px;
 
   cursor: pointer;
+
+
 }
 
 .navbar{
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   border-bottom: 1px solid #267a83;
   background-color: #0f1113;
@@ -233,13 +264,13 @@ input[type=number]::-webkit-outer-spin-button {
 /* Tela Inicial */
 
 #logoHome{
-  width: 30vw;
-  height: 70vh;
+  width: 35vw;
+  height: 80vh;
 }
 
 .container-home{
 
-  height: 89vh;
+  height: 90vh;
   width: 100%;
 
   display: flex;
@@ -256,11 +287,24 @@ input[type=number]::-webkit-outer-spin-button {
   justify-content: center;
   align-items: center;
 
+
+}
+
+.textosTelaInicial{
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+
+  gap: 30px;
+
+  
+
 }
 
 .spanText1{
   font-size: 50px;
-
+  line-height: 60px;
+  
 }
 
 .spanText2{
@@ -269,24 +313,28 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btnsTelaInicial{
-  width: 20vw;
+  width: 30vw;
   height: 20vh;
 
   display: flex;
   flex-direction: row;
   gap: 30px;
+
 }
 
 .btnLogCadHome{
   background-color: #267a83;
-  width: 12vw;
-  height: 7vh;
-  border-radius: 25px;
+  width: 15vw;
+  height: 8vh;
+  border-radius: 30px;
   border: none;
 
   cursor: pointer;
   transition: 0.2s;
 
+  font-size: 25px;
+
+  margin-top: 20px;
   
 }
 
@@ -301,3 +349,59 @@ input[type=number]::-webkit-outer-spin-button {
   transform: scale(1);
 }
 
+/* scroll dashboard */
+
+#dashboardFotoInicial{
+  width: 50vw;
+  height: 60vh;
+
+
+}
+
+.container-scroll-dashboard{
+  max-width: 100%;
+  height: 100vh;
+  background-color: #0f1113;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+  color: white;
+}
+
+.btnTextDashboard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 20vw;
+  gap: 15px;
+
+}
+
+.btnAcesseDashboard{
+  width: 15vw;
+  height: 8vh; 
+
+  border-radius: 30px;
+  background-color: #267a83;
+  font-size: 25px;
+  font-weight: 300; 
+
+  border: none;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnAcesseDashboard:hover{
+  background-color: #267a83;
+  transform: scale(1.1)
+}
+
+.btnAcesseDashboard:active{
+  background-color: #154045;
+  transform: scale(1);
+}

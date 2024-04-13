@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="navbar">
+    <header class="navbar">
 
         <div class="container-items">
             <a href="1_inicial.html"><img src="3_logo.png" id="logo"></a>
@@ -21,29 +21,44 @@
             </div>
 
             <div class="btns_navbar">
-                <button class="btn_login" onclick="button_login()">Login</button>
-                <button class="btn_cadastro" onclick="button_cadastro()"> Cadastro </button>
+                <button class="btn_login" onclick="button_login()"> <a href="1_login.html">Login</a></button>
+                <button class="btn_cadastro" onclick="button_cadastro()"> <a href="1_cadastro.html">Cadastro</a> </button>
             </div>
 
             
         </div>
         
-    </div>
+    </header>
 
     <div class="container-home">
 
         <img src="3_logo.png" id="logoHome">  
                 
         <div class="container-content-home">
-            <span class="spanText1"> Monitore em tempo real a sua criação de pirarucu. </span> 
-            <span class="spanText2"> Diminua seus prejuizos e aumente a sua lucratividade, a PiraruTech foi feita pra você. </span>
+
+            <div class="textosTelaInicial">
+                <span class="spanText1"> Monitore em tempo real a sua criação de pirarucu. </span> 
+                <span class="spanText2"> Diminua seus prejuizos e aumente a sua lucratividade, a PiraruTech foi feita pra você. </span>
+            </div>
             
             <div class="btnsTelaInicial">
-                <button class="btnLogCadHome">Entre agora</button>
-                <button class="btnLogCadHome">Cadastre-se</button>
+                <button class="btnLogCadHome"> <a href="1_login.html">Entre agora</a> </button>
+                <button class="btnLogCadHome"> <a href="1_cadastro.html">Cadastre-se</a> </button>
+            
             </div>
+       
         </div>
         
+
+    </div>
+
+    <div class="container-scroll-dashboard">
+        <img src="3_dashboardscroll.png" id="dashboardFotoInicial">
+
+        <div class="btnTextDashboard">
+            <span>Acesse sua dashboard agora mesmo!</span> 
+            <button class="btnAcesseDashboard"> <a href="1_login.html">Acesse já</a></button>
+        </div>
 
     </div>
     
