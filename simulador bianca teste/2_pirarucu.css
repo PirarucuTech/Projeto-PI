@@ -59,8 +59,6 @@ body::-webkit-scrollbar-thumb {
   margin-top: 7px;
 
   cursor: pointer;
-
-
 }
 
 .navbar{
@@ -94,6 +92,51 @@ body::-webkit-scrollbar-thumb {
   gap: 50px;
 
   white-space: nowrap;
+}
+
+
+.spanInicial{
+  transition: 0.1s;
+
+}
+
+.spanSimulador{
+  transition: 0.1s;
+
+}
+
+.spanNossoTrabalho{
+  transition: 0.1s;  
+
+}
+
+.spanSaibaMais{
+  transition: 0.1s;
+
+}
+
+.spanInicial:hover{
+  transform: scale(1.1);
+  color: #9a9a9a;
+
+}
+
+.spanSimulador:hover{
+  transform: scale(1.1);
+  color: #9a9a9a;
+
+}
+
+.spanNossoTrabalho:hover{
+  transform: scale(1.1);
+  color: #9a9a9a;
+
+}
+
+.spanSaibaMais:hover{
+  transform: scale(1.1);
+  color: #9a9a9a; 
+
 }
 
 .btns_navbar{
@@ -208,6 +251,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 
@@ -249,7 +293,7 @@ input[type=number]::-webkit-outer-spin-button {
 .card-resposta{
   background-color: #0f1113;
   width: 50%;
-  height: 70vh;
+  height: 50vh;
   
   margin-top: 30px;
   margin-left: 30px;
@@ -296,8 +340,6 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: end;
 
   gap: 30px;
-
-  
 
 }
 
@@ -388,7 +430,6 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 30px;
   background-color: #267a83;
   font-size: 25px;
-  font-weight: 300; 
 
   border: none;
 
@@ -404,4 +445,143 @@ input[type=number]::-webkit-outer-spin-button {
 .btnAcesseDashboard:active{
   background-color: #154045;
   transform: scale(1);
+}
+
+/* scroll simulador */
+
+#simuladorFotoInicial{
+  width: 35vw;
+  height: 85vh;
+
+}
+
+.container-scroll-simulador{
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+
+  font-size: 30px;
+  color: white;
+}
+
+.btnTextSimulador{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 25vw;
+  gap: 15px;
+
+}
+
+.btnCalculeJa{
+  width: 15vw;
+  height: 8vh; 
+  border-radius: 30px;
+  font-size: 25px;
+
+  border: none;
+  background-color: #267a83;
+
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btnCalculeJa:hover{
+  background-color: #154045;
+  transform: scale(1.1);
+}
+
+.btnCalculeJa:active{
+  background-color: #267a83;
+  transform: scale(1);
+}
+
+/* footer da tela inicial */
+
+.footerInicial{
+  margin-top: 15px;
+  width: 100%;
+  height: 40vh;
+  background-image: linear-gradient( #1A1F24, #0f1113);
+
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: space-around;
+}
+
+li{
+  list-style: none;
+}
+
+.tituloLi{
+  font-size: 20px;
+}
+
+.listasFooter{
+  display: flex;
+  flex-direction: row;
+  
+
+}
+
+.faleConosco{
+  height: 12vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+
+}
+
+.logos{
+  width: 20vw;
+  height: 6vh;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+#imgLogoEmail{
+width: 2.5vw;
+height: 5.5vh;
+
+}
+
+#imgLogoWhatsapp{
+  width: 2.5vw;
+  height: 5.5vh;
+
+}
+
+#imgLogoInstagram{
+  width: 2.5vw;
+  height: 5.5vh;
+
+}
+
+#imgLogoLinkedin{
+  width: 2.5vw;
+  height: 5.5vh;
+
+}
+
+
+.termosLegais{
+  display: flex;
+  justify-content: end;
+
+  height: 25px;
+  gap: 25px;
+  font-size: 20px;
+  align-items: end;
+  margin-bottom: 20px;
 }
