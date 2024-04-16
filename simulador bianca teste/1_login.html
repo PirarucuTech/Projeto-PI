@@ -24,7 +24,7 @@
                 <input id="inp_senha" placeholder="Your Password"> 
                 <span>Ainda não tem uma conta? <a href="1_cadastro.html"><u>Fazer Cadastro</u></a></span><br>
                 <div class="div_btnlogin">
-                    <a href="1_inicial.html"><button class="btnlogin">Login</button></a> 
+                    <button class="btnlogin" onclick="verificarLogin()">Login</button> 
                 </div>
             </div>
             
@@ -34,4 +34,32 @@
     </div>
     
 </body>
+<script>
+    let contador = 3
+    function verificarLogin() {
+      let email = inp_email.value;
+      let senha = inp_senha.value;
+      let emailBanco = "example@xxxx.xxx";
+      let senhaBanco = "XXXXX";
+      if (email.indexOf("@") == -1) {
+        alert("email incorreto, @ faltante");
+      }else if (email.indexOf(".") == -1){
+        alert("email incorreto, . faltante");
+      } else if (email != emailBanco) {
+        alert("email não cadastrado");
+      } else if (senha != senhaBanco) {
+        if (contador > 1 ){
+          alert("senha incorreta");  
+          contador --;
+          alert (`${contador} tentativas restantes`)
+        } else {
+            alert ("tentativas maximas alcançadas")
+            window.location.href = "1_inicial.html";
+        }
+      } else {
+        alert("seja bem vindo");
+        window.location.href = "1_dashboard.html";
+      }
+    }
+  </script>
 </html>

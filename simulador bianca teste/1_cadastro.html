@@ -1,43 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cadastro</title>
-    <link rel="stylesheet" href="2_pirarucu.css">
-</head>
-<body>
+    <link rel="stylesheet" href="2_pirarucu.css" />
+  </head>
+  <body>
     <div class="container-inicio-cadastro">
-
-        <div class="card-cadastro">
-            <div class="divArrow">
-                <a href="1_inicial.html"><img src="arrow.png" id="imgArrow"></a>
-            </div>
-
-
-            <span class="tituloCadastro">Sign up</span> 
-
-            <div class="inputs_cadastro">
-                <span class="spanCadastro">Nome:</span>
-                <input id="inp_nomeCadastro" placeholder="Name">
-                <span class="spanCadastro">Sobrenome:</span>
-                <input id="inp_sobrenomeCadastro" placeholder="Last Name">
-                <span class="spanCadastro">Email:</span>
-                <input id="inp_email" placeholder="Insert Email"> 
-                <span class="spanCadastro">Senha:</span>
-                <input id="inp_senha" placeholder="Your Password"> 
-                <span class="spanCadastro">Confirmar senha:</span>
-                <input id="inp_senha" placeholder="Repeat Password">
-                <span>Já tem uma conta? <a href="1_login.html"><u>Fazer Log in</u></a></span><br>
-                <div class="div_btnCadastro">
-                    <a href="1_inicial.html"><button class="btnCadastro">Cadastrar</button></a> 
-                </div>
-            </div>
-            
-
+      <div class="card-cadastro">
+        <div class="divArrow">
+          <a href="1_inicial.html"><img src="arrow.png" id="imgArrow" /></a>
         </div>
 
+        <span class="tituloCadastro">Sign up</span>
+
+        <div class="inputs_cadastro">
+          <span class="spanCadastro">Nome:</span>
+          <input id="inp_nomeCadastro" placeholder="Name" />
+          <span class="spanCadastro">Sobrenome:</span>
+          <input id="inp_sobrenomeCadastro" placeholder="Last Name" />
+          <span class="spanCadastro">Email:</span>
+          <input id="inp_email" placeholder="Insert Email" />
+          <span class="spanCadastro">Senha:</span>
+          <input id="inp_senha" placeholder="Your Password" />
+          <span class="spanCadastro">Confirmar senha:</span>
+          <input id="inp_senha2" placeholder="Repeat Password" />
+          <span
+            >Já tem uma conta?
+            <a href="1_login.html"><u>Fazer Log in</u></a></span
+          ><br />
+          <div class="div_btnCadastro">
+            <button class="btnCadastro" onclick="cadastrar()">Cadastrar</button>
+          </div>
+        </div>
+      </div>
     </div>
-    
-</body>
+  </body>
+  <script>
+    function cadastrar() {
+      const email = inp_email.value;
+      const senha = inp_senha.value;
+      const senha_confirmada = inp_senha2.value;
+      const nome = inp_nomeCadastro.value;
+      let variavel = false;
+      if (email.indexOf("@") == -1) {
+        alert("email invalido");
+      } else if (senha.indexOf("@") != -1|| senha.indexOf("#") != -1) {
+        if (senha.length >= 8) {
+          for (let contador = 0; contador <= 9; contador++) {
+            if (senha.indexOf(contador) != -1) {
+              variavel = true;
+            }
+          }
+          if (variavel == false) {
+            alert("senha não possui nenhum numero");
+          } else if (senha == senha_confirmada) {
+            alert(`seja bem vindo a pirarutech, ${nome}`);
+            window.location.href = "1_login.html";
+          } else {
+            alert("senhas não conferem");
+          }
+
+        } else {
+          alert("senha menor que 8 caracteres");
+        }
+      } else {
+        alert("senha não contem caracter especial");
+      }
+    }
+  </script>
 </html>
