@@ -40,10 +40,11 @@ create table leitura(
 	idLeitura int primary key auto_increment,
     umidade decimal (3,1),
     temperatura decimal(3,1),
-    diaHora datetime,
-    fkSensor int,
-    foreign key (fkSensor) references sensor (idSensor)
+    diaHora datetime default(current_timestamp())
 )auto_increment = 6500;
+
+/* fkSensor int,
+    foreign key (fkSensor) references sensor (idSensor)*/
 
 insert into usuario (nomeUsuario, email, senha)
 values ("Emma Stone", "emmastone@gmail.com", "emmastone123"),
