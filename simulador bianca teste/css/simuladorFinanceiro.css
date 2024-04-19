@@ -1,0 +1,310 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1A1F24;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+button {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: aliceblue;
+
+}
+
+
+body {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #267a83;
+  --sb-size: 12px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 5px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+li {
+  list-style: none;
+}
+
+
+/* Navbar */
+
+#logo {
+  width: 13vw;
+  height: 8vh;
+
+  cursor: pointer;
+}
+
+
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  border-bottom: 1px solid #267a83;
+  background-color: #0f1113;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+
+}
+
+.container-items {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.div_options {
+  list-style: none;
+  width: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.ulNavbar {
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+
+}
+
+
+.liInicial {
+  transition: 0.1s;
+}
+
+.liSimulador {
+  transition: 0.1s;
+
+}
+
+.liDashboard {
+  transition: 0.1s;
+}
+
+.liInicial:hover {
+  transform: scale(1.1);
+  color: #9a9a9a;
+
+}
+
+.liSimulador:hover {
+  transform: scale(1.1);
+  color: #9a9a9a;
+
+}
+
+.liDashboard:hover {
+  transform: scale(1.1);
+  color: #9a9a9a;
+
+}
+
+.btns_navbar {
+  display: flex;
+  gap: 15px;
+}
+
+.btn_login {
+  border: 2px solid #267a83;
+  background-color: #1A1F24;
+
+  width: 7vw;
+  border-radius: 20px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.1s;
+
+}
+
+.btn_login a {
+  display: block;
+}
+
+
+.btn_cadastro {
+  background-color: #267a83;
+
+  width: 7vw;
+  border-radius: 20px;
+  font-weight: 500;
+  padding: 10px;
+  margin-right: 15px;
+
+  cursor: pointer;
+  border: none;
+
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+
+  transition: 0.1s;
+
+}
+
+.btn_calcular {
+  background-color: #267a83;
+  width: 8vw;
+  height: 5vh;
+  border-radius: 15px;
+  border: none;
+
+  cursor: pointer;
+  transition: 0.1s;
+
+}
+
+.btn_calcular:hover {
+  transform: scale(1.1);
+}
+
+.btn_login:hover {
+  background-color: #267a83;
+  border: #154045;
+  transform: scale(1.1)
+}
+
+.btn_cadastro:hover {
+  background-color: #267a83;
+  transform: scale(1.1)
+}
+
+
+.btn_calcular:active {
+  background-color: #154045;
+  transform: scale(1);
+}
+
+.btn_login:active {
+  background-color: #154045;
+  transform: scale(1);
+
+}
+
+.btn_cadastro:active {
+  background-color: #154045;
+  transform: scale(1);
+
+}
+
+/* simulador */
+
+.cards-calculadora {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+}
+
+
+.card-inputs {
+  color: aliceblue;
+  background-color: #0f1113;
+  width: 30%;
+  height: 80vh;
+
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* serve para ocultar as setinhas ao lado do input tipo number */
+
+.input_card {
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #303030;
+  border-bottom: 2px solid #9a9a9a;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #2d2d2d;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.input_card::placeholder {
+  color: #9a9a9a;
+}
+
+.input_card:hover {
+  background-color: #313131;
+}
+
+.input_card:active,
+.input_card:focus {
+  background-color: #1e1f20;
+  border: 1px solid #2d2d2d;
+  border-bottom: 2px solid #267a83;
+}
+
+
+.card-resposta {
+  background-color: #0f1113;
+  width: 50%;
+  height: 50vh;
+
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 50px;
+  padding: 20px;
+
+  color: aliceblue;
+  font-size: large;
+
+}
