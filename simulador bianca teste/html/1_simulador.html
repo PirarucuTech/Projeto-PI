@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="../css/simuladorFinanceiro.css">
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div class="container-items">
+            <a href="1_inicial.html"><img src="../arquivos/3_PirarucuTech_horizontal_semfundo.png" id="logo"></a>
+            <div class="div_options">
+                <ul class="ulNavbar">
+                    <li class="liInicial"><a href="1_inicial.html">Inicial</a></li>
+                    <li class="liSimulador"><a href="1_simulador.html">Simulador financeiro</a></li>
+                    <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="btns_navbar">
+                <button class="btn_login" onclick="button_login()"><a href="1_login.html">Login</a></button>
+                <button class="btn_cadastro" onclick="button_cadastro()"> <a href="1_cadastro.html"> Cadastro </a></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="cards-calculadora">
+
+        <div id="div_card_inputs" class="card-inputs">
+            <span>Informe a quantidade de Pirarucu:</span> <br>
+            <input required type="number" id="input_qtdPirarucu" class="input_card"><br>
+            <span>Informe a quantidade de aquários:</span> <br>
+            <input required type="number" id="input_qtdAquarios" class="input_card"> <br>
+            <span>Informe o preço por Quilo:</span> <br>
+            <input required type="number" id="input_precoKg" class="input_card"> <br>
+
+            <button onclick="button_calcular_prejuizos()" class="btn_calcular ">Calcular</button>
+        </div>
+
+        <div style="display: none;flex-direction: column; align-items: center;" id="div_card_resposta"
+            class="card-resposta">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    var primeiraVez = true
+
+    function mostrarDivResposta() {
+        var divResposta = document.getElementById("div_card_resposta")
+        divResposta.style.transition = "2000ms"
+        divResposta.style.opacity = 1
+        divResposta.style.transform = "translateY(0%)"
+        divResposta.style.userSelect = "auto"
+        divResposta.style.display = "flex"
+    }
+
+    function button_calcular_prejuizos() {
+        if (primeiraVez == true) {
+            primeiraVez = false
+            mostrarDivResposta()
+        }
+        calcularcustos()
+    }
+
+    function calcularcustos() {
+
+        const qtdPirarucuPorAquario = Number(input_qtdPirarucu.value)
+        const qtdAquarios = Number(input_qtdAquarios.value)
+        const precoKg = Number(input_precoKg.value)
+
+        if ((qtdPirarucuPorAquario * qtdAquarios * precoKg) > 0) {
+            let qtdPirarucus = qtdPirarucuPorAquario * qtdAquarios
+            let kilos = qtdPirarucus * 13
+            let kilosPerdidos = kilos * 0.33
+
+            let precoDaCriacao = (kilos * 6.72)
+            let valorTotal = (kilos * precoKg)
+            let precoDaCriacaoDisperdicada = (kilosPerdidos * 6.72)
+            let valorPerda = (kilosPerdidos * precoKg)
+
+            // peso é de 13kg o pirarucu, tendo um 1 ano
+            // porcentagem de perda no viveiro é de 33% dos pirarucus
+
+            div_card_resposta.innerHTML =
+                ` 
+            <p style="margin: 5px">Considerando que em média o peso de um pirarucu jovem é de <b>13kg</b>, e a perda no viveiro de pirarucus é de <b>33%</b> dos peixes por conta de problemas de umidade e temperatura, podemos analisar que, em media: </p> 
+            <p style="margin: 5px"> A venda dos seus pirarucus resultariam em cerca de <b style="color:green;">R$${valorTotal}</b>, mas a criação desses pirarucus lhe custa em média <b>R$${precoDaCriacao.toFixed(2)}</b>, então, vender toda a sua produção resultaria em um lucro de <b style="color:green;">R$${(valorTotal - precoDaCriacao).toFixed(2)}</b></p>
+            <p style="margin: 5px">Porem por conta da falta de cuidado com a temperatura e umidade você poderia perder até 33% da sua criação, ou seja, alem de perder <b style="color: red;">R$${valorPerda.toFixed(2)}</b> em vendas que não seram mais feitas, você gastou <b style="color: red;">R$${precoDaCriacaoDisperdicada.toFixed(2)}</b> na criação desses peixes em vão.</p>
+            <p style="margin: 5px">Finalizando, com a utilização do nosso projeto, você:</p>
+                <div class="mini-card">
+                    <p style="margin: 0; margin-left: 5px; margin-left: 2px; font-size:16px;" float>Deixa de perder</p>
+                    <p style="margin: 0 auto; font-size: 40px;font-weight:bold;">R$${(valorPerda + precoDaCriacaoDisperdicada).toFixed(2)}</p>
+                </div>
+            `
+        } else {
+            div_card_resposta.innerHTML =
+                `
+            <p style="font-size:35px; text-align:center;">Coloque valores validos em todas as caixa</p>
+            `
+        }
+    }
+
+</script>
