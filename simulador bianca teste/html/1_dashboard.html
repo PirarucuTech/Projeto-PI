@@ -1,11 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard - PiraruTech</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
+
 <body>
-    
+    <div class="tudo1">
+        <div class="div-select">
+            <select id="select_dash" class="div-select-select" onclick="verificaTanque()">
+                <option value="visaogeral">Visão geral</option>
+                <option value="tanque1">Tanque 1</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="div_visaogeral" class="tudo2">
+        <div class="div_esquerda">
+            <div class="div-tanques">
+                <div class="div-tanques-filho">
+                    <div class="div-tanques-titulo">
+                        <h1>Tanque 1</h1>
+                    </div>
+
+                    <div class="div-tanques-texto">
+                        <p>Temperatura</p>
+                        <p>Umidade</p>
+                    </div>
+
+                    <div class="div-tanques-subtitulo">
+                        <span>25°C</span>
+                        <span>86%</span>
+                    </div>
+
+                </div>
+
+                <div class="div-tanques-filho">
+                    <div class="div-tanques-titulo">
+                        <h1>Tanque 2</h1>
+                    </div>
+
+                    <div class="div-tanques-texto">
+                        <p>Temperatura</p>
+                        <p>Umidade</p>
+                    </div>
+
+                    <div class="div-tanques-subtitulo">
+                        <span>22°C</span>
+                        <span>90%</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="div_grafico1">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="div_grafico2">
+                <canvas id="myChart2" class="canvas_class2"></canvas>
+            </div>
+        </div>
+
+        <div class="div_direita">
+            <div class="div_historico">
+
+                <div class="div_historico_texto1">
+
+                    <div class="div_historico_titulo">
+                        <br>Historico
+                    </div>
+
+                    <div class="div_historico_subtitulo">
+                        Temperatura
+                    </div>
+
+                    <div class="div_informacoes">
+                        <div class="div_historico_datas">
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                        </div>
+                        <div class="div_historico_valores">
+                            <p>20°C</p>
+                            <p>26°C</p>
+                            <p>98°C</p>
+                            <p>13°C</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="div_historico_texto2">
+
+                    <div class="div_historico_titulo">
+                        <br>Historico de alerta
+                    </div>
+
+                    <div class="div_historico_subtitulo">
+                        Umidade
+                    </div>
+
+                    <div class="div_informacoes">
+                        <div class="div_historico_datas">
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                        </div>
+                        <div class="div_historico_valores">
+                            <p>20°C</p>
+                            <p>26°C</p>
+                            <p>98°C</p>
+                            <p>13°C</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="div_historico2">
+
+                <div class="div_historico_texto3">
+
+                    <div class="div_historico_titulo">
+                        <br>Historico de alerta
+                    </div>
+
+                    <div class="div_historico_subtitulo">
+                        Temperatura
+                    </div>
+
+                    <div class="div_informacoes">
+                        <div class="div_historico_datas">
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                        </div>
+                        <div class="div_historico_valores">
+                            <p>20°C</p>
+                            <p>26°C</p>
+                            <p>98°C</p>
+                            <p>13°C</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div_historico_texto4">
+
+                    <div class="div_historico_titulo">
+                        <br>Historico de alerta
+                    </div>
+
+                    <div class="div_historico_subtitulo">
+                        Umidade
+                    </div>
+
+                    <div class="div_informacoes">
+                        <div class="div_historico_datas">
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                            <p>Temperatura<br>01/01/2001</p>
+                        </div>
+                        <div class="div_historico_valores">
+                            <p>20°C</p>
+                            <p>26°C</p>
+                            <p>98°C</p>
+                            <p>13°C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_tanque1" class="tudo3">
+        <div class="div_esquerda_3">
+            <div class="div-tanques-filho_3">
+                <div class="div_tanque3_texto">
+                    <p>Temperatura</p>
+                    <p>25°C</p>
+                </div>
+            </div>
+
+            <div class="div_grafico3">
+                <canvas id="myChart3"></canvas>
+            </div>
+
+        </div>
+
+        <div class="div_direita_3">
+            <div class="div-tanques-filho_3">
+                <div class="div_tanque3_texto">
+                    <p>Umidade</p>
+                    <p>86%</p>
+                </div>
+            </div>
+
+            <div class="div_grafico3">
+                <canvas id="myChart4"></canvas>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    Chart.defaults.color = 'white';
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['20:20-19/02 ', '20:21-19/02', '20:22-19/02', '20:23-19/02', '20:24-19/02'],
+            datasets: [{
+                borderColor: 'white',
+                backgroundColor: '#067A8380',
+                label: 'Variação de temperatura média (tempo real)',
+                data: [25, 25, 27, 30, 25],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            legend: { labels: { fontColor: "red" } }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['20:20-19/02 ', '20:21-19/02', '20:22-19/02', '20:23-19/02', '20:24-19/02'],
+            datasets: [{
+                borderColor: 'white',
+                backgroundColor: '#067A8380',
+                label: 'Variação de umidade média (tempo real)',
+                data: [90, 80, 88, 87, 84, 79],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ['20:20-19/02 ', '20:21-19/02', '20:22-19/02', '20:23-19/02', '20:24-19/02'],
+            datasets: [{
+                borderColor: 'white',
+                backgroundColor: '#067A8380',
+                label: 'Variação de temperatura média (tempo real)',
+                data: [90, 80, 88, 87, 84, 79],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx4 = document.getElementById('myChart4');
+
+    new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: ['20:20-19/02 ', '20:21-19/02', '20:22-19/02', '20:23-19/02', '20:24-19/02'],
+            datasets: [{
+                borderColor: 'white',
+                backgroundColor: '#067A8380',
+                label: 'Variação de umidade média (tempo real)',
+                data: [90, 80, 88, 87, 84, 79],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    div_tanque1.style.display = 'none'
+
+    function verificaTanque() {
+        let selectDash = select_dash.value
+
+        if(selectDash == "tanque1") {
+        div_visaogeral.style.display = 'none'
+        div_tanque1.style.display = 'flex'
+        } else {
+            div_visaogeral.style.display = 'flex'
+            div_tanque1.style.display = 'none'
+        }
+    }
+
+   
+</script>

@@ -1,0 +1,227 @@
+body {
+    background-color: #1A1F24;
+    font-family: Verdana;
+}
+
+.tudo2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.tudo3 {
+    display: flex;
+    flex-direction: row;
+    border-top: 100px;
+}
+
+.div_esquerda {
+    height: 665px;
+    width: 800px;
+}
+
+.div_esquerda_3 {
+    height: 665px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    flex-direction: column;
+}
+
+.div_direita {
+    height: 665px;
+    width: 700px;
+}
+
+.div_direita_3 {
+    height: 665px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    flex-direction: column;
+}
+
+.div-select {
+    background-color: #262B30;
+    width: 96%;
+    display: flex;
+    justify-content: center;
+    border-radius: 18px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.div-select-select {
+    background-color: #262B30;
+    color: white;
+    border-color: none;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.div-tanques {
+    border: 30px;
+    display: flex;
+    justify-content: space-around;
+    width: 750px;
+    height: 200px;
+    margin-top: 15px;
+}
+
+.div-tanques-filho {   
+    background-color: #262B30;
+    width: 300px;
+    height: 175px;
+    border-radius: 20px;
+    color: white;
+}
+
+.div-tanques-filho_3 {
+    background-color: #262B30;
+    width: 300px;
+    height: 175px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.div_tanque3_texto {
+    border-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-tanques .div-tanques-filho .div-tanques-titulo {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.div-tanques-texto {
+    display: flex;
+    justify-content: baseline;
+    justify-content: space-around;
+}
+
+.div-tanques-subtitulo {
+    display: flex;
+    justify-content: baseline;
+    justify-content: space-around;
+}
+
+.div_grafico1 {
+    width: 705px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: #494C4E;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.div_grafico2 {
+    width: 705px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: #262B30;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.div_grafico3 {
+    width: 675px;
+    height: 350px;
+    margin-top: 20px;
+    background-color: #262B30;
+    border-radius: 20px;
+}
+
+.div_historico {
+    margin-top: 15px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    color: white;
+}
+
+.div_historico .div_historico_texto1 {
+    width: 275px;
+    height: 100%;
+    background-color: #494C4E;
+    border-radius: 20px;
+}
+
+.div_historico .div_historico_texto2 {
+    width: 275px;
+    height: 100%;
+    background-color: #262B30;
+    border-radius: 20px;
+}
+
+.div_historico2 {
+    margin-top: 30px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    color: white;
+}
+
+.div_historico2 .div_historico_texto3 {
+    width: 275px;
+    height: 100%;
+    background-color: #494C4E;
+    border-radius: 20px;
+}
+
+.div_historico2 .div_historico_texto4 {
+    width: 275px;
+    height: 100%;
+    background-color: #262B30;
+    border-radius: 20px;
+}
+
+.div_historico_titulo {
+    display: flex;
+    justify-content: flex-start;
+    justify-content: center;
+}
+
+.div_historico_subtitulo {
+    display: flex;
+    justify-content: flex-start;
+    justify-content: center;
+}
+
+.div_historico_datas {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 13px;
+    padding-left: 25px;
+}
+
+.div_historico_valores {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 13px;
+    padding-left: 25px;
+    padding-right: 35px;
+    gap: 17px;
+}
+
+.div_informacoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
