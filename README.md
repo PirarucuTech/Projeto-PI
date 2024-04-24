@@ -11,7 +11,7 @@ Projeto de monitoramento de Temperatura e umidade no ambiente de criação de pi
 - [@Bianca Borges](https://github.com/biasouza21)
 - [@Pablo Rocha](https://github.com/AlbaDr52)
 - [@Matheus Oliveira](https://github.com/mathwusoliveira78)
-- [@]()
+- [@Luiz Felipe](https://github.com/LuizFelipeSptech)
 
 ## Fundadores do projeto
 - [@]()
