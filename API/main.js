@@ -31,9 +31,9 @@ const serial = async (
             // altere!
             // Credenciais do banco de dados
             host: 'localhost',
-            user: 'root',
-            password: '010652',
-            database: 'pirarutech',
+            user: 'XXXXXX',
+            password: 'XXXXXXXXX',
+            database: 'XXXXXXXX',
             port: 3306
         }
     ).promise();
