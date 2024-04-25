@@ -34,6 +34,9 @@
     <div class="cards-calculadora">
 
         <div id="div_card_inputs" class="card-inputs">
+            <div class="titulo_card_inputs">
+                <span>Calcule aqui:</span>
+            </div>
             <span>Informe a quantidade de Pirarucu:</span> <br>
             <input required type="number" placeholder="Quantidade de Pirarucus" id="input_qtdPirarucu"
                 class="input_card"><br>
@@ -41,6 +44,7 @@
             <input required type="number" placeholder="Tanques" id="input_qtdTanques" class="input_card"> <br>
             <span>Informe o preço por Quilo:</span> <br>
             <input required type="number" placeholder="Preço por Quilograma" id="input_precoKg" class="input_card"> <br>
+            <div id="print_erroValores"></div>
 
             <button onclick="button_calcular_prejuizos()" class="btn_calcular ">Calcular</button>
         </div>
@@ -83,6 +87,7 @@
 
         /* Quantidade de Pirarucu x Quantidade de Tanques x preço do quilo*/
         if ((qtdPirarucuPorTanque * qtdTanques * precoKg) > 0) {
+            print_erroValores.innerHTML = ""
             let qtdPirarucus = qtdPirarucuPorTanque * qtdTanques
             let kilos = qtdPirarucus * 13
             let kilosPerdidos = kilos * 0.33 /* Quilos x Porcentagem estimada de perda */
@@ -117,10 +122,9 @@
                 </div>
             `
         } else {
-            div_card_resposta.innerHTML =
-                `
-            <p style="font-size:35px; text-align:center;">Coloque valores validos em todas as caixa</p>
-            `
+            print_erroValores.innerHTML = `<p style="color: red; font-size: 10px;">* Valores inválidos. Favor inserir corretamente</p>`
+            div_card_resposta.style.display = 'none'
+            primeiraVez = true;
         }
     }
 
