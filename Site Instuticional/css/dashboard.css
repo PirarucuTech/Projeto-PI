@@ -3,46 +3,7 @@ body {
     font-family: Verdana;
 }
 
-.tudo2 {
-    display: flex;
-    flex-direction: row;
-}
-
-.tudo3 {
-    display: flex;
-    flex-direction: row;
-    border-top: 100px;
-}
-
-.div_esquerda {
-    height: 665px;
-    width: 800px;
-}
-
-.div_esquerda_3 {
-    height: 665px;
-    width: 800px;
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-    flex-direction: column;
-}
-
-.div_direita {
-    height: 665px;
-    width: 700px;
-}
-
-.div_direita_3 {
-    height: 665px;
-    width: 700px;
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-    flex-direction: column;
-}
-
-.div-select {
+.container_select {
     background-color: #262B30;
     width: 96%;
     display: flex;
@@ -52,7 +13,7 @@ body {
     margin-left: 30px;
 }
 
-.div-select-select {
+.container_select_filho {
     background-color: #262B30;
     color: white;
     border-color: none;
@@ -61,7 +22,17 @@ body {
     padding: 10px;
 }
 
-.div-tanques {
+.container_dashboard {
+    display: flex;
+    flex-direction: row;
+}
+
+.container_dashboard_kpi_grafico {
+    height: 665px;
+    width: 800px;
+}
+
+.container_dashboard_kpi_grafico_filho {
     border: 30px;
     display: flex;
     justify-content: space-around;
@@ -70,7 +41,7 @@ body {
     margin-top: 15px;
 }
 
-.div-tanques-filho {   
+.c_div_kpi {   
     background-color: #262B30;
     width: 300px;
     height: 175px;
@@ -78,43 +49,25 @@ body {
     color: white;
 }
 
-.div-tanques-filho_3 {
-    background-color: #262B30;
-    width: 300px;
-    height: 175px;
-    border-radius: 20px;
-    color: white;
-    display: flex;
-    justify-content: center;
-}
-
-.div_tanque3_texto {
-    border-top: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.div-tanques .div-tanques-filho .div-tanques-titulo {
+.c_div_kpi_titulo {
     display: flex;
     justify-content: center;
     font-size: 12px;
 }
 
-.div-tanques-texto {
+.c_div_kpi_texto {
     display: flex;
     justify-content: baseline;
     justify-content: space-around;
 }
 
-.div-tanques-subtitulo {
+.c_div_kpi_subtitulo {
     display: flex;
     justify-content: baseline;
     justify-content: space-around;
 }
 
-.div_grafico1 {
+.div_grafico_temperatura {
     width: 705px;
     height: 200px;
     margin-left: 30px;
@@ -124,7 +77,7 @@ body {
     justify-content: center;
 }
 
-.div_grafico2 {
+.div_grafico_umidade {
     width: 705px;
     height: 200px;
     margin-left: 30px;
@@ -135,15 +88,12 @@ body {
     margin-top: 30px;
 }
 
-.div_grafico3 {
-    width: 675px;
-    height: 350px;
-    margin-top: 20px;
-    background-color: #262B30;
-    border-radius: 20px;
+.container_historico {
+    height: 665px;
+    width: 700px;
 }
 
-.div_historico {
+.container_historico_temp_umi_cima {
     margin-top: 15px;
     height: 300px;
     display: flex;
@@ -152,21 +102,7 @@ body {
     color: white;
 }
 
-.div_historico .div_historico_texto1 {
-    width: 275px;
-    height: 100%;
-    background-color: #494C4E;
-    border-radius: 20px;
-}
-
-.div_historico .div_historico_texto2 {
-    width: 275px;
-    height: 100%;
-    background-color: #262B30;
-    border-radius: 20px;
-}
-
-.div_historico2 {
+.container_historico_temp_umi_baixo {
     margin-top: 30px;
     height: 300px;
     display: flex;
@@ -175,33 +111,39 @@ body {
     color: white;
 }
 
-.div_historico2 .div_historico_texto3 {
+.ch_div_historico_temperatura {
     width: 275px;
     height: 100%;
     background-color: #494C4E;
     border-radius: 20px;
 }
 
-.div_historico2 .div_historico_texto4 {
+.ch_div_historico_umidade {
     width: 275px;
     height: 100%;
     background-color: #262B30;
     border-radius: 20px;
 }
 
-.div_historico_titulo {
+.ch_div_historico_titulo {
     display: flex;
     justify-content: flex-start;
     justify-content: center;
 }
 
-.div_historico_subtitulo {
+.ch_div_historico_subtitulo {
     display: flex;
     justify-content: flex-start;
     justify-content: center;
 }
 
-.div_historico_datas {
+.ch_div_historico_informacoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ch_div_historico_datas {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -209,7 +151,7 @@ body {
     padding-left: 25px;
 }
 
-.div_historico_valores {
+.ch_div_historico_valores {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -220,8 +162,52 @@ body {
     gap: 17px;
 }
 
-.div_informacoes {
+.container_tela_taque1 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    border-top: 100px;
+}
+
+.container_tela_tanque1_temperatura {
+    height: 600px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    flex-direction: column;
+}
+
+.container_tela_tanque1_umidade {
+    height: 600px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    flex-direction: column;
+}
+
+.ctl_kpi {
+    background-color: #262B30;
+    width: 300px;
+    height: 175px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.ctl_kpi_texto {
+    border-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_graficos_tela1 {
+    width: 600px;
+    height: 320px;
+    margin-top: 20px;
+    background-color: #262B30;
+    border-radius: 20px;
 }

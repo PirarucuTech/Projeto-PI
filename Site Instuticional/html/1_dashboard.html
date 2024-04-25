@@ -5,174 +5,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PiraruTech</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="tudo1">
-        <div class="div-select">
-            <select id="select_dash" class="div-select-select" onclick="verificaTanque()">
+    <div>
+        <div class="container_select">
+            <select id="select_dash" class="container_select_filho" onclick="verificaTanque()">
                 <option value="visaogeral">Visão geral</option>
                 <option value="tanque1">Tanque 1</option>
             </select>
         </div>
     </div>
 
-    <div id="div_visaogeral" class="tudo2">
-        <div class="div_esquerda">
-            <div class="div-tanques">
-                <div class="div-tanques-filho">
-                    <div class="div-tanques-titulo">
+    <div id="div_visaogeral" class="container_dashboard">
+        <div class="container_dashboard_kpi_grafico">
+            <div class="container_dashboard_kpi_grafico_filho">
+                <div class="c_div_kpi">
+                    <div class="c_div_kpi_titulo">
                         <h1>Tanque 1</h1>
                     </div>
 
-                    <div class="div-tanques-texto">
+                    <div class="c_div_kpi_texto">
                         <p>Temperatura</p>
                         <p>Umidade</p>
                     </div>
 
-                    <div class="div-tanques-subtitulo">
+                    <div class="c_div_kpi_subtitulo">
                         <span>25°C</span>
                         <span>86%</span>
                     </div>
-
                 </div>
 
-                <div class="div-tanques-filho">
-                    <div class="div-tanques-titulo">
+                <div class="c_div_kpi">
+                    <div class="c_div_kpi_titulo">
                         <h1>Tanque 2</h1>
                     </div>
 
-                    <div class="div-tanques-texto">
+                    <div class="c_div_kpi_texto">
                         <p>Temperatura</p>
                         <p>Umidade</p>
                     </div>
 
-                    <div class="div-tanques-subtitulo">
+                    <div class="c_div_kpi_subtitulo">
                         <span>22°C</span>
                         <span>90%</span>
                     </div>
-
                 </div>
             </div>
 
-            <div class="div_grafico1">
+            <div class="div_grafico_temperatura">
                 <canvas id="myChart"></canvas>
             </div>
 
-            <div class="div_grafico2">
+            <div class="div_grafico_umidade">
                 <canvas id="myChart2" class="canvas_class2"></canvas>
             </div>
         </div>
 
-        <div class="div_direita">
-            <div class="div_historico">
-
-                <div class="div_historico_texto1">
-
-                    <div class="div_historico_titulo">
+        <div class="container_historico">
+            <div class="container_historico_temp_umi_cima">
+                <div class="ch_div_historico_temperatura">
+                    <div class="ch_div_historico_titulo">
                         <br>Historico
                     </div>
 
-                    <div class="div_historico_subtitulo">
+                    <div class="ch_div_historico_subtitulo">
                         Temperatura
                     </div>
 
-                    <div class="div_informacoes">
-                        <div class="div_historico_datas">
+                    <div class="ch_div_historico_informacoes">
+                        <div class="ch_div_historico_datas">
                             <p>Temperatura<br>01/01/2001</p>
                             <p>Temperatura<br>01/01/2001</p>
                             <p>Temperatura<br>01/01/2001</p>
                             <p>Temperatura<br>01/01/2001</p>
                         </div>
-                        <div class="div_historico_valores">
+
+                        <div class="ch_div_historico_valores">
                             <p>20°C</p>
                             <p>26°C</p>
-                            <p>98°C</p>
+                            <p>24°C</p>
                             <p>13°C</p>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="div_historico_texto2">
-
-                    <div class="div_historico_titulo">
+                <div class="ch_div_historico_umidade">
+                    <div class="ch_div_historico_titulo">
                         <br>Historico de alerta
                     </div>
 
-                    <div class="div_historico_subtitulo">
+                    <div class="ch_div_historico_subtitulo">
                         Umidade
                     </div>
 
-                    <div class="div_informacoes">
-                        <div class="div_historico_datas">
-                            <p>Temperatura<br>01/01/2001</p>
-                            <p>Temperatura<br>01/01/2001</p>
-                            <p>Temperatura<br>01/01/2001</p>
-                            <p>Temperatura<br>01/01/2001</p>
+                    <div class="ch_div_historico_informacoes">
+                        <div class="ch_div_historico_datas">
+                            <p>Umidade<br>01/01/2001</p>
+                            <p>Umidade<br>01/01/2001</p>
+                            <p>Umidade<br>01/01/2001</p>
+                            <p>Umidade<br>01/01/2001</p>
                         </div>
-                        <div class="div_historico_valores">
-                            <p>20°C</p>
-                            <p>26°C</p>
-                            <p>98°C</p>
-                            <p>13°C</p>
+
+                        <div class="ch_div_historico_valores">
+                            <p>90%</p>
+                            <p>92%</p>
+                            <p>88%</p>
+                            <p>86%</p>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <div class="div_historico2">
-
-                <div class="div_historico_texto3">
-
-                    <div class="div_historico_titulo">
+            <div class="container_historico_temp_umi_baixo">
+                <div class="ch_div_historico_temperatura">
+                    <div class="ch_div_historico_titulo">
                         <br>Historico de alerta
                     </div>
 
-                    <div class="div_historico_subtitulo">
+                    <div class="ch_div_historico_subtitulo">
                         Temperatura
                     </div>
 
-                    <div class="div_informacoes">
-                        <div class="div_historico_datas">
+                    <div class="ch_div_historico_informacoes">
+                        <div class="ch_div_historico_datas">
                             <p>Temperatura<br>01/01/2001</p>
                             <p>Temperatura<br>01/01/2001</p>
                             <p>Temperatura<br>01/01/2001</p>
                             <p>Temperatura<br>01/01/2001</p>
                         </div>
-                        <div class="div_historico_valores">
+
+                        <div class="ch_div_historico_valores">
                             <p>20°C</p>
                             <p>26°C</p>
-                            <p>98°C</p>
+                            <p>22°C</p>
                             <p>13°C</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="div_historico_texto4">
-
-                    <div class="div_historico_titulo">
+                <div class="ch_div_historico_umidade">
+                    <div class="ch_div_historico_titulo">
                         <br>Historico de alerta
                     </div>
 
-                    <div class="div_historico_subtitulo">
+                    <div class="ch_div_historico_subtitulo">
                         Umidade
                     </div>
 
-                    <div class="div_informacoes">
-                        <div class="div_historico_datas">
-                            <p>Temperatura<br>01/01/2001</p>
-                            <p>Temperatura<br>01/01/2001</p>
-                            <p>Temperatura<br>01/01/2001</p>
-                            <p>Temperatura<br>01/01/2001</p>
+                    <div class="ch_div_historico_informacoes">
+                        <div class="ch_div_historico_datas">
+                            <p>Umidade<br>01/01/2001</p>
+                            <p>Umidade<br>01/01/2001</p>
+                            <p>Umidade<br>01/01/2001</p>
+                            <p>Umidade<br>01/01/2001</p>
                         </div>
-                        <div class="div_historico_valores">
-                            <p>20°C</p>
-                            <p>26°C</p>
-                            <p>98°C</p>
-                            <p>13°C</p>
+
+                        <div class="ch_div_historico_valores">
+                            <p>92%</p>
+                            <p>88%</p>
+                            <p>87%</p>
+                            <p>90%</p>
                         </div>
                     </div>
                 </div>
@@ -180,35 +175,33 @@
         </div>
     </div>
 
-    <div id="div_tanque1" class="tudo3">
-        <div class="div_esquerda_3">
-            <div class="div-tanques-filho_3">
-                <div class="div_tanque3_texto">
+    <div id="div_tanque1" class="container_tela_taque1">
+        <div class="container_tela_tanque1_temperatura">
+            <div class="ctl_kpi">
+                <div class="ctl_kpi_texto">
                     <p>Temperatura</p>
                     <p>25°C</p>
                 </div>
             </div>
 
-            <div class="div_grafico3">
+            <div class="div_graficos_tela1">
                 <canvas id="myChart3"></canvas>
             </div>
-
         </div>
 
-        <div class="div_direita_3">
-            <div class="div-tanques-filho_3">
-                <div class="div_tanque3_texto">
+        <div class="container_tela_tanque1_umidade">
+            <div class="ctl_kpi">
+                <div class="ctl_kpi_texto">
                     <p>Umidade</p>
                     <p>86%</p>
                 </div>
             </div>
 
-            <div class="div_grafico3">
+            <div class="div_graficos_tela1">
                 <canvas id="myChart4"></canvas>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
@@ -223,22 +216,14 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['20:20-19/02 ', '20:21-19/02', '20:22-19/02', '20:23-19/02', '20:24-19/02'],
+            labels: ['20/04', '21/04', '22/04', '23/04', '24/04'],
             datasets: [{
                 borderColor: 'white',
                 backgroundColor: '#067A8380',
-                label: 'Variação de temperatura média (tempo real)',
-                data: [25, 25, 27, 30, 25],
+                label: 'Variação de temperatura média (Por dia)',
+                data: [26, 25, 27, 30, 25],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            legend: { labels: { fontColor: "red" } }
         }
     });
 
@@ -247,21 +232,14 @@
     new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['20:20-19/02 ', '20:21-19/02', '20:22-19/02', '20:23-19/02', '20:24-19/02'],
+            labels: ['20/04', '21/04', '22/04', '23/04', '24/04'],
             datasets: [{
                 borderColor: 'white',
                 backgroundColor: '#067A8380',
-                label: 'Variação de umidade média (tempo real)',
+                label: 'Variação de umidade média (Por dia)',
                 data: [90, 80, 88, 87, 84, 79],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
         }
     });
 
@@ -278,13 +256,6 @@
                 data: [90, 80, 88, 87, 84, 79],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
         }
     });
 
@@ -301,13 +272,6 @@
                 data: [90, 80, 88, 87, 84, 79],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
         }
     });
 
