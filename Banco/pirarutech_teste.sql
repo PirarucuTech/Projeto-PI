@@ -23,9 +23,10 @@ create table empresa (
 )auto_increment = 100;
 
 create table tanque(
-	idTanque int primary key auto_increment,
+	idTanque int auto_increment,
     identificacao varchar (45),
-    fkEmpresa int,
+    fkEmpresa int not null,
+    primary key (idTanque, fkEmpresa),
     foreign key (fkEmpresa) references empresa (idEmpresa)
 )auto_increment = 1500;
 
@@ -36,8 +37,7 @@ create table sensor(
     numSerial varchar (45),
     fkTanque int,
     fkTanqueEmpresa int,
-    foreign key (fkTanque) references tanque (idTanque),
-    foreign key (fkTanqueEmpresa) references tanque (fkEmpresa)
+    foreign key (fkTanque, fkTanqueEmpresa) references tanque (idTanque, fkEmpresa)
 )auto_increment = 3500;
 
 create table leitura(
