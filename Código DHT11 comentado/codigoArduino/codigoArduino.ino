@@ -26,8 +26,8 @@ void loop() { // codigo que roda diversas vezes
     Serial.print(";"); // 
     Serial.print(temperatura);
     Serial.print(";");
-    Serial.print(FK);
-    Serial.println(";");
+    Serial.println(FK);
+    //Serial.println(";");
     Serial.print(umidade2);
     Serial.print(";"); // 
     Serial.print(temperatura2);
