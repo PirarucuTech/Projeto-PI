@@ -39,5 +39,5 @@ void loop() { // codigo que roda diversas vezes
     Serial.print(";");
     Serial.println(FK3);
   }
-  delay(500);
+  delay(5000);
 }
