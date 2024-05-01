@@ -12,13 +12,13 @@ void setup() { // codigo que roda uma vez só
 void loop() { // codigo que roda diversas vezes
   float umidade = dht_1.readHumidity(); // variavel de leitura - umidade
   float temperatura = dht_1.readTemperature(); // variavel de leitura - temperatura
-  float FK = 1;
+  const FK = 1;
   float umidade2 = umidade * 1.1;
   float temperatura2 = temperatura * 1.1;
-  float FK2 = 2;
+  const FK2 = 2;
   float umidade3 = umidade * 0.9;
   float temperatura3 = temperatura * 0.9;
-  float FK3 = 3;
+  const FK3 = 3;
   if(isnan(temperatura) or isnan(umidade)){
     Serial.println("Erro ao ler");  // caso haja erro de leitura, printa na tela
   } else {

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro</title>
     <link rel="stylesheet" href="../css/simuladorFinanceiro.css">
+    <link rel="shortcut icon" href="..//arquivos/3_logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
             <div class="titulo_card_inputs">
                 <span>Calcule aqui:</span>
             </div>
-            <span>Informe a quantidade de Pirarucu:</span> <br>
+            <span>Informe a quantidade de Pirarucu por tanque:</span> <br>
             <input required type="number" placeholder="Quantidade de Pirarucus" id="input_qtdPirarucu"
                 class="input_card"><br>
             <span>Informe a quantidade de Tanques:</span> <br>
@@ -90,7 +91,7 @@
             print_erroValores.innerHTML = ""
             let qtdPirarucus = qtdPirarucuPorTanque * qtdTanques
             let kilos = qtdPirarucus * 13
-            let kilosPerdidos = kilos * 0.33 /* Quilos x Porcentagem estimada de perda */
+            let kilosPerdidos = kilos * 0.33 * 0.1 /* Quilos x Porcentagem estimada de perda */
 
             let precoDaCriacao = (kilos * 6.72)/* Variável Kilos x 6,72 -> que é o custo estimado por kg/produção de um pirarucu */
             let valorTotal = (kilos * precoKg) /* Kilos x Preço da quilograma da carne */
@@ -118,7 +119,7 @@
                 <div class="mini-card">
                     <p style="margin: 0; margin-left: 5px; margin-left: 2px; font-size:16px; justify-content: center; display: flex;" float>Deixa de perder</p>
                     <p style="margin: 0 auto; font-size: 40px;font-weight:bold;">${((valorPerda + precoDaCriacaoDisperdicada) * 0.5).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                    <p style="margin: 5px">Conseguindo assim evitar pelo menos <b>METADE</b> de suas perdas</p>
+                    <p style="margin: 5px">Conseguindo assim evitar parte de suas perdas</p>
                 </div>
             `
         } else {
@@ -129,15 +130,3 @@
     }
 
 </script>
-
-
-
-<!-- Antigo inner HTML para ser decidido se vai ser apagado ou -->
-<!-- <p style="margin: 5px">Considerando que em média o peso de um pirarucu jovem é de <b>13kg</b>, e a perda estimada durante a criação de pirarucus é de <b>33%</b> devido a problemas de umidade e temperatura, podemos analisar que, em media: </p> 
-<p style="margin: 5px"> A venda dos seus pirarucus resultariam em cerca de <b style="color:green;">${valorTotalForm}</b>, mas a criação desses pirarucus lhe custa em média <b>${precoDaCriacaoForm}</b>, então, vender toda a sua produção resultaria em um lucro de <b style="color:green;">${(valorTotal - precoDaCriacao).toLocaleString('pt-BR',{ style: 'currency', currency: 'BRL'})}</b></p>
-<p style="margin: 5px">Porem por conta da falta de cuidado com a temperatura e umidade você poderia perder até 33% da sua criação, ou seja, alem de perder <b style="color: red;">${valorPerdaForm}</b> em vendas que não seram mais feitas, você gastou <b style="color: red;">R$${precoDaCriacaoDisperdicadaForm}</b> na criação desses peixes em vão.</p>
-<p style="margin: 5px">Finalizando, com a utilização do nosso projeto, você:</p>
-    <div class="mini-card">
-        <p style="margin: 0; margin-left: 5px; margin-left: 2px; font-size:16px;" float>Deixa de perder</p>
-        <p style="margin: 0 auto; font-size: 40px;font-weight:bold;">${(valorPerda + precoDaCriacaoDisperdicada)}</p>
-    </div> -->
