@@ -106,10 +106,10 @@
             let precoDaCriacaoForm = precoDaCriacao.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
             let valorPerdaForm = valorPerda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
             let precoDaCriacaoDisperdicadaForm = precoDaCriacaoDisperdicada.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            
+
             div_card_resposta.innerHTML =
                 ` 
-            <p style="margin: 5px">Considerando que, em média, <b>33%</b> dos pirarucus jovens são perdidos devido a problemas de umidade e temperatura:</p> 
+            <p style="margin: 5px">Considerando que, em média, <b>33%</b> dos pirarucus jovens perdidos são devido a problemas de umidade e temperatura:</p> 
             
             <p style="margin: 5px"> A venda dos pirarucus renderia aproximadamente <b style="color:green;">${valorTotalForm}</b>, enquanto o custo de criação é de <b>${precoDaCriacaoForm}</b>. Isso resultaria em um lucro de <b style="color:green;">${(valorTotal - precoDaCriacao).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</b>.</p>
             
