@@ -12,13 +12,13 @@ void setup() { // codigo que roda uma vez só
 void loop() { // codigo que roda diversas vezes
   float umidade = dht_1.readHumidity(); // variavel de leitura - umidade
   float temperatura = dht_1.readTemperature(); // variavel de leitura - temperatura
-  const FK = 1; // variavel da foreign key do banco de dados  
+  int FK = 1; // variavel da foreign key do banco de dados  
   float umidade2 = umidade * 1.1; // variavel de simulação da umidade
   float temperatura2 = temperatura * 1.1; // variavel de simulação da temperatura
-  const FK2 = 2; // variavel da foreign key do banco de dados de exemplo
+  int FK2 = 2; // variavel da foreign key do banco de dados de exemplo
   float umidade3 = umidade * 0.9; // variavel de simulação da umidade
   float temperatura3 = temperatura * 0.9; // variavel de simulação da temperatura
-  const FK3 = 3; // variavel da foreign key do banco de dados de exemplo
+  int FK3 = 3; // variavel da foreign key do banco de dados de exemplo
 
   if(isnan(temperatura) or isnan(umidade)){
     Serial.println("Erro ao ler");  // caso haja erro de leitura, printa na tela

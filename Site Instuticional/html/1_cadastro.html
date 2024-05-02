@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cadastro</title>
     <link rel="stylesheet" href="../css/cadastro.css" />
-    <link rel="shortcut icon" href="..//arquivos/3_logo.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="..//arquivos/3_logo.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <div class="container-inicio-cadastro">
       <div class="card-cadastro">
         <div class="divArrow">
-          <a href="1_inicial.html"><img src="../arquivos/arrow.png" id="imgArrow" /></a>
+          <a href="1_inicial.html"
+            ><img src="../arquivos/arrow.png" id="imgArrow"
+          /></a>
         </div>
 
         <span class="tituloCadastro">Sign up</span>
@@ -45,9 +51,11 @@
       const senha_confirmada = inp_senha2.value;
       const nome = inp_nomeCadastro.value;
       let variavel = false;
-      if (email.indexOf("@") == -1) {
+      if (email == "" || nome == "" || senha == "" || senha_confirmada == "") {
+        alert("Preencha todos os campos para continuar");
+      } else if (email.indexOf("@") == -1) {
         alert("email invalido");
-      } else if (senha.indexOf("@") != -1|| senha.indexOf("#") != -1) {
+      } else if (senha.indexOf("@") != -1 || senha.indexOf("#") != -1) {
         if (senha.length >= 8) {
           for (let contador = 0; contador <= 9; contador++) {
             if (senha.indexOf(contador) != -1) {
@@ -55,19 +63,18 @@
             }
           }
           if (variavel == false) {
-            alert("senha não possui nenhum numero");
+            alert("Senha não possui nenhum numero");
           } else if (senha == senha_confirmada) {
-            alert(`seja bem vindo a pirarutech, ${nome}`);
+            alert(`Seja bem vindo a pirarutech, ${nome}`);
             window.location.href = "1_login.html";
           } else {
-            alert("senhas não conferem");
+            alert("Senhas não conferem");
           }
-
         } else {
-          alert("senha menor que 8 caracteres");
+          alert("Senha menor que 8 caracteres");
         }
       } else {
-        alert("senha não contem caracter especial");
+        alert("Senha não contem caracter especial");
       }
     }
   </script>
