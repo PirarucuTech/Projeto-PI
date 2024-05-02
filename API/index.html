@@ -39,11 +39,19 @@
                 type: 'line',
                 data: {
                     datasets: [{
-                        label: 'Umidade',
+                        label: 'Umidade1',
                         type: 'line',
                         borderColor: ['#45b3e7'],
-                        backgroundColor: ['#89cff0']
-                    }]
+                    },{
+                        label: 'Umidade2',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                    },{
+                        label: 'Umidade3',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                    }
+                ]
                 },
                 options: {
                     scales: {
@@ -76,8 +84,19 @@
                         label: "Temperatura",
                         type: 'line',
                         borderColor: ['#ff3232'],
-                        backgroundColor: ['#ff7f7f']
-                    }]
+                    },
+                    {
+                        label: "Temperatura2",
+                        type: 'line',
+                        borderColor: ['#ff3232'],
+                    },
+                    {
+                        label: "Temperatura3",
+                        type: 'line',
+                        borderColor: ['#ff3232'],
+                    }
+                    ]
+
                 },
                 options: {
                     scales: {
@@ -97,9 +116,13 @@
                 }
             }
         );
-        
+
         var paginacao = {};
         var tempo = {};
+        let linha1 = true
+        let linha2 = false
+        let linha3 = false
+
         function obterDados(grafico, endpoint) {
             var http = new XMLHttpRequest();
             http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
@@ -117,13 +140,35 @@
             var valores = valores.slice(ultimaPaginacao);
             valores.forEach((valor) => {
                 //Máximo de 60 itens exibidos no gráfico
-                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                if (grafico.data.labels.length == 10 && (grafico.data.datasets[0].data.length == 10 || grafico.data.datasets[1].data.length == 10)) {
                     grafico.data.labels.shift();
                     grafico.data.datasets[0].data.shift();
+                    grafico.data.datasets[1].data.shift();
+                    grafico.data.datasets[2].data.shift();
                 }
-
                 grafico.data.labels.push(tempo[endpoint]++);
-                grafico.data.datasets[0].data.push(parseFloat(valor));
+                if (linha1) {
+                    grafico.data.datasets[0].data.push(parseFloat(valor));
+                    console.log(valor + 'linha1')
+                }
+                if (linha2) {
+                    grafico.data.datasets[1].data.push(parseFloat(valor));
+                    console.log(valor + 'linha2')
+                }
+                if (linha3) {
+                    grafico.data.datasets[2].data.push(parseFloat(valor));
+                    console.log(valor + 'linha3')
+                }
+                if (linha1 && !linha2 && !linha3) {
+                    linha1 = false;
+                    linha2 = true;
+                } else if (!linha1 && linha2 && !linha3) {
+                    linha2 = false;
+                    linha3 = true;
+                } else if (!linha1 && !linha2 && linha3) {
+                    linha3 = false;
+                    linha1 = true;
+                }
                 grafico.update();
             })
         }
