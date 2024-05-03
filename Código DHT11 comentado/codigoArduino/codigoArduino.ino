@@ -39,5 +39,5 @@ void loop() { // codigo que roda diversas vezes
     Serial.print(";"); // separação dos valores para interpretação da api
     Serial.println(FK3); // Foreign key do banco de dados, da tabela do sensor de exemplo
   }
-  delay(30000); // delay de 5 segundos para cada leitura
+  delay(30000); // delay de 30 segundos para cada leitura
 }
