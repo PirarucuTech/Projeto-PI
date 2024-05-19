@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -86,11 +88,10 @@ li {
   justify-content: space-between;
 }
 
-
 .div_options {
   list-style: none;
   width: 50%;
-
+  margin-left: 8vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,12 +101,16 @@ li {
 .ulNavbar {
   display: flex;
   flex-direction: row;
-  gap: 70px;
+  gap: 50px;
+
 
 }
 
-
 .liInicial {
+  transition: 0.1s;
+}
+
+.liSobre {
   transition: 0.1s;
 }
 
@@ -227,7 +232,7 @@ li {
 
 /* simulador */
 
-.titulo_card_inputs{
+.titulo_card_inputs {
   font-size: 35px;
   height: 80px;
   display: flex;
@@ -316,7 +321,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
-.mini-card{
+.mini-card {
   border-radius: 10px;
   padding: 5px;
   display: flex;

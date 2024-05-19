@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    
+    <button onclick="topFunction()" id="btnInicio" title="vai para o inicio">Inicio</button>
     <header class="navbar">
 
         <div class="container-items">
@@ -20,8 +20,9 @@
             <div class="div_options">
                 <ul class="ulNavbar">
                     <li class="liInicial"><a href="1_inicial.html">Inicial</a></li>
+                    <li class="liSobre"><a href="#sobre">Sobre</a></li>
                     <li class="liSimulador"><a href="1_simulador.html">Simulador financeiro</a></li>
-                    <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li>
+                    <!-- <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li> -->
                 </ul>
             </div>
 
@@ -55,6 +56,18 @@
             </div>
 
         </div>
+
+
+    </div>
+
+    <div class="container-scroll-sobre" id="sobre">
+        <div class="textoSobre">
+            <h3>Sobre</h3>
+            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, ipsa pariatur. Perferendis
+                doloremque et accusamus recusandae sunt vel aspernatur, quibusdam sed dolor veritatis voluptates quod
+                dicta porro obcaecati laborum non!</span>
+        </div>
+        <img src="../ellie.jpg" id="diagramafotoInicial">
 
 
     </div>
@@ -132,3 +145,23 @@
 </body>
 
 </html>
+
+<script>
+    let botaoInicio = document.getElementById("btnInicio");
+
+    // quando o usuario navegar 20px para baixo da página, aparece o botão
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.documentElement.scrollTop > 20) {
+            botaoInicio.style.display = "block";
+        } else {
+            botaoInicio.style.display = "none";
+        }
+    }
+
+    // qunado o usuario clicar no botão, é direcionado para o topo da página
+    function topFunction() {
+        document.documentElement.scrollTop = 0;
+    }
+</script>
