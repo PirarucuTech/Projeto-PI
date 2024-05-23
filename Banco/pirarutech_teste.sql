@@ -1,53 +1,52 @@
 drop database if exists pirarutech;
-drop database if exists pirarutech;
 
-create database pirarutech;
+create database if not exists pirarutech;
 use pirarutech;
 
 create table usuario(
-	idUsuario int primary key auto_increment,
+	id int primary key auto_increment comment 'Identificação de usuário',
     nomeUsuario varchar (45),
     email varchar (45),
-    senha varchar (45)
-);
+    senha varchar (45) 
+) comment 'Tabela responsável pelos dados do cadastro dos usuarios';
 
 create table empresa (
-	idEmpresa int primary key auto_increment,
+	id int primary key auto_increment comment 'Identificação da empresa',
     nomeEmpresa varchar (45), 
     cep char(9),
     logradouro varchar(70),
     numero int,
     complemento varchar (15),
-    fkUsuario int,
-    foreign key (fkUsuario) references usuario (idUsuario)
-)auto_increment = 100;
+    fkUsuario int comment 'Identificação da tabela usuario',
+    foreign key (fkUsuario) references usuario (id)
+)auto_increment = 100, comment 'Tabela responsavel pelos dados da empresa';
 
 create table tanque(
-	idTanque int auto_increment,
+	id int auto_increment comment 'Identificação dos tanques', 
     identificacao varchar (45),
-    fkEmpresa int not null,
-    primary key (idTanque, fkEmpresa),
-    foreign key (fkEmpresa) references empresa (idEmpresa)
-)auto_increment = 1500;
+    fkEmpresa int not null comment 'Identificação da tabela empresa',
+    primary key (id, fkEmpresa),
+    foreign key (fkEmpresa) references empresa (id)
+)auto_increment = 1500, comment 'Tabela responsavel pelos dados dos tanques';
 
 create table sensor(
-	idSensor int primary key auto_increment,
+	id int primary key auto_increment comment 'Identificação do sensor',
     tipo varchar (45),
     apelido varchar (45),
     numSerial varchar (45),
-    fkTanque int,
-    fkTanqueEmpresa int,
-    foreign key (fkTanque, fkTanqueEmpresa) references tanque (idTanque, fkEmpresa)
-)auto_increment = 3500;
+    fkTanque int comment 'Identificação da tabela tanque',
+    fkTanqueEmpresa int comment 'Identifição da tabela tanque da empresa',
+    foreign key (fkTanque, fkTanqueEmpresa) references tanque (id, fkEmpresa)
+)auto_increment = 3500, comment 'Tabela responsavel pelos dados do sensor';
 
 create table leitura(
-	idLeitura int primary key auto_increment,
+	id int primary key auto_increment,
     umidade decimal (3,1),
     temperatura decimal(3,1),
     diaHora datetime,
-    fkSensor int,
+    fkSensor int comment 'Identificação da tabela sensor',
     foreign key (fkSensor) references sensor (idSensor)
-)auto_increment = 6500;
+)auto_increment = 6500, comment 'Tabela responsavel pelos dados da leitura dos sensores';
 
 insert into usuario (nomeUsuario, email, senha)
 values ("Emma Stone", "emmastone@gmail.com", "emmastone123"),
@@ -94,7 +93,7 @@ select * from sensor;
 select * from leitura;
 
 select * from usuario
-join empresa on fkUsuario = idUsuario
-join tanque on fkEmpresa = idEmpresa
-join sensor on fkTanque = idTanque
-join leitura on fkSensor = idSensor;
+join empresa on fkUsuario = usuario.id
+join tanque on fkEmpresa = empresa.id
+join sensor on fkTanque = tanque.id
+join leitura on fkSensor = sensor.id;
