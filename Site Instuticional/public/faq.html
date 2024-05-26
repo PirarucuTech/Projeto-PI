@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ </title>
+    <link rel="stylesheet" href="/CSS/faq.css">
+    <link rel="shortcut icon" href="assets/icon/3_logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container-items">
+            <div>
+                <a href="./index.html"><img src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png" id="logo"></a>
+            </div>
+            <div>
+                <span class="texto_faq">FAQ</span>
+            </div>
+    </header>
+
+    <div class="div_perguntas">
+        
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_1()">1. Os dados da minha dashboard não estão aparecendo. O que fazer?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_1">
+            </span>
+
+            <span style="display: none;" class="span_resposta" id="span_resposta_1">
+                <strong>• Veja se a mensalidade está em dia.</strong> <br>
+                Caso tenha pago em boleto ou transferência, aguarde de 2 a 3 dias úteis. <br> <br>
+
+                <strong>• Verifique se o local de aplicação há conexão com a internet.</strong><br> <br>
+
+                <strong>• Tente reinicar o aparelho que está acessando a dashboard.</strong> <br>
+                Caso não resolva, tente reiniciar a máquina que está hospedando o sensor.<br> <br>
+
+                <strong>• Verifique se o sensor está bem conectado. </strong> <br>
+                Veja se os fios do módulo estão bem conectados. <br><br>
+
+                <strong>• Verifique se o sensor está bem conectado.</strong> <br>
+                Procure por rachaduras, amassados ou sinais de dano.
+            </span>
+
+        </div>
+
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_2()">2. Não consigo fazer login com os dados que inseri no cadastro. O que eu faço?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_2">
+            </span>
+
+            <span style="display: none;" class="span_resposta" id="span_resposta_2">
+                Quando você faz um cadastro, seus dados inseridos são recebidos pela nossa equipe. Entraremos em contato, faremos um orçamento e, assim que tudo estiver feito, nós iremos te enviar um email e senha únicos. Ou seja, quando fizer seu cadastro, aguarde o nosso contato.
+            </span>
+
+        </div>
+
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_3()">3. Qual o horário de atendimento?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_3">
+            </span>
+            <span style="display: none;" class="span_resposta" id="span_resposta_3">
+                Das 09hrs às 20hrs (somente em dias úteis).
+            </span>
+
+        </div>
+
+
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_4()">4. Como cancelo o serviço?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_4">
+            </span>
+
+            <span style="display: none;" class="span_resposta" id="span_resposta_4">
+                Para cancelar o serviço, é necessário abrir um chamado para possamos entrar em contato. Você pode fazer isso clicando <strong><a href="https://suportepirarutech.hipporello.net/desk?">aqui.</a></strong>
+            </span>
+
+        </div>
+
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_5()">5. Qual o tempo de espera para um retorno?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_5">
+            </span>
+
+            <span style="display: none;" class="span_resposta" id="span_resposta_5">
+                <strong>Tempo mínimo:</strong> 1 hora. <br>
+                <strong>Tempo máximo:</strong> em até 1 dia. <br>
+                <strong>OBS.:</strong> Atendimento apenas em dias úteis.
+            </span>
+
+        </div>
+
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_6()">6. E se o meu sensor quebrar?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_6">
+            </span>
+
+            <span style="display: none;" class="span_resposta" id="span_resposta_6">
+                <strong>Nós oferecemos dois tipos de assinatura:</strong> <br>
+                • Você paga o valor base no acordo, porém sempre que um sensor quebrar, precisa arcar com os custos da manutenção. 
+                • Você paga 20% a mais do valor de serviço e 10% a mais na mensalidade, mas sempre que um sensor quebrar nós arcamos com esse valor. Essa porcentagem serve de seguro para o seu sensor. 
+            </span>
+
+        </div>
+
+        <div class="div_faq">
+            <span class="span_pergunta" onclick="span_pergunta_7()">7. Esqueci minha senha. Como prosseguir?
+                <img src="assets/icon/faq_arrow.png" class="img_arrow" id="img_arrow_7">
+            </span>
+
+            <span style="display: none;" class="span_resposta" id="span_resposta_7">
+                Para que haja a recuperação da senha, é necessário abrir um chamado. Você pode fazer isso clicando <strong><a href="https://suportepirarutech.hipporello.net/desk?">aqui</a></strong>
+            </span>
+
+        </div>
+
+        <!--
+            <li>E se o sensor quebrar? <img src="assets/icon/faq_arrow.png" class="img_arrow"></li>
+            
+            <li>Esqueci minha senha. Como prosseguir? <img src="assets/icon/faq_arrow.png" class="img_arrow"></li>
+        </ul> -->
+    </div>
+</body>
+
+</html>
+
+<script>
+    let spanAberta_1 = false
+    let spanAberta_2 = false
+    let spanAberta_3 = false
+    let spanAberta_4 = false
+    let spanAberta_5 = false
+    let spanAberta_6 = false
+    let spanAberta_7 = false
+
+    function span_pergunta_1() {
+        if (spanAberta_1) {
+            span_resposta_1.style.display = "none";
+            img_arrow_1.style.rotate = "90deg"
+
+            spanAberta_1 = false
+        } else {
+            span_resposta_1.style.display = "block";
+            img_arrow_1.style.rotate = "-90deg"
+            
+            spanAberta_1 = true
+        }
+    }
+    
+    function span_pergunta_2() {
+        if (spanAberta_2) {
+            span_resposta_2.style.display = "none";
+            img_arrow_2.style.rotate = "90deg"
+
+            spanAberta_2 = false
+        } else {
+            span_resposta_2.style.display = "block";
+            img_arrow_2.style.rotate = "-90deg"
+            
+            spanAberta_2 = true
+        }
+    }
+
+    function span_pergunta_3() {
+        if (spanAberta_3) {
+            span_resposta_3.style.display = "none";
+            img_arrow_3.style.rotate = "90deg"
+
+            spanAberta_3 = false
+        } else {
+            span_resposta_3.style.display = "block";
+            img_arrow_3.style.rotate = "-90deg"
+            
+            spanAberta_3 = true
+        }
+    }
+
+    function span_pergunta_4() {
+        if (spanAberta_4) {
+            span_resposta_4.style.display = "none";
+            img_arrow_4.style.rotate = "90deg"
+
+            spanAberta_4 = false
+        } else {
+            span_resposta_4.style.display = "block";
+            img_arrow_4.style.rotate = "-90deg"
+            
+            spanAberta_4 = true
+        }
+    }
+
+    function span_pergunta_5() {
+        if (spanAberta_5) {
+            span_resposta_5.style.display = "none";
+            img_arrow_5.style.rotate = "90deg"
+
+            spanAberta_5 = false
+        } else {
+            span_resposta_5.style.display = "block";
+            img_arrow_5.style.rotate = "-90deg"
+            
+            spanAberta_5 = true
+        }
+    }
+
+    function span_pergunta_6() {
+        if (spanAberta_6) {
+            span_resposta_6.style.display = "none";
+            img_arrow_6.style.rotate = "90deg"
+
+            spanAberta_6 = false
+        } else {
+            span_resposta_6.style.display = "block";
+            img_arrow_6.style.rotate = "-90deg"
+            
+            spanAberta_6 = true
+        }
+    }
+
+    function span_pergunta_7() {
+        if (spanAberta_7) {
+            span_resposta_7.style.display = "none";
+            img_arrow_7.style.rotate = "90deg"
+
+            spanAberta_7 = false
+        } else {
+            span_resposta_7.style.display = "block";
+            img_arrow_7.style.rotate = "-90deg"
+            
+            spanAberta_7 = true
+        }
+    }
+</script>
