@@ -1,11 +1,11 @@
 var express = require("express");
 var router = express.Router();
 
-var usuarioController = require("../controllers/usuarioController");
+var dashboardController = require("../controllers/dashboardController");
 
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/autenticar", function (req, res) {
-    usuarioController.autenticar(req, res);
+//Recebendo os dados do html e direcionando para a função cadastrar de dashboardController.js
+router.post("/buscarDadosSituacaoTotal", function (req, res) {
+    dashboardController.buscarDadosSituacaoTotal(req, res);
 });
 
 module.exports = router;

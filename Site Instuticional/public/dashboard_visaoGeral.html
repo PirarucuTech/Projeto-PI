@@ -460,92 +460,88 @@
     //     </div>
     // </div>
 
-
-    fetch("/dashboard/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-                sessionStorage.USUARIO = JSON.stringify(json.usuario)
-
-                setTimeout(function () {
-                    window.location = "dashboard_visaoGeral.html";
-                }, 2000); // apenas para exibir o loading
-
-            });
-
-        } else {
-            div_erro.innerHTML = `senha ou email incorretos`
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        const ctx = document.getElementById('myChart');
-
-        Chart.defaults.color = 'white';
-        Chart.defaults.font.size = 15;
-        Chart.defaults.borderColor = '#15181b';
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['01/08', '07/08', '14/08', '21/08', '28/08'],
-                datasets: [{
-                    backgroundColor: 'white',
-                    label: 'Histórico de alertas por semana',
-                    data: [12, 13, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
+    function buscarDados() {
+        fetch("/dashboard/buscarDadosSituacaoTotal", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.USUARIO = JSON.stringify(json.usuario)
+                });
+            } else {
+                div_erro.innerHTML = `senha ou email incorretos`
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const ctx = document.getElementById('myChart');
+
+    Chart.defaults.color = 'white';
+    Chart.defaults.font.size = 15;
+    Chart.defaults.borderColor = '#15181b';
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['01/08', '07/08', '14/08', '21/08', '28/08'],
+            datasets: [{
+                backgroundColor: 'white',
+                label: 'Histórico de alertas por semana',
+                data: [12, 13, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
+        }
+    });
 </script>
