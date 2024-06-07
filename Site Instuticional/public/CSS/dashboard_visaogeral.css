@@ -1,20 +1,62 @@
 body{
     background-color: #1A1F24;
+    overflow: hidden;
 }
 
+.container_tanques {
+    --sb-track-color: #232E33;
+    --sb-thumb-color: #267a83;
+    --sb-size: 12px;
+  }
+  
+  .container_tanques::-webkit-scrollbar {
+    width: var(--sb-size)
+  }
+  
+  .container_tanques::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 8px;
+  }
+  
+  .container_tanques::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 5px;
+  
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    .container_tanques {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+  }
+
 .container_dashboard {
-    margin-left: 9vh;
-    margin-top: 20px;
-    height: 100%;
-    width: 50%;
+    height: 90vh;
+    width: 100vw;
     display: flex;
     gap: 50px;
+    padding: 25px 15px 0px 15px;
 }
 
 .container_situacaoTotal {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 93%;
+    width: 50%;
+
+    margin-left: 5vh;
+}
+
+.container_tanques{
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+    overflow-y: scroll;
 }
 
 .legenda_situacao {
@@ -148,7 +190,7 @@ body{
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-    width: 100%;
+    width: 90%;
 }
 
 .filtros_texto {
@@ -175,18 +217,18 @@ body{
     height: 3vh;
 }
 
-.containes_tanques_linha {
+/* .containes_tanques_linha {
     height: 13vh;
     width: 100%;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
     gap: 20px;
-}
+} */
 
 .tanque_individual {
-    height: 100%;
-    width: 23vh;
+    height: 13vh;
+    width: 10vw;
     background-color: #262B30;
     color: white;
     border-radius: 20px;
@@ -218,7 +260,6 @@ body{
 }
 
 .container_legenda_umi_temp {
-    margin-top: 10px;
     color: white;
     font-size: 20px;
 }
@@ -230,15 +271,17 @@ body{
 
 .container_historico {
     height: 100%;
-    width: 50vw;
+    width: 40vw;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 5vh;
 }
 
 .container_historico_filho {
     display: flex;
-    gap: 50px;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .container_media {
