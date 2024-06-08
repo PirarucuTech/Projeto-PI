@@ -55,7 +55,7 @@ body{
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 5px;
+    padding-top: 5px;
     overflow-y: scroll;
 }
 
@@ -217,16 +217,8 @@ body{
     height: 3vh;
 }
 
-/* .containes_tanques_linha {
-    height: 13vh;
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-} */
-
 .tanque_individual {
+    position: relative;
     height: 13vh;
     width: 10vw;
     background-color: #262B30;
@@ -238,8 +230,17 @@ body{
     align-items: center;
 }
 
+.tanque_individual_img_indicadora{
+    position: absolute;
+    top: -1vh;
+    right: -1vw;
+}
+
+.img_indicador{
+    height: 35px;
+}
+
 .tanque_individual_titulo {
-    
     font-size: 20px;
 }
 
