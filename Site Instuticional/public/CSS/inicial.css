@@ -139,23 +139,19 @@ html {
 
 }
 
-.liDashboard {
-  transition: 0.1s;
-}
-
 .liInicial:hover {
   transform: scale(1.1);
   color: #9a9a9a;
 
 }
 
-.liSimulador:hover {
+.liSobre:hover {
   transform: scale(1.1);
   color: #9a9a9a;
 
 }
 
-.liDashboard:hover {
+.liSimulador:hover {
   transform: scale(1.1);
   color: #9a9a9a;
 
