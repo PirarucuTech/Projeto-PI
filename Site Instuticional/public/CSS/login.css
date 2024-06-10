@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap");
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #1A1F24;
+  background-color: #1a1f24;
   box-sizing: border-box;
   font-family: "Kanit", sans-serif;
   font-weight: 200;
@@ -12,7 +12,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-
 }
 
 button {
@@ -20,18 +19,16 @@ button {
   font-weight: 500;
   font-size: 15px;
   color: aliceblue;
-
 }
 
-
 body {
-  --sb-track-color: #232E33;
+  --sb-track-color: #232e33;
   --sb-thumb-color: #267a83;
   --sb-size: 12px;
 }
 
 body::-webkit-scrollbar {
-  width: var(--sb-size)
+  width: var(--sb-size);
 }
 
 body::-webkit-scrollbar-track {
@@ -42,7 +39,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 5px;
-
 }
 
 @supports not selector(::-webkit-scrollbar) {
@@ -52,9 +48,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 li {
-    list-style: none;
-  }
-  
+  list-style: none;
+}
 
 /* Navbar */
 
@@ -64,8 +59,6 @@ li {
 
   cursor: pointer;
 }
-
-
 
 .navbar {
   width: 100%;
@@ -77,7 +70,6 @@ li {
   align-items: center;
   justify-content: center;
   color: whitesmoke;
-
 }
 
 .container-items {
@@ -99,66 +91,55 @@ li {
   white-space: nowrap;
 }
 
-.ulNavbar{
+.ulNavbar {
   display: flex;
   flex-direction: row;
   gap: 20px;
-
 }
 
-
-.liInicial{
-    transition: 0.1s;
+.liInicial {
+  transition: 0.1s;
 }
 
 .liSimulador {
   transition: 0.1s;
-
 }
 
 .liNossoTrabalho {
   transition: 0.1s;
-
 }
 
 .liSaibaMais {
   transition: 0.1s;
-
 }
 
 .liSaibaMais {
   transition: 0.1s;
-
 }
 
 .liInicial:hover {
   transform: scale(1.1);
   color: #9a9a9a;
-
 }
 
 .liSimulador:hover {
   transform: scale(1.1);
   color: #9a9a9a;
-
 }
 
 .liNossoTrabalho:hover {
   transform: scale(1.1);
   color: #9a9a9a;
-
 }
 
 .liSaibaMais:hover {
   transform: scale(1.1);
   color: #9a9a9a;
-
 }
 
 .liDashboard:hover {
   transform: scale(1.1);
   color: #9a9a9a;
-
 }
 
 .btns_navbar {
@@ -168,7 +149,7 @@ li {
 
 .btn_login {
   border: 2px solid #267a83;
-  background-color: #1A1F24;
+  background-color: #1a1f24;
 
   width: 7vw;
   border-radius: 20px;
@@ -177,13 +158,11 @@ li {
   cursor: pointer;
 
   transition: 0.1s;
-
 }
 
 .btn_login a {
   display: block;
 }
-
 
 .btn_cadastro {
   background-color: #267a83;
@@ -202,7 +181,6 @@ li {
   font-size: 15px;
 
   transition: 0.1s;
-
 }
 
 .btn_calcular {
@@ -214,7 +192,6 @@ li {
 
   cursor: pointer;
   transition: 0.1s;
-
 }
 
 .btn_calcular:hover {
@@ -224,14 +201,13 @@ li {
 .btn_login:hover {
   background-color: #267a83;
   border: #154045;
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .btn_cadastro:hover {
   background-color: #267a83;
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
-
 
 .btn_calcular:active {
   background-color: #154045;
@@ -241,118 +217,116 @@ li {
 .btn_login:active {
   background-color: #154045;
   transform: scale(1);
-
 }
 
 .btn_cadastro:active {
   background-color: #154045;
   transform: scale(1);
-
 }
 
 /*LOGIN*/
 
 .divArrow {
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-  }
-  
-  #imgArrow {
-    width: 4vw;
-    height: 9vh;
-  
-    filter: invert(100);
-  }
-  
-  input {
-    width: 22vw;
-    height: 5vh;
-  }
-  
-  .container-inicio-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #0f1113;
-  
-    color: white;
-  }
-  
-  .card-login {
-    height: 90vh;
-    width: 40vw;
-  
-    -webkit-box-shadow: -10px 9px 6px 0px rgba(0,0,0,0.53);
-    -moz-box-shadow: -10px 9px 6px 0px rgba(0,0,0,0.53);
-    box-shadow: -10px 9px 6px 0px rgba(0,0,0,0.53);
-    background-color: #1A1F24;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-  
-  }
-  
-  .tituloLogin {
-    font-size: 30px;
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .spanLogin{
-    margin-bottom: 10px;
-  }
-  
-  .inputs_login {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  
-  }
-  
-  .inputs_login u {
-    font-size: 12px;
-    margin-bottom: 15px;
-  }
-  
-  .btnlogin {
-    width: 11vw;
-    height: 7vh;
-    border-radius: 30px;
-    font-size: 15px;
-    margin-bottom: 10px;
-  
-    background-color: #32b6cd;
-    border: none;
-  
-    transition: 0.2s;
-    cursor: pointer;
-  
-    color: white;
-    font-weight: 700;
-  
-    text-decoration: none;
-  
-  }
-  
-  .btnlogin:hover {
-    background-color: #1b8092;
-    transform: scale(1.1);
-  
-  }
-  
-  .btnlogin a {
-    color: inherit;
-  }
-  
-  .div_btnlogin {
-    display: flex;
-    margin-left: 6vw;
-  
-  }
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+#imgArrow {
+  width: 4vw;
+  height: 9vh;
+
+  filter: invert(100);
+}
+
+input {
+  width: 22vw;
+  height: 5vh;
+}
+
+.container-inicio-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0f1113;
+
+  color: white;
+}
+
+.card-login {
+  height: 90vh;
+  width: 40vw;
+
+  -webkit-box-shadow: -10px 9px 6px 0px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -10px 9px 6px 0px rgba(0, 0, 0, 0.53);
+  box-shadow: -10px 9px 6px 0px rgba(0, 0, 0, 0.53);
+  background-color: #1a1f24;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tituloLogin {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.spanLogin {
+  margin-bottom: 10px;
+}
+
+.inputs_login {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.inputs_login u {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.btnlogin {
+  width: 11vw;
+  height: 7vh;
+  border-radius: 30px;
+  font-size: 15px;
+  margin-bottom: 10px;
+
+  background-color: #32b6cd;
+  border: none;
+
+  transition: 0.2s;
+  cursor: pointer;
+
+  color: white;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.btnlogin:hover {
+  background-color: #1b8092;
+  transform: scale(1.1);
+}
+
+.btnlogin a {
+  color: inherit;
+}
+
+.div_btnlogin {
+  display: flex;
+  margin-left: 6vw;
+}
+
+#span_erro {
+  display: flex;
+  margin-left: 6vw;
+  font-weight: bold;
+}

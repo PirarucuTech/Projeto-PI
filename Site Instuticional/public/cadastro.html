@@ -1,107 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./CSS/cadastro.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/3_logo.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cadastro</title>
-  <link rel="stylesheet" href="./CSS/cadastro.css" />
-  <link rel="shortcut icon" href="./assets/icon/3_logo.png" type="image/x-icon" />
-</head>
+  <body>
+    <div class="container-inicio-cadastro">
+      <div class="card-cadastro">
+        <div class="divArrow">
+          <a href="./index.html"
+            ><img src="./assets/icon/arrow.png" id="imgArrow"
+          /></a>
+        </div>
 
-<body>
-  <div class="container-inicio-cadastro">
-    <div class="card-cadastro">
-      <div class="divArrow">
-        <a href="./index.html"><img src="./assets/icon/arrow.png" id="imgArrow" /></a>
-      </div>
+        <span class="tituloCadastro">Sign up</span>
 
-      <span class="tituloCadastro">Sign up</span>
-
-      <div class="inputs_cadastro">
-        <span class="spanCadastro">Nome Completo:</span>
-        <input id="inp_nomeCadastro" placeholder="Name" />
-        <!-- <span class="spanCadastro">Sobrenome:</span>
+        <div class="inputs_cadastro">
+          <span class="spanCadastro">Nome Completo:</span>
+          <input id="inp_nomeCadastro" placeholder="Name" />
+          <!-- <span class="spanCadastro">Sobrenome:</span>
           <input id="inp_sobrenomeCadastro" placeholder="Last Name" /> -->
-        <span class="spanCadastro">Email:</span>
-        <input id="inp_email" placeholder="Insert Email" />
-        <span class="spanCadastro">Senha:</span>
-        <input id="inp_senha" placeholder="Your Password" />
-        <span class="spanCadastro">Confirmar senha:</span>
-        <input id="inp_senha2" placeholder="Repeat Password" />
-        <span>Já tem uma conta?
-          <a href="./login.html"><u>Fazer Log in</u></a></span><br />
-        <div class="div_btnCadastro">
-          <button class="btnCadastro" onclick="cadastrar()">Cadastrar</button>
+          <span class="spanCadastro">Email:</span>
+          <input id="inp_email" placeholder="Insert Email" />
+          <span class="spanCadastro">Senha:</span>
+          <input id="inp_senha" placeholder="Your Password" />
+          <span class="spanCadastro">Confirmar senha:</span>
+          <input id="inp_senha2" placeholder="Repeat Password" />
+          <span
+            >Já tem uma conta?
+            <a href="./login.html"><u>Fazer Log in</u></a></span
+          ><br />
+          <div class="div_btnCadastro">
+            <button class="btnCadastro" onclick="cadastrar()">Cadastrar</button>
+          </div>
+          <div class="card_erro">
+            <span id="span_erro"></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-<script>
-  function cadastrar() {
-    const emailVar = inp_email.value;
-    const senhaVar = inp_senha.value;
-    const senha_confirmada = inp_senha2.value;
-    const nomeVar = inp_nomeCadastro.value;
-    let variavel = false;
-    if (emailVar == "" || nomeVar == "" || senhaVar == "" || senha_confirmada == "") {
-      alert("Preencha todos os campos para continuar");
-    } else if (emailVar.indexOf("@") == -1) {
-      alert("email invalido");
-    } else if (senhaVar.indexOf("@") != -1 || senhaVar.indexOf("#") != -1) {
-      if (senhaVar.length >= 8) {
-        for (let contador = 0; contador <= 9; contador++) {
-          if (senhaVar.indexOf(contador) != -1) {
-            variavel = true;
+  </body>
+  <script>
+    function cadastrar() {
+      const emailVar = inp_email.value;
+      const senhaVar = inp_senha.value;
+      const senha_confirmada = inp_senha2.value;
+      const nomeVar = inp_nomeCadastro.value;
+      let variavel = false;
+      if (
+        emailVar == "" ||
+        nomeVar == "" ||
+        senhaVar == "" ||
+        senha_confirmada == ""
+      ) {
+        span_erro.innerHTML = "Preencha todos os campos para continuar";
+      } else if (emailVar.indexOf("@") == -1) {
+        span_erro.innerHTML = "Email Inválido";
+      } else if (senhaVar.indexOf("@") != -1 || senhaVar.indexOf("#") != -1) {
+        if (senhaVar.length >= 8) {
+          for (let contador = 0; contador <= 9; contador++) {
+            if (senhaVar.indexOf(contador) != -1) {
+              variavel = true;
+            }
           }
-        }
-        if (variavel == false) {
-          alert("Senha não possui nenhum numero");
-        } else if (senhaVar == senha_confirmada) {
-          fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              nomeServer: nomeVar,
-              emailServer: emailVar,
-              senhaServer: senhaVar,
-            }),
-          })
-            .then(function (resposta) {
-              console.log("resposta: ", resposta);
-
-              if (resposta.ok) {
-
-                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
-                setTimeout(() => {
-                  window.location = "login.html";
-                }, "2000");
-
-              } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-              }
+          if (variavel == false) {
+            span_erro.innerHTML = "Senha não possui nenhum numero";
+          } else if (senhaVar == senha_confirmada) {
+            fetch("/usuarios/cadastrar", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+              }),
             })
-            .catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
-            });
+              .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-          return false;
+                if (resposta.ok) {
+                  alert(
+                    "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
+                  );
+
+                  setTimeout(() => {
+                    window.location = "login.html";
+                  }, "2000");
+                } else {
+                  throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+              })
+              .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+              });
+
+            return false;
+          } else {
+            span_erro.innerHTML = "Senhas não conferem";
+          }
         } else {
-          alert("Senhas não conferem");
+          span_erro.innerHTML = "Senha menor que 8 caracteres";
         }
       } else {
-        alert("Senha menor que 8 caracteres");
+        span_erro.innerHTML = "Senha não contem caracter especial";
       }
-    } else {
-      alert("Senha não contem caracter especial");
     }
-  }
-</script>
-
+  </script>
 </html>

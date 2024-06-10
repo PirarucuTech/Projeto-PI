@@ -1,10 +1,9 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap");
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #1A1F24;
+  background-color: #1a1f24;
   box-sizing: border-box;
   font-family: "Kanit", sans-serif;
   font-weight: 200;
@@ -13,7 +12,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-
 }
 
 button {
@@ -21,18 +19,16 @@ button {
   font-weight: 500;
   font-size: 15px;
   color: aliceblue;
-
 }
 
-
 body {
-  --sb-track-color: #232E33;
+  --sb-track-color: #232e33;
   --sb-thumb-color: #267a83;
   --sb-size: 12px;
 }
 
 body::-webkit-scrollbar {
-  width: var(--sb-size)
+  width: var(--sb-size);
 }
 
 body::-webkit-scrollbar-track {
@@ -43,7 +39,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 5px;
-
 }
 
 @supports not selector(::-webkit-scrollbar) {
@@ -53,122 +48,126 @@ body::-webkit-scrollbar-thumb {
 }
 
 li {
-    list-style: none;
-  }
+  list-style: none;
+}
 
 .divArrow {
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-  }
-  
-  #imgArrow {
-    width: 4vw;
-    height: 9vh;
-  
-    filter: invert(100);
-  }
-  
-  #imgFundoLogin {
-    height: 100vh;
-    width: 40vw;
-  
-  }
-  
-  .div_imgFundoCadastro {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-  
-  input {
-    width: 22vw;
-    height: 5vh;
-  }
-  
-  .container-inicio-cadastro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #0f1113;
-  
-    color: white;
-  }
-  
-  .card-cadastro {
-    height: 90vh;
-    width: 40vw;
-  
-    -webkit-box-shadow: -10px 9px 6px 0px rgba(0,0,0,0.53);
-    -moz-box-shadow: -10px 9px 6px 0px rgba(0,0,0,0.53);
-    box-shadow: -10px 9px 6px 0px rgba(0,0,0,0.53);
-    background-color: #1A1F24;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  
-  
-  }
-  
-  .tituloCadastro {
-    font-size: 30px;
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .spanCadastro{
-    margin-bottom: 10px;
-  }
-  
-  .inputs_cadastro {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  
-  }
-  
-  .inputs_cadastro u {
-    font-size: 12px;
-    margin-bottom: 15px;
-  }
-  
-  .btnCadastro {
-    width: 11vw;
-    height: 7vh;
-    border-radius: 30px;
-    font-size: 15px;
-    margin-bottom: 10px;
-  
-    background-color: #32b6cd;
-    border: none;
-  
-    transition: 0.2s;
-    cursor: pointer;
-  
-    color: white;
-    font-weight: 700;
-  
-    text-decoration: none;
-  
-  }
-  
-  .btnCadastro:hover {
-    background-color: #1b8092;
-    transform: scale(1.1);
-  
-  }
-  
-  .btnCadastro a {
-    color: inherit;
-  }
-  
-  .div_btnCadastro {
-    display: flex;
-    margin-left: 6vw;
-  
-  }
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+#imgArrow {
+  width: 4vw;
+  height: 9vh;
+
+  filter: invert(100);
+}
+
+#imgFundoLogin {
+  height: 100vh;
+  width: 40vw;
+}
+
+.div_imgFundoCadastro {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+input {
+  width: 22vw;
+  height: 5vh;
+}
+
+.container-inicio-cadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0f1113;
+
+  color: white;
+}
+
+.card-cadastro {
+  height: 90vh;
+  width: 40vw;
+
+  -webkit-box-shadow: -10px 9px 6px 0px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -10px 9px 6px 0px rgba(0, 0, 0, 0.53);
+  box-shadow: -10px 9px 6px 0px rgba(0, 0, 0, 0.53);
+  background-color: #1a1f24;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tituloCadastro {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.spanCadastro {
+  margin-bottom: 10px;
+}
+
+.inputs_cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.inputs_cadastro u {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.btnCadastro {
+  width: 11vw;
+  height: 7vh;
+  border-radius: 30px;
+  font-size: 15px;
+  margin-bottom: 10px;
+
+  background-color: #32b6cd;
+  border: none;
+
+  transition: 0.2s;
+  cursor: pointer;
+
+  color: white;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.btnCadastro:hover {
+  background-color: #1b8092;
+  transform: scale(1.1);
+}
+
+.btnCadastro a {
+  color: inherit;
+}
+
+.div_btnCadastro {
+  display: flex;
+  margin-left: 6vw;
+}
+
+#span_erro {
+  display: flex;
+  font-weight: bold;
+}
+
+.card_erro {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
