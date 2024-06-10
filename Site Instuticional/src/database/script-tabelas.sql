@@ -45,9 +45,11 @@ create table leitura(
     temperatura decimal(3,1),
     diaHora datetime,
     fkSensor int comment 'Identificação da tabela sensor',
+    nmrSemana int ,
     foreign key (fkSensor) references sensor (id)
 )auto_increment = 6500, comment 'Tabela responsavel pelos dados da leitura dos sensores';
 
+SELECT WEEK(CURDATE());
 insert into usuario (nomeUsuario, email, senha)
 values ("Emma Stone", "emmastone@gmail.com", "emmastone123"),
 ("Mia Goth", "miagoth@gmail.com", "miagoth123"),
@@ -69,31 +71,26 @@ values ("identificacao1A", 100),
 ("identificacao2C", 102),
 ("identificacao3C", 102);
 
-insert into sensor (tipo, apelido, numSerial, fkTanque, )
-values 		("DHT11", "Temp. e Umi.", "111111", 1500),
-			("DHT11", "Temp. e Umi.", "333333", 1501),
-			("DHT11", "Temp. e Umi.", "111111", 1500),
-			("DHT11", "Temp. e Umi.", "333333", 1501),
-			("DHT11", "Temp. e Umi.", "111111", 1500),
-			("DHT11", "Temp. e Umi.", "333333", 1501),
-			("DHT11", "Temp. e Umi.", "555555", 1502);
+insert into sensor (tipo, apelido, numSerial, fkTanque, fkTanqueEmpresa)
+values 		("DHT11", "Temp. e Umi.", "111111", 1500, 100),
+			("DHT11", "Temp. e Umi.", "333333", 1501, 100),
+			("DHT11", "Temp. e Umi.", "111111", 1503, 101),
+			("DHT11", "Temp. e Umi.", "333333", 1504, 101),
+			("DHT11", "Temp. e Umi.", "111111", 1506, 102),
+			("DHT11", "Temp. e Umi.", "333333", 1507, 102),
+			("DHT11", "Temp. e Umi.", "555555", 1508, 102);
 
-insert into leitura (umidade, temperatura, diaHora, fkSensor)
-values 		(80.0, 35.5, "2024-04-09 11:05:29", 3500),
-			(80.0, 31.2, '2024-04-09 12:15:00', 3501),
-			(80.0, 30.5, '2024-04-09 13:30:45', 3502),
-			(80.0, 33.1, '2024-04-09 14:45:20', 3503),
-			(80.0, 29.8, '2024-04-09 16:00:00', 3504),
-			(80.0, 28.7, '2024-04-09 17:15:30', 3505);
-    
-select * from usuario;
-select * from empresa;
-select * from tanque;
-select * from sensor;
-select * from leitura;
-
-select * from usuario
-join empresa on fkUsuario = usuario.id
-join tanque on fkEmpresa = empresa.id
-join sensor on fkTanque = tanque.id
-join leitura on fkSensor = sensor.id;
+insert into leitura (umidade, temperatura, diaHora, fkSensor, nmrSemana)
+values 		(80.0, 35.5, "2024-04-09 11:05:29", 3500, WEEK(CURDATE())),
+			(80.0, 31.2, '2024-04-09 12:15:00', 3501, WEEK(CURDATE())),
+			(80.0, 30.5, '2024-04-09 13:30:45', 3502, WEEK(CURDATE())),
+			(80.0, 33.1, '2024-04-09 14:45:20', 3503, WEEK(CURDATE())),
+			(80.0, 29.8, '2024-04-09 16:00:00', 3504, WEEK(CURDATE())),
+			(80.0, 28.7, '2024-04-09 17:15:30', 3505, WEEK(CURDATE()));
+            
+            insert into leitura (umidade, temperatura, diaHora, fkSensor, nmrSemana)
+values 		(58.0, 28.5, "2024-04-09 11:08:29", 3500, WEEK(CURDATE())),
+(60.0, 30.5, "2024-04-09 11:09:29", 3500, WEEK(CURDATE())),
+(80.0, 22.5, "2024-04-09 11:10:29", 3500, WEEK(CURDATE())),
+(90.0, 28.5, "2024-04-09 11:15:29", 3500, WEEK(CURDATE())),
+(59.0, 26.5, "2024-04-09 11:16:29", 3500, WEEK(CURDATE()));

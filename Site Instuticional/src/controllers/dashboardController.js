@@ -13,7 +13,7 @@ function buscarDadosAtuais(req, res) {
                 console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
                 if (resultadoAutenticar.length > 0) {
                     console.log(resultadoAutenticar);
-                    res.json(resultadoAutenticar[0]);
+                    res.json(resultadoAutenticar);
                 }
                else if (resultadoAutenticar.length == 0) {
                     res.status(403).send("Email e/ou senha inválido(s)");
