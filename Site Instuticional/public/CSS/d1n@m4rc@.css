@@ -10,16 +10,42 @@ body {
 
 #container {
     width: 80%;
-    margin: 50px auto;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
 }
 
-h1 {
-    color: white;
+#container img {
+    height: 14vh;
+    width: 8vw;
+    left: 50%;
+    transform: translateX(-7%);
 }
 
-h3 {
-    color: white
+.titulo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.respostaDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+span {
+    color: white;
+    font-size: 26px;
+}
+
+#respostaIA {
+    color: white;
+    font-size: 17px;
 }
 
 textarea[type="text"] {
@@ -50,7 +76,7 @@ button:hover {
 }
 
 #resposta {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
     background-color: #D0D3D4;

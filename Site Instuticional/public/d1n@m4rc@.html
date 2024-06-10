@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PiraTechIA</title>
     <link rel="stylesheet" href="css/d1n@m4rc@.css">
+    <link rel="shortcut icon" href="./assets/icon/3_logo.png" type="image/x-icon">
 </head>
 <body>
 
     <div id="container">
-        <h1>PiraTechIA</h1>
-        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-        <br><br>
-        <button onclick="gerarResposta()">Gerar Resposta</button>
-        <h3>Resposta da IA:</h3>
-        <div id="resposta"></div>
+        <div class="titulo">
+            <img src="./assets/icon/3_logo.png" alt="">
+            <span>PiraTechIA</span>
+        </div>
+
+        <div class="respostaDiv">
+            <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
+            <button onclick="gerarResposta()">Gerar Resposta</button>
+            <span id="respostaIA">Resposta da IA:</span>
+            <div id="resposta"></div>
+        </div>
     </div>
 
     </body>
