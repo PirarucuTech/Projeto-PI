@@ -8,4 +8,12 @@ router.post("/buscarDadosAtuais", function (req, res) {
     dashboardController.buscarDadosAtuais(req, res);
 });
 
+router.post("/buscarMediasDaSemanas", function (req, res) {
+    dashboardController.buscarMediasDaSemanas(req, res);
+});
+
+router.post("/buscarDadosDosGraficos", function (req, res) {
+    dashboardController.buscarDadosDosGraficos(req, res);
+});
+
 module.exports = router;

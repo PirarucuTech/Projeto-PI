@@ -139,8 +139,7 @@
             </button>
           </div>
         </div>
-        <div class="container_tanques" id="divTanques">
-        </div>
+        <div class="container_tanques" id="divTanques"></div>
         <div class="container_legenda_umi_temp">
           <span
             >Legenda:
@@ -160,7 +159,7 @@
             </div>
             <div class="container_media_img">
               <img src="./assets/icon/logo_temp.png" alt="" />
-              <span>26°C</span>
+              <span id="span_mediaTemperatura">26°C</span>
             </div>
           </div>
 
@@ -171,7 +170,7 @@
             </div>
             <div class="container_media_img">
               <img src="./assets/icon/logo_umi.png" alt="" />
-              <span>97%</span>
+              <span id="span_mediaUmidade">97%</span>
             </div>
           </div>
         </div>
@@ -190,7 +189,7 @@
 
 <script>
   //  container_tanques;
-
+  let tanques = []
   buscarDados();
   function buscarDados() {
     fetch("/dashboard/buscarDadosAtuais", {
@@ -222,26 +221,26 @@
               criticos++;
               console.log("criticos:" + criticos);
               divTanques.innerHTML += `
-                <div class="tanque_individual">
-                               <div class="tanque_individual_img_indicadora">
-     <img class="img_indicador" src="assets/icon/logo_critico.png" />
-   </div>
-<div class="tanque_individual_titulo">
-    <span>${ultimaLeitura.identificacao}</span>
-</div>
+                  <div class="tanque_individual" onclick="armazenarId('${ultimaLeitura.identificacao}')">
+                                 <div class="tanque_individual_img_indicadora">
+       <img class="img_indicador" src="assets/icon/logo_critico.png" />
+     </div>
+  <div class="tanque_individual_titulo">
+      <span>${ultimaLeitura.identificacao}</span>
+  </div>
 
-<div class="tanque_individual_img">
-    <img src="./assets/icon/logo_temp.png" alt="">
-        <img src="./assets/icon/logo_umi.png" alt="">
-        </div>
+  <div class="tanque_individual_img">
+      <img src="./assets/icon/logo_temp.png" alt="">
+          <img src="./assets/icon/logo_umi.png" alt="">
+          </div>
 
-        <div class="tanque_individual_info">
-            <span>${ultimaLeitura.temperatura}°C</span>
-            <span>${ultimaLeitura.umidade}%</span>
-        </div>
-</div>
-</div>
-               `;
+          <div class="tanque_individual_info">
+              <span>${ultimaLeitura.temperatura}°C</span>
+              <span>${ultimaLeitura.umidade}%</span>
+          </div>
+  </div>
+  </div>
+                 `;
             } else if (
               ultimaLeitura.temperatura >= 31 ||
               ultimaLeitura.temperatura <= 24 ||
@@ -250,48 +249,48 @@
               alertas++;
               console.log("alertas" + alertas);
               divTanques.innerHTML += `
-                <div class="tanque_individual">
-                               <div class="tanque_individual_img_indicadora">
-     <img class="img_indicador" src="assets/icon/logo_alerta.png" />
-   </div>
-<div class="tanque_individual_titulo">
-    <span>${ultimaLeitura.identificacao}</span>
-</div>
+                  <div class="tanque_individual" onclick="armazenarId('${ultimaLeitura.identificacao}')">
+                                 <div class="tanque_individual_img_indicadora">
+       <img class="img_indicador" src="assets/icon/logo_alerta.png" />
+     </div>
+  <div class="tanque_individual_titulo">
+      <span>${ultimaLeitura.identificacao}</span>
+  </div>
 
-<div class="tanque_individual_img">
-    <img src="./assets/icon/logo_temp.png" alt="">
-        <img src="./assets/icon/logo_umi.png" alt="">
-        </div>
+  <div class="tanque_individual_img">
+      <img src="./assets/icon/logo_temp.png" alt="">
+          <img src="./assets/icon/logo_umi.png" alt="">
+          </div>
 
-        <div class="tanque_individual_info">
-            <span>${ultimaLeitura.temperatura}°C</span>
-            <span>${ultimaLeitura.umidade}%</span>
-        </div>
-</div>
-</div>
-               `;
+          <div class="tanque_individual_info">
+              <span>${ultimaLeitura.temperatura}°C</span>
+              <span>${ultimaLeitura.umidade}%</span>
+          </div>
+  </div>
+  </div>
+                 `;
             } else {
               divTanques.innerHTML += `
-                <div class="tanque_individual">
-                               <div class="tanque_individual_img_indicadora">
-     <img class="img_indicador" src="assets/icon/logo_joia.png" />
-   </div>
-<div class="tanque_individual_titulo">
-    <span>${ultimaLeitura.identificacao}</span>
-</div>
+                  <div class="tanque_individual" onclick="armazenarId('${ultimaLeitura.identificacao}')">
+                                 <div class="tanque_individual_img_indicadora">
+       <img class="img_indicador" src="assets/icon/logo_joia.png" />
+     </div>
+  <div class="tanque_individual_titulo">
+      <span>${ultimaLeitura.identificacao}</span>
+  </div>
 
-<div class="tanque_individual_img">
-    <img src="./assets/icon/logo_temp.png" alt="">
-        <img src="./assets/icon/logo_umi.png" alt="">
-        </div>
+  <div class="tanque_individual_img">
+      <img src="./assets/icon/logo_temp.png" alt="">
+          <img src="./assets/icon/logo_umi.png" alt="">
+          </div>
 
-        <div class="tanque_individual_info">
-            <span>${ultimaLeitura.temperatura}°C</span>
-            <span>${ultimaLeitura.umidade}%</span>
-        </div>
-</div>
-</div>
-               `;
+          <div class="tanque_individual_info">
+              <span>${ultimaLeitura.temperatura}°C</span>
+              <span>${ultimaLeitura.umidade}%</span>
+          </div>
+  </div>
+  </div>
+                 `;
             }
             span_criticos.innerHTML = `${criticos}/${qtdTanques}`;
             span_alertas.innerHTML = `${alertas}/${qtdTanques}`;
@@ -302,31 +301,108 @@
     });
   }
 
+  buscarMediasDaSemanas();
+  function buscarMediasDaSemanas() {
+    fetch("/dashboard/buscarMediasDaSemanas", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            span_mediaTemperatura.innerHTML = `${json[0].temperatura}°C`;
+            span_mediaUmidade.innerHTML = `${json[0].umidade}%`;
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+  const dadosGrafico = [];
+  const nrmsSemanas = [];
+
+  buscarDadosDosGraficos();
+  function buscarDadosDosGraficos() {
+    fetch("/dashboard/buscarDadosDosGraficos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+           // alert("O gráfico foi plotado");
+            json.forEach((semana) => {
+              dadosGrafico.push(semana.alertas);
+              nrmsSemanas.push(`Semana: ${semana.nmrSemana}`);
+            });
+            dadosGrafico.reverse();
+            nrmsSemanas.reverse();
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
   const ctx = document.getElementById("myChart");
 
   Chart.defaults.color = "white";
   Chart.defaults.font.size = 15;
   Chart.defaults.borderColor = "#15181b";
 
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["01/08", "07/08", "14/08", "21/08", "28/08"],
-      datasets: [
-        {
-          backgroundColor: "white",
-          label: "Histórico de alertas por semana",
-          data: [12, 13, 3, 5, 2, 3],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+  setTimeout(() => {
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: nrmsSemanas,
+        datasets: [
+          {
+            backgroundColor: "white",
+            label: "Histórico de alertas por semana",
+            data: dadosGrafico,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
       },
-    },
-  });
+    });
+  }, 300);
+
+  function armazenarId(nomeDoTanque){
+    sessionStorage.NOME_TANQUE = nomeDoTanque
+    window.location.href = "./dashboard_visaounica.html"
+  }
 </script>
