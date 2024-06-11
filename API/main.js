@@ -12,7 +12,7 @@ const SERVIDOR_PORTA = 3300;
 // Habilita ou desabilita a inserção de dados no banco de dados
 // false -> nao insere
 // true -> insere
-const HABILITAR_OPERACAO_INSERIR = false;
+const HABILITAR_OPERACAO_INSERIR = true;
 
 // Função para comunicação serial
 const serial = async (
@@ -31,10 +31,10 @@ const serial = async (
             // altere!
             // Credenciais do banco de dados
             host: 'localhost',
-            user: 'XXXXXX',
-            password: 'XXXXXXXXX',
-            database: 'XXXXXXXX',
-            port: 3306
+            user: 'aluno',
+            password: 'Sptech#100',
+            database: 'pirarutech',
+            port: 3307
         }
     ).promise();
 
@@ -84,7 +84,7 @@ const serial = async (
             // altere!
             // Este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO leitura (umidade, temperatura,fk_sensor) VALUES (?, ?, ?)',
+                'INSERT INTO leitura (umidade, temperatura,fkSensor, diaHora, nmrSemana) VALUES (?, ?, ?, now(), WEEK(CURDATE()))',
                 [dht11Umidade, dht11Temperatura, dht11FK]
             );
             console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
