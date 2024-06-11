@@ -7,9 +7,8 @@
   right: 30px;
   z-index: 99;
   cursor: pointer;
-  font-size: 18px;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   filter: invert(100);
   rotate: 90deg;
 }
@@ -22,8 +21,6 @@ body {
   font-family: "Kanit", sans-serif;
   font-weight: 200;
 }
-
-
 
 a {
   text-decoration: none;
@@ -83,6 +80,7 @@ html {
   height: 8vh;
 
   cursor: pointer;
+  margin-left: 20px;
 }
 
 
@@ -106,12 +104,14 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin-right: 20px;
 }
 
 .div_options {
   list-style: none;
   width: 50%;
-  margin-left: 8vw;
+  margin-left: 4vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,15 +127,15 @@ html {
 }
 
 .liInicial {
-  transition: 0.1s;
+  transition: 0.3s;
 }
 
 .liSobre {
-  transition: 0.1s;
+  transition: 0.3s;
 }
 
 .liSimulador {
-  transition: 0.1s;
+  transition: 0.3s;
 
 }
 
@@ -172,7 +172,7 @@ html {
 
   cursor: pointer;
 
-  transition: 0.1s;
+  transition: 0.3s;
 
 }
 
@@ -197,7 +197,7 @@ html {
   font-weight: 500;
   font-size: 15px;
 
-  transition: 0.1s;
+  transition: 0.3s;
 
 }
 
@@ -209,23 +209,23 @@ html {
   border: none;
 
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.3s;
 
 }
 
 .btn_calcular:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .btn_login:hover {
   background-color: #267a83;
   border: #154045;
-  transform: scale(1.1)
+  transform: scale(1.05)
 }
 
 .btn_cadastro:hover {
-  background-color: #267a83;
-  transform: scale(1.1)
+  background-color: #154045;
+  transform: scale(1.05)
 }
 
 
@@ -249,6 +249,18 @@ html {
 #logoHome {
   width: 35vw;
   height: 80vh;
+  animation: toggle_animation 3s infinite;
+  
+}
+
+@keyframes toggle_animation{
+  0%, 100% {
+    transform: translateY(-20px) 
+  }
+
+  50%{
+    transform: translateY(0px);
+  }
 }
 
 .container-home {
@@ -305,15 +317,15 @@ html {
 
 .btnLogCadHome {
   background-color: #267a83;
-  width: 15vw;
+  width: 13vw;
   height: 8vh;
   border-radius: 30px;
   border: none;
 
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.3s;
 
-  font-size: 25px;
+  font-size: 20px;
 
   margin-top: 20px;
 
@@ -321,7 +333,7 @@ html {
 
 .btnLogCadHome:hover {
   background-color: #154045;
-  transform: scale(1.1)
+  transform: scale(1.05)
 }
 
 
@@ -403,26 +415,26 @@ html {
 
 }
 
-.btnAcesseDashboard {
+.btnFazerOrçamento {
   width: 15vw;
-  height: 8vh;
+  height: 10vh;
 
-  border-radius: 30px;
+  border-radius: 35px;
   background-color: #267a83;
-  font-size: 25px;
+  font-size: 20px;
 
   border: none;
 
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.3s;
 }
 
-.btnAcesseDashboard:hover {
+.btnFazerOrçamento:hover {
   background-color: #154045;
-  transform: scale(1.1)
+  transform: scale(1.05)
 }
 
-.btnAcesseDashboard:active {
+.btnFazerOrçamento:active {
   background-color: #267a83;
   transform: scale(1);
 }
@@ -449,7 +461,7 @@ html {
   color: white;
 }
 
-.btnTextSimulador {
+.TextSimulador {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -460,21 +472,21 @@ html {
 }
 
 .btnCalculeJa {
-  width: 15vw;
+  width: 13vw;
   height: 8vh;
   border-radius: 30px;
-  font-size: 25px;
+  font-size: 20px;
 
   border: none;
   background-color: #267a83;
 
-  transition: 0.1s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
 .btnCalculeJa:hover {
   background-color: #154045;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .btnCalculeJa:active {

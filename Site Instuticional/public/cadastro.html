@@ -25,10 +25,16 @@
           <input id="inp_sobrenomeCadastro" placeholder="Last Name" /> -->
         <span class="spanCadastro">Email:</span>
         <input id="inp_email" placeholder="Insert Email" />
-        <span class="spanCadastro">Senha:</span>
-        <input id="inp_senha" placeholder="Your Password" />
-        <span class="spanCadastro">Confirmar senha:</span>
-        <input id="inp_senha2" placeholder="Repeat Password" />
+        <div>
+          <span class="spanCadastro">Senha:</span> <br>
+          <input type="password" id="inp_senha" placeholder="Your Password">
+          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoAberto.png" />
+        </div>
+        <div>
+          <span class="spanCadastro">Confirmar senha:</span> <br>
+          <input type="password" id="inp_senha2" placeholder="Repeat Password" />
+          <img id="olho2" onclick="visualizarSenha2()" src="./assets/icon/olhoAberto.png" />
+        </div>
         <span>Já tem uma conta?
           <a href="./login.html"><u>Fazer Log in</u></a></span><br />
         <div class="div_btnCadastro">
@@ -42,6 +48,31 @@
   </div>
 </body>
 <script>
+  function visualizarSenha() {
+    let inputSenha = document.getElementById("inp_senha")
+    let imgSenha = document.getElementById("olho")
+    if (inputSenha.type == "password") {
+      inputSenha.type = 'text'
+      imgSenha.src = "./assets/icon/olhoFechado.png"
+    } else {
+      imgSenha.src = "./assets/icon/olhoAberto.png"
+      inputSenha.type = 'password'
+    }
+  }
+
+  function visualizarSenha2() {
+    let inputSenha2 = document.getElementById("inp_senha2")
+    let imgSenha2 = document.getElementById("olho2")
+    if (inputSenha2.type == "password") {
+      inputSenha2.type = 'text'
+      imgSenha2.src = "./assets/icon/olhoFechado.png"
+    } else {
+      imgSenha2.src = "./assets/icon/olhoAberto.png"
+      inputSenha2.type = 'password'
+    }
+  }
+
+
   function cadastrar() {
     const emailVar = inp_email.value;
     const senhaVar = inp_senha.value;
