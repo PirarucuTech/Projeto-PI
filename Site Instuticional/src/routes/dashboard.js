@@ -23,5 +23,12 @@ router.post("/buscarDadosDosGraficos", function (req, res) {
 router.post("/buscarMedidasGraficoTempoReal", function (req, res) {
     dashboardController.buscarMedidasGraficoTempoReal(req, res);
 });
+router.post("/buscarHorasAlertasDias", function (req, res) {
+    dashboardController.buscarHorasAlertasDias(req, res);
+});
+router.post("/buscarAlertasSemana", function (req, res) {
+    dashboardController.buscarAlertasSemana(req, res);
+});
+
 
 module.exports = router;

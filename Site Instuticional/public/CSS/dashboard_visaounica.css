@@ -19,7 +19,7 @@ body {
   margin-left: 26%;
 }
 
-.nome_tanque a {
+.nome_tanque span {
   font-size: x-large;
   font-weight: bold;
 }

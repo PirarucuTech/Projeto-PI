@@ -24,7 +24,7 @@
           />
         </a>
         <div class="nome_tanque">
-          <a href="">Tanque 9</a>
+          <span id="span_nomeTanque">Tanque</span>
         </div>
         <div class="div_options">
           <ul class="ulNavbar">
@@ -88,10 +88,12 @@
   </body>
 </html>
 <script>
+  span_nomeTanque.innerHTML = sessionStorage.NOME_TANQUE
 
   buscarMedidaTempoReal();
   
   function buscarMedidaTempoReal() {
+
     fetch("/dashboard/buscarMedidaTempoReal", {
       method: "POST",
       headers: {
@@ -121,6 +123,42 @@
         console.log(erro);
       });
   }
+
+ 
+  buscarHorasAlertasDias();
+  
+  function buscarHorasAlertasDias() {
+    fetch("/dashboard/buscarHorasAlertasDias", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            teste.innerHTML = `${json[0].alertas} HORAS`
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+
+
 
 let temperaturas = []
 let umidades = []
@@ -163,6 +201,45 @@ let horas = []
         console.log(erro);
       });
   }
+
+let alertas = []
+let numerosSemanas = []
+  buscarAlertasSemana();
+  function buscarAlertasSemana() {
+    fetch("/dashboard/buscarAlertasSemana", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            json.forEach((leituras) => {
+              numerosSemanas.push(leituras.nmrSemana)
+              alertas.push(leituras.alertas)
+            })
+            historico.data.datasets[0].data = alertas
+            historico.data.labels = numerosSemanas
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
 
   const grafico1 = document.getElementById("tempo_real");
   let tempoReal = new Chart(grafico1, {
