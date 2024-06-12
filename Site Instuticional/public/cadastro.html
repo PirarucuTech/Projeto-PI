@@ -11,7 +11,7 @@
 
 <body>
   
-  <div class="modal"  style="display: none;">
+  <div class="modal" id="modalId" style="display: none;">
     <div class="content_modal">
       <img src="assets/imgs/check.gif" width="250"/>
         <span class="titulo_modal">Cadastro concluído!</span>
@@ -20,7 +20,7 @@
     </div>
   </div>
   
-  <div class="container-inicio-cadastro">
+  <div class="container-inicio-cadastro" id="containerInicio">
     <div class="card-cadastro">
       <div class="divArrow">
         <a href="./index.html"><img src="./assets/icon/arrow.png" id="imgArrow" /></a>
@@ -61,8 +61,7 @@
   </div>
 </body>
 <script>
-    let modalCard = modal.value
-    let cadastroCard = container_inicio_cadastro.value
+
 
   function visualizarSenha() {
     let inputSenha = document.getElementById("inp_senha")
@@ -131,12 +130,9 @@
               console.log("resposta: ", resposta);
 
               if (resposta.ok) {
-                modalCard.style.display = "block";
-                cadastroCard.style.display = "none";
+                modalId.style.display = "flex";
+                containerInicio.style.display = "none";
 
-                setTimeout(() => {
-                  window.location = "login.html";
-                }, "2000");
               } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
               }
