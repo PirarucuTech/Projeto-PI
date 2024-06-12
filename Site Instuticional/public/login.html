@@ -1,97 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="./CSS/login.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/icon/3_logo.png"
-      type="image/x-icon"
-    />
-  </head>
 
-  <body>
-    <div class="container-inicio-login">
-      <div class="card-login">
-        <div class="divArrow">
-          <a href="./index.html"
-            ><img src="./assets/icon/arrow.png" id="imgArrow"
-          /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="./CSS/login.css" />
+  <link rel="shortcut icon" href="./assets/icon/3_logo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <div class="container-inicio-login">
+    <div class="card-login">
+      <div class="divArrow">
+        <a href="./index.html"><img src="./assets/icon/arrow.png" id="imgArrow" /></a>
+      </div>
+
+      <span class="tituloLogin">Log In</span>
+
+      <div class="inputs_login">
+        <span class="spanlogin">Email:</span>
+        <input id="inp_email" placeholder="Insert Email" />
+        <div>
+          <span class="spanCadastro">Senha:</span> <br>
+          <input type="password" id="inp_senha" placeholder="Your Password">
+          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoAberto.png" />
         </div>
-
-        <span class="tituloLogin">Log In</span>
-
-        <div class="inputs_login">
-          <span class="spanlogin">Email:</span>
-          <input id="inp_email" placeholder="Insert Email" />
-          <span class="spanlogin">Senha:</span>
-          <input id="inp_senha" placeholder="Your Password" />
-          <span
-            >Ainda não tem uma conta?
-            <a href="./cadastro.html"><u>Fazer Cadastro</u></a></span
-          ><br />
-          <div class="div_btnlogin">
-            <button class="btnlogin" onclick="entrar()">Login</button>
-          </div>
-          <div class="card_erro">
-            <span id="span_erro"></span>
-          </div>
+        <span>Ainda não tem uma conta?
+          <a href="./cadastro.html"><u>Fazer Cadastro</u></a></span><br />
+        <div class="div_btnlogin">
+          <button class="btnlogin" onclick="entrar()">Login</button>
+        </div>
+        <div class="card_erro">
+          <span id="span_erro"></span>
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    function entrar() {
-      var emailVar = inp_email.value;
-      var senhaVar = inp_senha.value;
+  </div>
+</body>
+<script>
 
-      console.log("FORM LOGIN: ", emailVar);
-      console.log("FORM SENHA: ", senhaVar);
-
-      fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          emailServer: emailVar,
-          senhaServer: senhaVar,
-        }),
-      })
-        .then(function (resposta) {
-          console.log("ESTOU NO THEN DO entrar()!");
-
-          if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then((json) => {
-              console.log(json);
-              console.log(JSON.stringify(json));
-              sessionStorage.EMAIL_USUARIO = json.email;
-              sessionStorage.NOME_USUARIO = json.nome;
-              sessionStorage.ID_USUARIO = json.id;
-              sessionStorage.EMPRESA = json.empresa;
-
-              setTimeout(function () {
-                window.location = "dashboard_visaoGeral.html";
-              }, 2000); // apenas para exibir o loading
-            });
-          } else {
-            span_erro.innerHTML = `Login Inválido`;
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then((texto) => {
-              console.error(texto);
-            });
-          }
-        })
-        .catch(function (erro) {
-          console.log(erro);
-        });
-
-      return false;
+  function visualizarSenha() {
+    let inputSenha = document.getElementById("inp_senha")
+    let imgSenha = document.getElementById("olho")
+    if (inputSenha.type == "password") {
+      inputSenha.type = 'text'
+      imgSenha.src = "./assets/icon/olhoFechado.png"
+    } else {
+      imgSenha.src = "./assets/icon/olhoAberto.png"
+      inputSenha.type = 'password'
     }
-  </script>
+  }
+
+  function entrar() {
+    var emailVar = inp_email.value;
+    var senhaVar = inp_senha.value;
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.EMPRESA = json.empresa;
+
+            setTimeout(function () {
+              window.location = "dashboard_visaoGeral.html";
+            }, 2000); // apenas para exibir o loading
+          });
+        } else {
+          span_erro.innerHTML = `Login Inválido`;
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+  }
+</script>
+
 </html>

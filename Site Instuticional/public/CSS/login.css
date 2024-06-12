@@ -226,6 +226,13 @@ li {
 
 /*LOGIN*/
 
+#olho {
+  left: 59%;
+  margin-top: 0.8%;
+  position: absolute;
+  width: 25px;
+}
+
 .divArrow {
   background-color: transparent;
   display: flex;
