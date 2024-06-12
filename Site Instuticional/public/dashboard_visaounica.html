@@ -88,6 +88,12 @@
   </body>
 </html>
 <script>
+  setInterval(()=>{
+    buscarMedidaTempoReal()
+    buscarHorasAlertasDias()
+    buscarMedidasGraficoTempoReal()
+    buscarAlertasSemana()
+  }, 5000)
   span_nomeTanque.innerHTML = sessionStorage.NOME_TANQUE
 
   buscarMedidaTempoReal();
@@ -189,6 +195,9 @@ let horas = []
             tempoReal.data.datasets[0].data = temperaturas
             tempoReal.data.datasets[1].data = umidades
             tempoReal.data.labels = horas
+            temperaturas = []
+            umidades = []
+            horas = []
           });
         } else {
           console.log("Houve um erro ao tentar realizar o login!");
@@ -227,6 +236,8 @@ let numerosSemanas = []
             })
             historico.data.datasets[0].data = alertas
             historico.data.labels = numerosSemanas
+            alertas = []
+            numerosSemanas = []
           });
         } else {
           console.log("Houve um erro ao tentar realizar o login!");
