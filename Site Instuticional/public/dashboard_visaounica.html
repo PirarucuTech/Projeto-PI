@@ -1,86 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Visão Unica</title>
+    <link rel="stylesheet" href="CSS/inicial.css" />
+    <link rel="stylesheet" href="CSS/dashboard_visaounica.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="shortcut icon"
+      href="assets/icon/3_logo.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - Visão Unica</title>
-  <link rel="stylesheet" href="CSS/inicial.css" />
-  <link rel="stylesheet" href="CSS/dashboard_visaounica.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="shortcut icon" href="assets/icon/3_logo.png" type="image/x-icon" />
-</head>
-
-<body>
-  <header class="navbar">
-    <div class="container-items">
-      <a href="./index.html">
-        <img src="assets/icon/3_PirarucuTech_horizontal_semfundo.png" id="logo" />
-      </a>
-      <div class="nome_tanque">
-        <a href="">Tanque 9</a>
+  <body>
+    <header class="navbar">
+      <div class="container-items">
+        <a href="./index.html">
+          <img
+            src="assets/icon/3_PirarucuTech_horizontal_semfundo.png"
+            id="logo"
+          />
+        </a>
+        <div class="nome_tanque">
+          <a href="">Tanque 9</a>
+        </div>
+        <div class="div_options">
+          <ul class="ulNavbar">
+            <li class="configuracoes"><a href="">Configurações</a></li>
+            <li class="meuperfil"><a href="">Meu Perfil</a></li>
+            <li class="sair"><a href="">Sair</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="div_options">
-        <ul class="ulNavbar">
-          <li class="configuracoes"><a href="">Configurações</a></li>
-          <li class="meuperfil"><a href="">Meu Perfil</a></li>
-          <li class="sair"><a href="">Sair</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="homepage">
-    <div class="cards_kpi">
-      <div class="card_kpi_temporeal">
-        <div class="kpi_temporeal_text">
-          Temperatura e umidade <br />
-          (em tempo real): <br />
-          <div class="kpi_temporeal_img">
-            <img src="assets/icon/logo_temp.png" alt="" />
-            <img src="assets/icon/logo_umi.png" alt="" />
+    <div class="homepage">
+      <div class="cards_kpi">
+        <div class="card_kpi_temporeal">
+          <div class="kpi_temporeal_text">
+            Temperatura e umidade <br />
+            (em tempo real): <br />
+            <div class="kpi_temporeal_img">
+              <img src="assets/icon/logo_temp.png" alt="" />
+              <img src="assets/icon/logo_umi.png" alt="" />
+            </div>
+            <div class="kpi_temporeal_textinside">
+              <span>18.1C°</span>
+              <br />
+              <span>90.5%</span>
+              <br />
+            </div>
           </div>
-          <div class="kpi_temporeal_textinside">
-            <span>18C°</span>
-            <br />
-            <span>90%</span>
-            <br />
+        </div>
+        <div class="card_kpi_alerta">
+          <div class="kpi_alerta_text">
+            Tempo acumulado em alerta: <br />(Nas últimas 48hrs)
+            <div class="kpi_alerta_textinside">
+              <span id="teste">10 Horas</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card_kpi_alerta">
-        <div class="kpi_alerta_text">
-          Tempo acumulado em alerta: <br />(Nas últimas 48hrs)
-          <div class="kpi_alerta_textinside">
-            <span id="teste">10 Horas</span>
+
+      <div class="legenda">
+        <span>Legenda:</span>
+        <img src="assets/icon/logo_temp.png" alt="" />
+        <span>Temperatura</span>
+
+        <img src="assets/icon/logo_umi.png" alt="" />
+        <span>Umidade</span>
+      </div>
+      <div class="container_below">
+        <div class="grafico_temporeal">
+          <div>
+            <canvas id="tempo_real"></canvas>
+          </div>
+        </div>
+        <div class="grafico_temporeal">
+          <div>
+            <canvas id="historico_alerta"> </canvas>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="legenda">
-      <span>Legenda:</span>
-      <img src="assets/icon/logo_temp.png" alt="" />
-      <span>Temperatura</span>
-
-      <img src="assets/icon/logo_umi.png" alt="" />
-      <span>Umidade</span>
-    </div>
-    <div class="container_below">
-      <div class="grafico_temporeal">
-        <div>
-          <canvas id="tempo_real"></canvas>
-        </div>
-      </div>
-      <div class="grafico_temporeal">
-        <div>
-          <canvas id="historico_alerta"> </canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
 <script>
   const grafico1 = document.getElementById("tempo_real");

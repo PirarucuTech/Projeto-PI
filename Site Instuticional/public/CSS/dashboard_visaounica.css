@@ -60,9 +60,10 @@ body {
 .kpi_temporeal_textinside {
   display: flex;
   width: 25vh;
-  gap: 28%;
-  margin-left: 10%;
+  gap: 24%;
+  margin-left: 5%;
   padding-bottom: 5px;
+  font-weight: bold;
 }
 
 .kpi_alerta_textinside {
@@ -84,6 +85,15 @@ body {
   padding: 15px;
   display: flex;
   justify-content: space-between;
+}
+.kpi_temporeal_text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.kpi_alerta_text {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .kpi_temporeal_text,

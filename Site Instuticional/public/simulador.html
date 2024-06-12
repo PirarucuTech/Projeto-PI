@@ -1,136 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulador Financeiro</title>
-    <link rel="stylesheet" href="./CSS/simuladorFinanceiro.css">
-    <link rel="shortcut icon" href="./assets/icon/3_logo.png" type="image/x-icon">
-</head>
+    <link rel="stylesheet" href="./CSS/simuladorFinanceiro.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/3_logo.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="navbar">
-
-        <div class="container-items">
-
-
-            <a href="./index.html"><img src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png" id="logo"></a>
-            <div class="div_options">
-                <ul class="ulNavbar">
-                    <li class="liInicial"><a href="./index.html">Inicial</a></li>
-                    <li class="liSobre"><a href="./index.html #sobre">Sobre</a></li>
-                    <li class="liSimulador"><a href="./simulador.html">Simulador financeiro</a></li>
-                    <!-- <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li> -->
-                </ul>
-            </div>
-
-            <div class="btns_navbar">
-                <button class="btn_login" onclick="button_login()"> <a href="./login.html">Login</a></button>
-                <button class="btn_cadastro" onclick="button_cadastro()"> <a href="./cadastro.html">Cadastro</a>
-                </button>
-            </div>
-
-
+      <div class="container-items">
+        <a href="./index.html"
+          ><img
+            src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png"
+            id="logo"
+        /></a>
+        <div class="div_options">
+          <ul class="ulNavbar">
+            <li class="liInicial"><a href="./index.html">Inicial</a></li>
+            <li class="liSobre"><a href="./index.html #sobre">Sobre</a></li>
+            <li class="liSimulador">
+              <a href="./simulador.html">Simulador financeiro</a>
+            </li>
+            <!-- <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li> -->
+          </ul>
         </div>
 
+        <div class="btns_navbar">
+          <button class="btn_login" onclick="button_login()">
+            <a href="./login.html">Login</a>
+          </button>
+          <button class="btn_cadastro" onclick="button_cadastro()">
+            <a href="./cadastro.html">Cadastro</a>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="cards-calculadora">
-
-        <div id="div_card_inputs" class="card-inputs">
-            <div class="titulo_card_inputs">
-                <span>Calcule aqui:</span>
-            </div>
-            <span>Informe a quantidade de Pirarucu por tanque:</span> <br>
-            <input required type="number" placeholder="Quantidade de Pirarucus" id="input_qtdPirarucu"
-                class="input_card"><br>
-            <span>Informe a quantidade de Tanques:</span> <br>
-            <input required type="number" placeholder="Tanques" id="input_qtdTanques" class="input_card"> <br>
-            <span>Informe o preço por Quilo:</span> <br>
-            <input required type="number" placeholder="Preço por Quilograma" id="input_precoKg" class="input_card"> <br>
-            <div id="print_erroValores"></div>
-
-            <button onclick="button_calcular_prejuizos()" class="btn_calcular ">Calcular</button>
+      <div id="div_card_inputs" class="card-inputs">
+        <div class="titulo_card_inputs">
+          <span>Calcule aqui:</span>
         </div>
+        <span>Informe a quantidade de Pirarucu por tanque:</span> <br />
+        <input
+          required
+          type="number"
+          placeholder="Quantidade de Pirarucus"
+          id="input_qtdPirarucu"
+          class="input_card"
+        /><br />
+        <span>Informe a quantidade de Tanques:</span> <br />
+        <input
+          required
+          type="number"
+          placeholder="Tanques"
+          id="input_qtdTanques"
+          class="input_card"
+        />
+        <br />
+        <span>Informe o preço por Quilo:</span> <br />
+        <input
+          required
+          type="number"
+          placeholder="Preço por Quilograma"
+          id="input_precoKg"
+          class="input_card"
+        />
+        <br />
+        <div id="print_erroValores"></div>
 
-        <div style="display: none;flex-direction: column; align-items: center;" id="div_card_resposta"
-            class="card-resposta">
-        </div>
+        <button onclick="button_calcular_prejuizos()" class="btn_calcular">
+          Calcular
+        </button>
+      </div>
+
+      <div
+        style="display: none; flex-direction: column; align-items: center"
+        id="div_card_resposta"
+        class="card-resposta"
+      ></div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
 
 <script>
-    var primeiraVez = true
+  var primeiraVez = true;
 
-    function mostrarDivResposta() {
-        var divResposta = document.getElementById("div_card_resposta")
-        divResposta.style.transition = "2000ms"
-        divResposta.style.opacity = 1
-        divResposta.style.transform = "translateY(0%)"
-        divResposta.style.userSelect = "auto"
-        divResposta.style.display = "flex"
+  function mostrarDivResposta() {
+    var divResposta = document.getElementById("div_card_resposta");
+    divResposta.style.transition = "2000ms";
+    divResposta.style.opacity = 1;
+    divResposta.style.transform = "translateY(0%)";
+    divResposta.style.userSelect = "auto";
+    divResposta.style.display = "flex";
+  }
+
+  function button_calcular_prejuizos() {
+    if (primeiraVez == true) {
+      primeiraVez = false;
+      mostrarDivResposta();
     }
+    calcularcustos();
+  }
 
-    function button_calcular_prejuizos() {
-        if (primeiraVez == true) {
-            primeiraVez = false
-            mostrarDivResposta()
-        }
-        calcularcustos()
-    }
+  function calcularcustos() {
+    const qtdPirarucuPorTanque = Number(input_qtdPirarucu.value);
+    const qtdTanques = Number(input_qtdTanques.value);
+    const precoKg = Number(input_precoKg.value);
 
-    function calcularcustos() {
+    /* Quantidade de Pirarucu x Quantidade de Tanques x preço do quilo*/
+    if (qtdPirarucuPorTanque * qtdTanques * precoKg > 0) {
+      print_erroValores.innerHTML = "";
+      let qtdPirarucus = qtdPirarucuPorTanque * qtdTanques;
+      let kilos = qtdPirarucus * 13;
+      let kilosPerdidos =
+        kilos * 0.33 * 0.1; /* Quilos x Porcentagem estimada de perda */
 
-        const qtdPirarucuPorTanque = Number(input_qtdPirarucu.value)
-        const qtdTanques = Number(input_qtdTanques.value)
-        const precoKg = Number(input_precoKg.value)
+      let precoDaCriacao =
+        kilos *
+        6.72; /* Variável Kilos x 6,72 -> que é o custo estimado por kg/produção de um pirarucu */
+      let valorTotal =
+        kilos * precoKg; /* Kilos x Preço da quilograma da carne */
+      let precoDaCriacaoDisperdicada =
+        kilosPerdidos *
+        6.72; /* Quilos desperdiçados x custo estimado por kg/produção de um pirarucu  */
+      let valorPerda =
+        kilosPerdidos *
+        precoKg; /* Quilos Perdidos x Preço da Carne -> para quantificar o numero da perda */
 
-        /* Quantidade de Pirarucu x Quantidade de Tanques x preço do quilo*/
-        if ((qtdPirarucuPorTanque * qtdTanques * precoKg) > 0) {
-            print_erroValores.innerHTML = ""
-            let qtdPirarucus = qtdPirarucuPorTanque * qtdTanques
-            let kilos = qtdPirarucus * 13
-            let kilosPerdidos = kilos * 0.33 * 0.1 /* Quilos x Porcentagem estimada de perda */
+      // peso é de 13kg o pirarucu, tendo um 1 ano
+      // porcentagem de perda no viveiro é de 33% dos pirarucus
+      // Custo estimado de produção para 1(UM!) Quilograma de pirarucu é de R$6,72
 
-            let precoDaCriacao = (kilos * 6.72)/* Variável Kilos x 6,72 -> que é o custo estimado por kg/produção de um pirarucu */
-            let valorTotal = (kilos * precoKg) /* Kilos x Preço da quilograma da carne */
-            let precoDaCriacaoDisperdicada = (kilosPerdidos * 6.72) /* Quilos desperdiçados x custo estimado por kg/produção de um pirarucu  */
-            let valorPerda = (kilosPerdidos * precoKg) /* Quilos Perdidos x Preço da Carne -> para quantificar o numero da perda */
+      let valorTotalForm = valorTotal.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+      let precoDaCriacaoForm = precoDaCriacao.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+      let valorPerdaForm = valorPerda.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+      let precoDaCriacaoDisperdicadaForm =
+        precoDaCriacaoDisperdicada.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
 
-            // peso é de 13kg o pirarucu, tendo um 1 ano
-            // porcentagem de perda no viveiro é de 33% dos pirarucus
-            // Custo estimado de produção para 1(UM!) Quilograma de pirarucu é de R$6,72
-
-            let valorTotalForm = valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            let precoDaCriacaoForm = precoDaCriacao.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            let valorPerdaForm = valorPerda.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-            let precoDaCriacaoDisperdicadaForm = precoDaCriacaoDisperdicada.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-
-            div_card_resposta.innerHTML =
-                ` 
+      div_card_resposta.innerHTML = ` 
             <p style="margin: 5px">Considerando que, em média, <b>33%</b> dos pirarucus jovens perdidos são devido a problemas de umidade e temperatura:</p> 
             
-            <p style="margin: 5px"> A venda dos pirarucus renderia aproximadamente <b style="color:green;">${valorTotalForm}</b>, enquanto o custo de criação é de <b>${precoDaCriacaoForm}</b>. Isso resultaria em um lucro de <b style="color:green;">${(valorTotal - precoDaCriacao).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</b>.</p>
+            <p style="margin: 5px"> A venda dos pirarucus renderia aproximadamente <b style="color:green;">${valorTotalForm}</b>, enquanto o custo de criação é de <b>${precoDaCriacaoForm}</b>. Isso resultaria em um lucro de <b style="color:green;">${(
+        valorTotal - precoDaCriacao
+      ).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}</b>.</p>
             
             <p style="margin: 5px">No entanto, devido à falta de cuidado, você poderia perder até <b>33%</b> da produção, resultando em uma perda potencial de <b style="color: red;">${valorPerdaForm}</b> em vendas e <b style="color: red;">${precoDaCriacaoDisperdicadaForm}</b> em custos de produção desperdiçados.</p>
             
-            <p style="margin: 5px">Finalizando, com a utilização do nosso projeto, você:</p>
+            <p style="margin: 5px">Finalizando, com a utilização CORRETA do nosso projeto, você:</p>
                 <div class="mini-card">
-                    <p style="margin: 0; margin-left: 5px; margin-left: 2px; font-size:16px; justify-content: center; display: flex;" float>Deixa de perder</p>
-                    <p style="margin: 0 auto; font-size: 40px;font-weight:bold;">${((valorPerda + precoDaCriacaoDisperdicada) * 0.5).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                    <p style="margin: 5px">Conseguindo assim evitar parte de suas perdas</p>
+                    <p style="margin: 0; margin-left: 5px; margin-left: 2px; font-size:16px; justify-content: center; display: flex;" float>Pode deixar de perder</p>
+                    <p style="margin: 0 auto; font-size: 40px;font-weight:bold;">${(
+                      (valorPerda + precoDaCriacaoDisperdicada) *
+                      0.15
+                    ).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}</p>
+                    <p style="margin: 5px">Caso faça uso correto da aplicação</p>
                 </div>
-            `
-        } else {
-            print_erroValores.innerHTML = `<p style="color: red; font-size: 10px;">* Valores inválidos. Favor inserir corretamente</p>`
-            div_card_resposta.style.display = 'none'
-            primeiraVez = true;
-        }
+            `;
+    } else {
+      print_erroValores.innerHTML = `<p style="color: red; font-size: 10px;">* Valores inválidos. Favor inserir corretamente</p>`;
+      div_card_resposta.style.display = "none";
+      primeiraVez = true;
     }
-
+  }
 </script>
