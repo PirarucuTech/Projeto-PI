@@ -10,44 +10,60 @@
 </head>
 
 <body>
+  
+  <div class="modal"  style="display: none;">
+    <div class="content_modal">
+      <img src="assets/imgs/check.gif" width="250"/>
+        <span class="titulo_modal">Cadastro concluído!</span>
+        <span class="texto-modal">Entraremos em contato em até 5 dias úteis para realizarmos o seu orçamento.</span>
+        <a href="index.html"><button class="btnCadastro">Voltar para a tela inicial</button></a>
+    </div>
+  </div>
+  
   <div class="container-inicio-cadastro">
     <div class="card-cadastro">
       <div class="divArrow">
         <a href="./index.html"><img src="./assets/icon/arrow.png" id="imgArrow" /></a>
       </div>
 
+
       <span class="tituloCadastro">Sign up</span>
 
       <div class="inputs_cadastro">
         <span class="spanCadastro">Nome Completo:</span>
-        <input id="inp_nomeCadastro" placeholder="Name" />
-        <!-- <span class="spanCadastro">Sobrenome:</span>
-          <input id="inp_sobrenomeCadastro" placeholder="Last Name" /> -->
+        <input id="inp_nomeCadastro" placeholder="Name"/>
+
         <span class="spanCadastro">Email:</span>
-        <input id="inp_email" placeholder="Insert Email" />
+        <input id="inp_email" placeholder="Insert Email"/>
+
         <div>
           <span class="spanCadastro">Senha:</span> <br>
           <input type="password" id="inp_senha" placeholder="Your Password">
           <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoAberto.png" />
         </div>
+
         <div>
-          <span class="spanCadastro">Confirmar senha:</span> <br>
+          <span class=""spanCadastro">Confirmar senha:</span> <br>
           <input type="password" id="inp_senha2" placeholder="Repeat Password" />
           <img id="olho2" onclick="visualizarSenha2()" src="./assets/icon/olhoAberto.png" />
         </div>
+
         <span>Já tem uma conta?
           <a href="./login.html"><u>Fazer Log in</u></a></span><br />
-        <div class="div_btnCadastro">
+          <div class="card_erro">
+            <span id="span_erro"></span>
+          </div>
+          <div class="div_btnCadastro">
           <button class="btnCadastro" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div class="card_erro">
-          <span id="span_erro"></span>
         </div>
       </div>
     </div>
   </div>
 </body>
 <script>
+    let modalCard = modal.value
+    let cadastroCard = container_inicio_cadastro.value
+
   function visualizarSenha() {
     let inputSenha = document.getElementById("inp_senha")
     let imgSenha = document.getElementById("olho")
@@ -115,9 +131,8 @@
               console.log("resposta: ", resposta);
 
               if (resposta.ok) {
-                alert(
-                  "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
-                );
+                modalCard.style.display = "block";
+                cadastroCard.style.display = "none";
 
                 setTimeout(() => {
                   window.location = "login.html";
