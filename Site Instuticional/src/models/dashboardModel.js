@@ -44,8 +44,53 @@ limit 5;
   return database.executar(instrucaoSql);
 }
 
+function buscarMedidaTempoReal(idEmpresa, idTanque) {
+  let instrucaoSql = `
+    select leitura.umidade, leitura.temperatura 
+from tanque  
+join sensor on tanque.id = sensor.fkTanque and tanque.fkEmpresa = sensor.fkTanqueEmpresa
+left join leitura on sensor.id = leitura.fkSensor 
+where tanque.fkEmpresa = ${idEmpresa} and tanque.identificacao = "${idTanque}"
+order by leitura.diahora desc
+limit 1;
+    `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function buscarMedidasGraficoTempoReal(idEmpresa, idTanque) {
+  let instrucaoSql = `
+    select leitura.umidade, leitura.temperatura, DATE_FORMAT(leitura.diahora ,'%H:%i') hora
+from tanque  
+join sensor on tanque.id = sensor.fkTanque and tanque.fkEmpresa = sensor.fkTanqueEmpresa
+left join leitura on sensor.id = leitura.fkSensor 
+where tanque.fkEmpresa = ${idEmpresa} and tanque.identificacao = "${idTanque}"
+order by leitura.diahora desc
+limit 5;
+    `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function buscarHorasAlertasDias(idEmpresa, idTanque) {
+  let instrucaoSql = `
+    select count(leitura.temperatura) alertas from tanque  
+join sensor on tanque.id = sensor.fkTanque and tanque.fkEmpresa = sensor.fkTanqueEmpresa
+left join leitura on sensor.id = leitura.fkSensor 
+where tanque.fkEmpresa = ${idEmpresa} and 
+(leitura.temperatura >=31 or leitura.temperatura <= 24 or leitura.umidade <=89)
+and tanque.identificacao like "${idTanque}"
+and leitura.diahora > DATE_SUB(now(), interval 2 day)
+group by leitura.nmrSemana; `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarDadosAtuais,
   buscarMediasDaSemanas,
-  buscarDadosDosGraficos
+  buscarDadosDosGraficos,
+  buscarMedidaTempoReal,
+  buscarMedidasGraficoTempoReal,
+  buscarHorasAlertasDias
 };

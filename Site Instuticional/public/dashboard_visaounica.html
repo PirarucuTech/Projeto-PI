@@ -47,9 +47,9 @@
               <img src="assets/icon/logo_umi.png" alt="" />
             </div>
             <div class="kpi_temporeal_textinside">
-              <span>18.1C°</span>
+              <span id="span_temperatura">18.1C°</span>
               <br />
-              <span>90.5%</span>
+              <span id="span_umidade">90.5%</span>
               <br />
             </div>
           </div>
@@ -88,11 +88,87 @@
   </body>
 </html>
 <script>
+
+  buscarMedidaTempoReal();
+  
+  function buscarMedidaTempoReal() {
+    fetch("/dashboard/buscarMedidaTempoReal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            span_temperatura.innerHTML = (`${json[0].temperatura}°C`);
+            span_umidade.innerHTML = (`${json[0].umidade}%`);
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+let temperaturas = []
+let umidades = []
+let horas = []
+
+  buscarMedidasGraficoTempoReal();
+  function buscarMedidasGraficoTempoReal() {
+    fetch("/dashboard/buscarMedidasGraficoTempoReal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            json.forEach((leituras) => {
+              temperaturas.push(leituras.temperatura)
+              umidades.push(leituras.umidade)
+              horas.push(leituras.hora)
+            })
+            tempoReal.data.datasets[0].data = temperaturas
+            tempoReal.data.datasets[1].data = umidades
+            tempoReal.data.labels = horas
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
   const grafico1 = document.getElementById("tempo_real");
   let tempoReal = new Chart(grafico1, {
     type: "line",
     data: {
-      labels: ["12:30", "13:00", "13:30", "14:00", "14:30", "15:00"],
+      labels: ["12:30", "13:00", "13:30", "14:00", "14:30", "15:00","16:53"],
       datasets: [
         {
           label: "Temperatura",
