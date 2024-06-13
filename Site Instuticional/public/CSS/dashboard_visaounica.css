@@ -15,8 +15,10 @@ body {
 }
 
 .nome_tanque {
-  width: 7%;
-  margin-left: 26%;
+  width: 100%;
+  margin-right: 1%;
+  display: flex;
+  justify-content: center;
 }
 
 .nome_tanque span {
@@ -106,7 +108,7 @@ body {
 }
 
 .div_options {
-  width: 30%;
+  width: 10%;
 }
 
 .grafico_temporeal {
