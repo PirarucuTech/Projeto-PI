@@ -1,93 +1,262 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Visão Unica</title>
+    <link rel="stylesheet" href="CSS/inicial.css" />
+    <link rel="stylesheet" href="CSS/dashboard_visaounica.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="shortcut icon"
+      href="assets/icon/3_logo.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - Visão Unica</title>
-  <link rel="stylesheet" href="CSS/inicial.css" />
-  <link rel="stylesheet" href="CSS/dashboard_visaounica.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="shortcut icon" href="assets/icon/3_logo.png" type="image/x-icon" />
-</head>
-
-<body>
-  <header class="navbar">
-    <div class="container-items">
-      <a href="./index.html">
-        <img src="assets/icon/3_PirarucuTech_horizontal_semfundo.png" id="logo" />
-      </a>
-      <div class="nome_tanque">
-        <a href="">Tanque 9</a>
+  <body>
+    <header class="navbar">
+      <div class="container-items">
+        <a href="./index.html">
+          <img
+            src="assets/icon/3_PirarucuTech_horizontal_semfundo.png"
+            id="logo"
+          />
+        </a>
+        <div class="nome_tanque">
+          <span id="span_nomeTanque">Tanque</span>
+        </div>
+        <div class="div_options">
+          <ul class="ulNavbar">
+            <li class="configuracoes"><a href="">Configurações</a></li>
+            <li class="meuperfil"><a href="">Meu Perfil</a></li>
+            <li class="sair"><a href="">Sair</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="div_options">
-        <ul class="ulNavbar">
-          <li class="configuracoes"><a href="">Configurações</a></li>
-          <li class="meuperfil"><a href="">Meu Perfil</a></li>
-          <li class="sair"><a href="">Sair</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="homepage">
-    <div class="cards_kpi">
-      <div class="card_kpi_temporeal">
-        <div class="kpi_temporeal_text">
-          Temperatura e umidade <br />
-          (em tempo real): <br />
-          <div class="kpi_temporeal_img">
-            <img src="assets/icon/logo_temp.png" alt="" />
-            <img src="assets/icon/logo_umi.png" alt="" />
+    <div class="homepage">
+      <div class="cards_kpi">
+        <div class="card_kpi_temporeal">
+          <div class="kpi_temporeal_text">
+            Temperatura e umidade <br />
+            (em tempo real): <br />
+            <div class="kpi_temporeal_img">
+              <img src="assets/icon/logo_temp.png" alt="" />
+              <img src="assets/icon/logo_umi.png" alt="" />
+            </div>
+            <div class="kpi_temporeal_textinside">
+              <span id="span_temperatura">18.1C°</span>
+              <br />
+              <span id="span_umidade">90.5%</span>
+              <br />
+            </div>
           </div>
-          <div class="kpi_temporeal_textinside">
-            <span>18C°</span>
-            <br />
-            <span>90%</span>
-            <br />
+        </div>
+        <div class="card_kpi_alerta">
+          <div class="kpi_alerta_text">
+            Tempo acumulado em alerta: <br />(Nas últimas 48hrs)
+            <div class="kpi_alerta_textinside">
+              <span id="teste">10 Horas</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card_kpi_alerta">
-        <div class="kpi_alerta_text">
-          Tempo acumulado em alerta: <br />(Nas últimas 48hrs)
-          <div class="kpi_alerta_textinside">
-            <span id="teste">10 Horas</span>
+
+      <div class="legenda">
+        <span>Legenda:</span>
+        <img src="assets/icon/logo_temp.png" alt="" />
+        <span>Temperatura</span>
+
+        <img src="assets/icon/logo_umi.png" alt="" />
+        <span>Umidade</span>
+      </div>
+      <div class="container_below">
+        <div class="grafico_temporeal">
+          <div>
+            <canvas id="tempo_real"></canvas>
+          </div>
+        </div>
+        <div class="grafico_temporeal">
+          <div>
+            <canvas id="historico_alerta"> </canvas>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="legenda">
-      <span>Legenda:</span>
-      <img src="assets/icon/logo_temp.png" alt="" />
-      <span>Temperatura</span>
-
-      <img src="assets/icon/logo_umi.png" alt="" />
-      <span>Umidade</span>
-    </div>
-    <div class="container_below">
-      <div class="grafico_temporeal">
-        <div>
-          <canvas id="tempo_real"></canvas>
-        </div>
-      </div>
-      <div class="grafico_temporeal">
-        <div>
-          <canvas id="historico_alerta"> </canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
 <script>
+  setInterval(()=>{
+    buscarMedidaTempoReal()
+    buscarHorasAlertasDias()
+    buscarMedidasGraficoTempoReal()
+    buscarAlertasSemana()
+  }, 5000)
+  span_nomeTanque.innerHTML = sessionStorage.NOME_TANQUE
+
+  buscarMedidaTempoReal();
+  
+  function buscarMedidaTempoReal() {
+
+    fetch("/dashboard/buscarMedidaTempoReal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            span_temperatura.innerHTML = (`${json[0].temperatura}°C`);
+            span_umidade.innerHTML = (`${json[0].umidade}%`);
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+ 
+  buscarHorasAlertasDias();
+  
+  function buscarHorasAlertasDias() {
+    fetch("/dashboard/buscarHorasAlertasDias", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            teste.innerHTML = `${json[0].alertas} HORAS`
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+
+
+
+let temperaturas = []
+let umidades = []
+let horas = []
+
+  buscarMedidasGraficoTempoReal();
+  function buscarMedidasGraficoTempoReal() {
+    fetch("/dashboard/buscarMedidasGraficoTempoReal", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            json.forEach((leituras) => {
+              temperaturas.push(leituras.temperatura)
+              umidades.push(leituras.umidade)
+              horas.push(leituras.hora)
+            })
+            tempoReal.data.datasets[0].data = temperaturas
+            tempoReal.data.datasets[1].data = umidades
+            tempoReal.data.labels = horas
+            temperaturas = []
+            umidades = []
+            horas = []
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+let alertas = []
+let numerosSemanas = []
+  buscarAlertasSemana();
+  function buscarAlertasSemana() {
+    fetch("/dashboard/buscarAlertasSemana", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idEmpresaServer: sessionStorage.EMPRESA,
+        idTanqueServer: sessionStorage.NOME_TANQUE,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            json.forEach((leituras) => {
+              numerosSemanas.push(leituras.nmrSemana)
+              alertas.push(leituras.alertas)
+            })
+            historico.data.datasets[0].data = alertas
+            historico.data.labels = numerosSemanas
+            alertas = []
+            numerosSemanas = []
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+  }
+
+
   const grafico1 = document.getElementById("tempo_real");
   let tempoReal = new Chart(grafico1, {
     type: "line",
     data: {
-      labels: ["12:30", "13:00", "13:30", "14:00", "14:30", "15:00"],
+      labels: ["12:30", "13:00", "13:30", "14:00", "14:30", "15:00","16:53"],
       datasets: [
         {
           label: "Temperatura",

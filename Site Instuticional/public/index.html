@@ -27,9 +27,8 @@
       </div>
 
       <div class="btns_navbar">
-        <button class="btn_login" onclick="button_login()"> <a href="./login.html">Login</a></button>
-        <button class="btn_cadastro" onclick="button_cadastro()"> <a href="./cadastro.html">Cadastro</a>
-        </button>
+        <button class="btn_login" onclick="button_login()"><a href="./login.html">Login</a></button>
+        <a href="./cadastro.html"><button class="btn_cadastro" onclick="button_cadastro()">Cadastro</button></a>
       </div>
 
 
@@ -79,14 +78,15 @@
     <img src="./assets/imgs/dashboard.png" draggable="false" id="dashboardFotoInicial">
 
     <div class="btnTextDashboard">
-      <span>Acesse sua dashboard agora mesmo!</span>
-      <button class="btnAcesseDashboard"> <a href="./login.html">Acesse já</a></button>
+      <span>Acompanhe seus tanques em tempo real pela nossa dashboard.</span>
+      <span>Saiba quantos tanques estão fora da temperatura e umidade necessárias para o seu peixe e tenha a oportunidade de evitar perdas.</span>
+      <button class="btnFazerOrçamento"> <a href="./cadastro.html">Faça seu orçamento conosco</a> </button>
     </div>
 
   </div>
 
   <div class="container-scroll-simulador">
-    <div class="btnTextSimulador">
+    <div class="TextSimulador">
       <span>Veja o quanto a sua perda está te prejudicando.</span>
       <button class="btnCalculeJa"><a href="./simulador.html">Calcule aqui</a></button>
     </div>
@@ -112,7 +112,7 @@
         <ul>
           <li class="tituloLi">Ouvidoria</li>
           <li>Segunda a sexta, exceto feriados</li>
-          <li>Das 9h as 20hrs</li>
+          <li>Das 9h às 20hrs</li>
         </ul>
       </span>
 
@@ -126,21 +126,9 @@
 
     </div>
 
-    <div class="faleConosco">
-      <span>Fale Conosco:</span>
-
-      <div class="logos">
-        <img draggable="false" id="imgLogoEmail" src="./assets/icon/3_IconEmail.png">
-        <img draggable="false" id="imgLogoWhatsapp" src="./assets/icon/3_IconWhatsapp.png">
-        <img draggable="false" id="imgLogoInstagram" src="./assets/icon/3_IconInstagram.png">
-        <img draggable="false" id="imgLogoLinkedin" src="./assets/icon/3_IconLinkedin.png">
-      </div>
-    </div>
-
     <div class="termosLegais">
-      <span>Termos</span>
-      <span>Segurança</span>
-    </div>
+      <span><a href="termos.docx">Termos de uso</a></span>
+    </div>  
 
   </footer>
 
@@ -161,6 +149,8 @@
       botaoInicio.style.display = "none";
     }
   }
+
+
 
   // qunado o usuario clicar no botão, é direcionado para o topo da página
   function topFunction() {

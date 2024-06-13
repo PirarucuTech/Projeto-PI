@@ -8,4 +8,27 @@ router.post("/buscarDadosAtuais", function (req, res) {
     dashboardController.buscarDadosAtuais(req, res);
 });
 
+router.post("/buscarMedidaTempoReal", function (req, res) {
+    dashboardController.buscarMedidaTempoReal(req, res);
+});
+
+router.post("/buscarMediasDaSemanas", function (req, res) {
+    dashboardController.buscarMediasDaSemanas(req, res);
+});
+
+router.post("/buscarDadosDosGraficos", function (req, res) {
+    dashboardController.buscarDadosDosGraficos(req, res);
+});
+
+router.post("/buscarMedidasGraficoTempoReal", function (req, res) {
+    dashboardController.buscarMedidasGraficoTempoReal(req, res);
+});
+router.post("/buscarHorasAlertasDias", function (req, res) {
+    dashboardController.buscarHorasAlertasDias(req, res);
+});
+router.post("/buscarAlertasSemana", function (req, res) {
+    dashboardController.buscarAlertasSemana(req, res);
+});
+
+
 module.exports = router;

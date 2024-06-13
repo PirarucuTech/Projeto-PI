@@ -51,6 +51,15 @@ li {
   list-style: none;
 }
 
+#olho,
+#olho2 {
+  left: 59%;
+  margin-top: 0.8%;
+  position: absolute;
+  width: 25px;
+}
+
+
 .divArrow {
   background-color: transparent;
   display: flex;
@@ -170,4 +179,41 @@ input {
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 10px;
+}
+
+.modal{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.content_modal{
+  background-color: #2f3438;
+  width: 30vw;
+  height: 70vh;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  gap: 15px;
+
+}
+
+.titulo_modal{
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.texto-modal{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 50px;
+
 }
