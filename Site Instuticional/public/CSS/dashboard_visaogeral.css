@@ -231,6 +231,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .tanque_individual_img_indicadora {

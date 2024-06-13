@@ -13,10 +13,10 @@ void loop() { // codigo que roda diversas vezes
   float umidade = dht_1.readHumidity(); // variavel de leitura - umidade
   float temperatura = dht_1.readTemperature(); // variavel de leitura - temperatura
   int FK = 3500; // variavel da foreign key do banco de dados  
-  float umidade2 = umidade * 1.1; // variavel de simulação da umidade
-  float temperatura2 = temperatura * 1.1; // variavel de simulação da temperatura
+  float umidade2 = umidade * 1.9; // variavel de simulação da umidade
+  float temperatura2 = temperatura * 1.0; // variavel de simulação da temperatura
   int FK2 = 3501; // variavel da foreign key do banco de dados de exemplo
-  float umidade3 = umidade * 0.9; // variavel de simulação da umidade
+  float umidade3 = umidade * 1.78; // variavel de simulação da umidade
   float temperatura3 = temperatura * 0.9; // variavel de simulação da temperatura
   int FK3 = 3502; // variavel da foreign key do banco de dados de exemplo
 
@@ -39,5 +39,5 @@ void loop() { // codigo que roda diversas vezes
     Serial.print(";"); // separação dos valores para interpretação da api
     Serial.println(FK3); // Foreign key do banco de dados, da tabela do sensor de exemplo
   }
-  delay(10000); // delay de 30 segundos para cada leitura
+  delay(15000); // delay de 30 segundos para cada leitura
 }
