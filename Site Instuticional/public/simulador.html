@@ -1,92 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulador Financeiro</title>
-    <link rel="stylesheet" href="./CSS/simuladorFinanceiro.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/icon/3_logo.png"
-      type="image/x-icon"
-    />
-  </head>
 
-  <body>
-    <div class="navbar">
-      <div class="container-items">
-        <a href="./index.html"
-          ><img
-            src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png"
-            id="logo"
-        /></a>
-        <div class="div_options">
-          <ul class="ulNavbar">
-            <li class="liInicial"><a href="./index.html">Inicial</a></li>
-            <li class="liSobre"><a href="./index.html #sobre">Sobre</a></li>
-            <li class="liSimulador">
-              <a href="./simulador.html">Simulador financeiro</a>
-            </li>
-            <!-- <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li> -->
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Financeiro</title>
+  <link rel="stylesheet" href="./CSS/simuladorFinanceiro.css" />
+  <link rel="shortcut icon" href="./assets/icon/3_logo.png" type="image/x-icon" />
+</head>
 
-        <div class="btns_navbar">
-          <button class="btn_login" onclick="button_login()">
-            <a href="./login.html">Login</a>
-          </button>
-          <button class="btn_cadastro" onclick="button_cadastro()">
-            <a href="./cadastro.html">Cadastro</a>
-          </button>
-        </div>
+<body>
+  <div class="navbar">
+    <div class="container-items">
+      <a href="./index.html"><img src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png" id="logo" /></a>
+      <div class="div_options">
+        <ul class="ulNavbar">
+          <li class="liInicial"><a href="./index.html">Inicial</a></li>
+          <li class="liSobre"><a href="./index.html #sobre">Sobre</a></li>
+          <li class="liSimulador">
+            <a href="./simulador.html">Simulador financeiro</a>
+          </li>
+          <!-- <li class="liDashboard"><a href="1_dashboard.html">Dashboard</a></li> -->
+        </ul>
       </div>
-    </div>
 
-    <div class="cards-calculadora">
-      <div id="div_card_inputs" class="card-inputs">
-        <div class="titulo_card_inputs">
-          <span>Calcule aqui:</span>
-        </div>
-        <span>Informe a quantidade de Pirarucu por tanque:</span> <br />
-        <input
-          required
-          type="number"
-          placeholder="Quantidade de Pirarucus"
-          id="input_qtdPirarucu"
-          class="input_card"
-        /><br />
-        <span>Informe a quantidade de Tanques:</span> <br />
-        <input
-          required
-          type="number"
-          placeholder="Tanques"
-          id="input_qtdTanques"
-          class="input_card"
-        />
-        <br />
-        <span>Informe o preço por Quilo:</span> <br />
-        <input
-          required
-          type="number"
-          placeholder="Preço por Quilograma"
-          id="input_precoKg"
-          class="input_card"
-        />
-        <br />
-        <div id="print_erroValores"></div>
-
-        <button onclick="button_calcular_prejuizos()" class="btn_calcular">
-          Calcular
+      <div class="btns_navbar">
+        <button class="btn_login" onclick="button_login()">
+          <a href="./login.html">Login</a>
+        </button>
+        <button class="btn_cadastro" onclick="button_cadastro()">
+          <a href="./cadastro.html">Cadastro</a>
         </button>
       </div>
-
-      <div
-        style="display: none; flex-direction: column; align-items: center"
-        id="div_card_resposta"
-        class="card-resposta"
-      ></div>
     </div>
-  </body>
+  </div>
+
+  <div class="cards-calculadora">
+    <div id="div_card_inputs" class="card-inputs">
+      <div class="titulo_card_inputs">
+        <span>Calcule aqui:</span>
+      </div>
+      <span>Informe a quantidade de Pirarucu por tanque:</span> <br />
+      <input required type="number" placeholder="Quantidade de Pirarucus" id="input_qtdPirarucu"
+        class="input_card" /><br />
+      <span>Informe a quantidade de Tanques:</span> <br />
+      <input required type="number" placeholder="Tanques" id="input_qtdTanques" class="input_card" />
+      <br />
+      <span>Informe o preço por Quilo:</span> <br />
+      <input required type="number" placeholder="Preço por Quilograma" id="input_precoKg" class="input_card" />
+      <br />
+      <div id="print_erroValores"></div>
+
+      <button onclick="button_calcular_prejuizos()" class="btn_calcular">
+        Calcular
+      </button>
+    </div>
+
+    <div style="display: none; flex-direction: column; align-items: center" id="div_card_resposta"
+      class="card-resposta"></div>
+  </div>
+</body>
+
 </html>
 
 <script>
@@ -159,25 +133,25 @@
       div_card_resposta.innerHTML = ` 
             <p style="margin: 5px">Considerando que, em média, <b>33%</b> dos pirarucus jovens perdidos são devido a problemas de umidade e temperatura:</p> 
             
-            <p style="margin: 5px"> A venda dos pirarucus renderia aproximadamente <b style="color:green;">${valorTotalForm}</b>, enquanto o custo de criação é de <b>${precoDaCriacaoForm}</b>. Isso resultaria em um lucro de <b style="color:green;">${(
-        valorTotal - precoDaCriacao
-      ).toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      })}</b>.</p>
+            <p style="margin: 5px"> A venda dos pirarucus renderia aproximadamente <span style="color:green;">${valorTotalForm}</span>, enquanto o custo de criação é de <b>${precoDaCriacaoForm}</b>. Isso resultaria em um lucro de <span style="color:green;">${(
+          valorTotal - precoDaCriacao
+        ).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}</span>.</p>
             
-            <p style="margin: 5px">No entanto, devido à falta de cuidado, você poderia perder até <b>33%</b> da produção, resultando em uma perda potencial de <b style="color: red;">${valorPerdaForm}</b> em vendas e <b style="color: red;">${precoDaCriacaoDisperdicadaForm}</b> em custos de produção desperdiçados.</p>
+            <p style="margin: 5px">No entanto, devido à falta de cuidado, você poderia perder até <b>33%</b> da produção, resultando em uma perda potencial de <span style="color: red;">${valorPerdaForm}</span> em vendas e <span style="color: red;">${precoDaCriacaoDisperdicadaForm}</span> em custos de produção desperdiçados.</p>
             
             <p style="margin: 5px">Finalizando, com a utilização CORRETA do nosso projeto, você:</p>
                 <div class="mini-card">
                     <p style="margin: 0; margin-left: 5px; margin-left: 2px; font-size:16px; justify-content: center; display: flex;" float>Pode deixar de perder</p>
                     <p style="margin: 0 auto; font-size: 40px;font-weight:bold;">${(
-                      (valorPerda + precoDaCriacaoDisperdicada) *
-                      0.15
-                    ).toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}</p>
+          (valorPerda + precoDaCriacaoDisperdicada) *
+          0.15
+        ).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}</p>
                     <p style="margin: 5px">Caso faça uso correto da aplicação</p>
                 </div>
             `;

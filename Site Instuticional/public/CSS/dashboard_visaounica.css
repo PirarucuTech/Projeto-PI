@@ -3,7 +3,6 @@
 body {
   background-color: #1a1f24;
   font-family: "Kanit", sans-serif;
-  font-weight: 200;
   overflow: hidden;
 }
 
@@ -23,7 +22,7 @@ body {
 
 .nome_tanque span {
   font-size: x-large;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .sair:hover {
@@ -65,7 +64,8 @@ body {
   gap: 24%;
   margin-left: 5%;
   padding-bottom: 5px;
-  font-weight: bold;
+  
+
 }
 
 .kpi_alerta_textinside {
@@ -73,7 +73,6 @@ body {
   justify-content: center;
   margin-top: 10%;
   color: #ff6666;
-  font-weight: 600;
   font-size: 25px;
 }
 
@@ -89,13 +88,14 @@ body {
   justify-content: space-between;
 }
 .kpi_temporeal_text {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
 }
 
 .kpi_alerta_text {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
+
 }
 
 .kpi_temporeal_text,
