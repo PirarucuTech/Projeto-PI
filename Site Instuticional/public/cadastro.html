@@ -10,16 +10,16 @@
 </head>
 
 <body>
-  
+
   <div class="modal" id="modalId" style="display: none;">
     <div class="content_modal">
-      <img src="assets/imgs/check.gif" width="250"/>
-        <span class="titulo_modal">Cadastro concluído!</span>
-        <span class="texto-modal">Entraremos em contato em até 5 dias úteis para realizarmos o seu orçamento.</span>
-        <a href="index.html"><button class="btnCadastro">Voltar para a tela inicial</button></a>
+      <img src="assets/imgs/check.gif" width="250" />
+      <span class="titulo_modal">Cadastro concluído!</span>
+      <span class="texto-modal">Entraremos em contato em até 5 dias úteis para realizarmos o seu orçamento.</span>
+      <a href="index.html"><button class="btnCadastro">Voltar para a tela inicial</button></a>
     </div>
   </div>
-  
+
   <div class="container-inicio-cadastro" id="containerInicio">
     <div class="card-cadastro">
       <div class="divArrow">
@@ -31,29 +31,29 @@
 
       <div class="inputs_cadastro">
         <span class="spanCadastro">Nome Completo:</span>
-        <input id="inp_nomeCadastro" placeholder="Name"/>
+        <input id="inp_nomeCadastro" placeholder="Name" />
 
         <span class="spanCadastro">Email:</span>
-        <input id="inp_email" placeholder="Insert Email"/>
+        <input id="inp_email" placeholder="Insert Email" />
 
         <div>
           <span class="spanCadastro">Senha:</span> <br>
           <input type="password" id="inp_senha" placeholder="Your Password">
-          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoAberto.png" />
+          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoFechado.png" />
         </div>
 
         <div>
-          <span class=""spanCadastro">Confirmar senha:</span> <br>
+          <span class="" spanCadastro">Confirmar senha:</span> <br>
           <input type="password" id="inp_senha2" placeholder="Repeat Password" />
-          <img id="olho2" onclick="visualizarSenha2()" src="./assets/icon/olhoAberto.png" />
+          <img id="olho2" onclick="visualizarSenha2()" src="./assets/icon/olhoFechado.png" />
         </div>
 
         <span>Já tem uma conta?
           <a href="./login.html"><u>Fazer Log in</u></a></span><br />
-          <div class="card_erro">
-            <span id="span_erro"></span>
-          </div>
-          <div class="div_btnCadastro">
+        <div class="card_erro">
+          <span id="span_erro"></span>
+        </div>
+        <div class="div_btnCadastro">
           <button class="btnCadastro" onclick="cadastrar()">Cadastrar</button>
         </div>
       </div>
@@ -68,9 +68,9 @@
     let imgSenha = document.getElementById("olho")
     if (inputSenha.type == "password") {
       inputSenha.type = 'text'
-      imgSenha.src = "./assets/icon/olhoFechado.png"
-    } else {
       imgSenha.src = "./assets/icon/olhoAberto.png"
+    } else {
+      imgSenha.src = "./assets/icon/olhoFechado.png"
       inputSenha.type = 'password'
     }
   }
@@ -80,9 +80,9 @@
     let imgSenha2 = document.getElementById("olho2")
     if (inputSenha2.type == "password") {
       inputSenha2.type = 'text'
-      imgSenha2.src = "./assets/icon/olhoFechado.png"
-    } else {
       imgSenha2.src = "./assets/icon/olhoAberto.png"
+    } else {
+      imgSenha2.src = "./assets/icon/olhoFechado.png"
       inputSenha2.type = 'password'
     }
   }
