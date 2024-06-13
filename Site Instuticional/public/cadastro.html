@@ -39,13 +39,13 @@
         <div>
           <span class="spanCadastro">Senha:</span> <br>
           <input type="password" id="inp_senha" placeholder="Your Password">
-          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoFechado.png" />
+          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoAberto.png" style="cursor: pointer;"/>
         </div>
 
         <div>
           <span class="" spanCadastro">Confirmar senha:</span> <br>
           <input type="password" id="inp_senha2" placeholder="Repeat Password" />
-          <img id="olho2" onclick="visualizarSenha2()" src="./assets/icon/olhoFechado.png" />
+          <img id="olho2" onclick="visualizarSenha2()" src="./assets/icon/olhoAberto.png" style="cursor: pointer;" />
         </div>
 
         <span>Já tem uma conta?
@@ -68,9 +68,9 @@
     let imgSenha = document.getElementById("olho")
     if (inputSenha.type == "password") {
       inputSenha.type = 'text'
-      imgSenha.src = "./assets/icon/olhoAberto.png"
-    } else {
       imgSenha.src = "./assets/icon/olhoFechado.png"
+    } else {
+      imgSenha.src = "./assets/icon/olhoAberto.png"
       inputSenha.type = 'password'
     }
   }
@@ -80,9 +80,9 @@
     let imgSenha2 = document.getElementById("olho2")
     if (inputSenha2.type == "password") {
       inputSenha2.type = 'text'
-      imgSenha2.src = "./assets/icon/olhoAberto.png"
-    } else {
       imgSenha2.src = "./assets/icon/olhoFechado.png"
+    } else {
+      imgSenha2.src = "./assets/icon/olhoAberto.png"
       inputSenha2.type = 'password'
     }
   }
