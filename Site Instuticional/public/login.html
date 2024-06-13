@@ -24,7 +24,7 @@
         <div>
           <span class="spanCadastro">Senha:</span> <br>
           <input type="password" id="inp_senha" placeholder="Your Password">
-          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoAberto.png" style="cursor: pointer;" />
+          <img id="olho" onclick="visualizarSenha()" src="./assets/icon/olhoFechado.png" />
         </div>
         <span>Ainda não tem uma conta?
           <a href="./cadastro.html"><u>Fazer Cadastro</u></a></span><br />
@@ -45,9 +45,9 @@
     let imgSenha = document.getElementById("olho")
     if (inputSenha.type == "password") {
       inputSenha.type = 'text'
-      imgSenha.src = "./assets/icon/olhoFechado.png"
-    } else {
       imgSenha.src = "./assets/icon/olhoAberto.png"
+    } else {
+      imgSenha.src = "./assets/icon/olhoFechado.png"
       inputSenha.type = 'password'
     }
   }
