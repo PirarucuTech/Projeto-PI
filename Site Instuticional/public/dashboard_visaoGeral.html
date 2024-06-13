@@ -1,188 +1,175 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visão Geral</title>
-    <link
-      rel="shortcut icon"
-      href="./assets/icon/3_logo.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./CSS/inicial.css" />
-    <link rel="stylesheet" href="./CSS/dashboard_visaogeral.css" />
-  </head>
 
-  <body>
-    <div class="navbar">
-      <div class="container-items">
-        <a href="./index.html"
-          ><img
-            src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png"
-            id="logo"
-        /></a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visão Geral</title>
+  <link rel="shortcut icon" href="./assets/icon/3_logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./CSS/inicial.css" />
+  <link rel="stylesheet" href="./CSS/dashboard_visaogeral.css" />
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="container-items">
+      <a href="./index.html"><img src="./assets/icon/3_PirarucuTech_horizontal_semfundo.png" id="logo" /></a>
     </div>
+  </div>
 
-    <div class="container_dashboard">
-      <div class="container_situacaoTotal">
-        <div class="legenda_situacao">
-          <div class="legenda_estavel">
-            <div class="legenda_informacoes">
-              <span class="legenda_informacoes_titulo">Estável</span>
-              <span>
-                <img src="./assets/icon/logo_temp.png" alt="" /> >=25°C
-              </span>
-              <span>
-                <img src="./assets/icon/logo_temp.png" alt="" />
-                <=30°C
-              </span>
-              <span>
-                <img src="./assets/icon/logo_umi.png" alt="" /> >=90%
-              </span>
-            </div>
-
-            <div class="legenda_logo">
-              <img src="./assets/icon/logo_joia.png" alt="" />
-            </div>
-          </div>
-
-          <div class="legenda_alerta">
-            <div class="legenda_informacoes">
-              <span class="legenda_informacoes_titulo">Alerta</span>
-
-              <span>
-                <img src="./assets/icon/logo_temp.png" alt="" /> >=31°C
-              </span>
-
-              <span>
-                <img src="./assets/icon/logo_temp.png" alt="" />
-                <=24°C
-              </span>
-
-              <span>
-                <img src="./assets/icon/logo_umi.png" alt="" />
-                <=89%
-              </span>
-            </div>
-
-            <div class="legenda_logo">
-              <img src="./assets/icon/logo_alerta.png" alt="" />
-            </div>
-          </div>
-
-          <div class="legenda_critico">
-            <div class="legenda_informacoes">
-              <span class="legenda_informacoes_titulo">Crítico</span>
-
-              <span>
-                <img src="./assets/icon/logo_temp.png" alt="" /> >=35°C
-              </span>
-
-              <span>
-                <img src="./assets/icon/logo_temp.png" alt="" />
-                <=20°C
-              </span>
-
-              <span>
-                <img src="./assets/icon/logo_umi.png" alt="" />
-                <=85%
-              </span>
-            </div>
-
-            <div class="legenda_logo">
-              <img src="./assets/icon/logo_critico.png" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div class="titulo_variacao_total">
-          <span>Variação da situação total atual:</span>
-        </div>
-
-        <div class="container_kpi_situacao_atual">
-          <div class="container_kpi_critico">
-            <div class="container_kpi_grafico_legenda_critico">
-              <span>Crítico</span>
-              <span id="span_criticos"></span>
-            </div>
-
-            <div class="container_kpi_grafico_logo">
-              <img src="./assets/icon/logo_critico.png" alt="" />
-            </div>
-          </div>
-
-          <div class="container_kpi_alerta">
-            <div class="container_kpi_grafico_legenda_alerta">
-              <span>Alerta</span>
-              <span id="span_alertas"></span>
-            </div>
-
-            <div class="container_kpi_grafico_logo">
-              <img src="./assets/icon/logo_alerta_escuro.png" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div class="container_filtros">
-          <div class="filtros_texto">
-            <button class="filtro_tanques_logo">
-              <img src="./assets/icon/logo_lupa.png" alt="" />
-            </button>
-            <span id="span_tanquesTotais"></span>
-          </div>
-
-          <div class="filtros_texto">
-            <span>Ordenado por: situação</span>
-            <button class="filtro_tanques_logo">
-              <img src="./assets/icon/logo_filtro.png" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="container_tanques" id="divTanques"></div>
-        <div class="container_legenda_umi_temp">
-          <span
-            >Legenda:
-            <img src="./assets/icon/logo_temp.png" alt="" /> Temperatura
-            <span>|</span>
-            <img src="./assets/icon/logo_umi.png" alt="" /> Umidade</span
-          >
-        </div>
-      </div>
-
-      <div class="container_historico">
-        <div class="container_historico_filho">
-          <div class="container_media">
-            <div class="container_media_texto">
-              <span>Média de temperatura</span>
-              <span>(Semana)</span>
-            </div>
-            <div class="container_media_img">
+  <div class="container_dashboard">
+    <div class="container_situacaoTotal">
+      <div class="legenda_situacao">
+        <div class="legenda_estavel">
+          <div class="legenda_informacoes">
+            <span class="legenda_informacoes_titulo">Estável</span>
+            <span>
+              <img src="./assets/icon/logo_temp.png" alt="" /> >=25°C
+            </span>
+            <span>
               <img src="./assets/icon/logo_temp.png" alt="" />
-              <span id="span_mediaTemperatura">26°C</span>
-            </div>
+              <=30°C </span>
+                <span>
+                  <img src="./assets/icon/logo_umi.png" alt="" /> >=90%
+                </span>
           </div>
 
-          <div class="container_media">
-            <div class="container_media_texto">
-              <span>Média de umidade</span>
-              <span>(Semana)</span>
-            </div>
-            <div class="container_media_img">
-              <img src="./assets/icon/logo_umi.png" alt="" />
-              <span id="span_mediaUmidade">97%</span>
-            </div>
+          <div class="legenda_logo">
+            <img src="./assets/icon/logo_joia.png" alt="" />
           </div>
         </div>
 
-        <div class="container_grafico_historico">
-          <div class="grafico" style="width: 95%">
-            <canvas id="myChart"></canvas>
+        <div class="legenda_alerta">
+          <div class="legenda_informacoes">
+            <span class="legenda_informacoes_titulo">Alerta</span>
+
+            <span>
+              <img src="./assets/icon/logo_temp.png" alt="" /> >=31°C
+            </span>
+
+            <span>
+              <img src="./assets/icon/logo_temp.png" alt="" />
+              <=24°C </span>
+
+                <span>
+                  <img src="./assets/icon/logo_umi.png" alt="" />
+                  <=89% </span>
+          </div>
+
+          <div class="legenda_logo">
+            <img src="./assets/icon/logo_alerta.png" alt="" />
+          </div>
+        </div>
+
+        <div class="legenda_critico">
+          <div class="legenda_informacoes">
+            <span class="legenda_informacoes_titulo">Crítico</span>
+
+            <span>
+              <img src="./assets/icon/logo_temp.png" alt="" /> >=35°C
+            </span>
+
+            <span>
+              <img src="./assets/icon/logo_temp.png" alt="" />
+              <=20°C </span>
+
+                <span>
+                  <img src="./assets/icon/logo_umi.png" alt="" />
+                  <=85% </span>
+          </div>
+
+          <div class="legenda_logo">
+            <img src="./assets/icon/logo_critico.png" alt="" />
           </div>
         </div>
       </div>
+
+      <div class="titulo_variacao_total">
+        <span>Variação da situação total atual:</span>
+      </div>
+
+      <div class="container_kpi_situacao_atual">
+        <div class="container_kpi_critico">
+          <div class="container_kpi_grafico_legenda_critico">
+            <span>Crítico</span>
+            <span id="span_criticos"></span>
+          </div>
+
+          <div class="container_kpi_grafico_logo">
+            <img src="./assets/icon/logo_critico.png" alt="" />
+          </div>
+        </div>
+
+        <div class="container_kpi_alerta">
+          <div class="container_kpi_grafico_legenda_alerta">
+            <span>Alerta</span>
+            <span id="span_alertas"></span>
+          </div>
+
+          <div class="container_kpi_grafico_logo">
+            <img src="./assets/icon/logo_alerta_escuro.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="container_filtros">
+        <div class="filtros_texto">
+          <button class="filtro_tanques_logo">
+            <img src="./assets/icon/logo_lupa.png" alt="" />
+          </button>
+          <span id="span_tanquesTotais"></span>
+        </div>
+
+        <div class="filtros_texto">
+          <span>Ordenado por: situação</span>
+          <button class="filtro_tanques_logo">
+            <img src="./assets/icon/logo_filtro.png" alt="" />
+          </button>
+        </div>
+      </div>
+      <div class="container_tanques" id="divTanques"></div>
+      <div class="container_legenda_umi_temp">
+        <span>Legenda:
+          <img src="./assets/icon/logo_temp.png" alt="" /> Temperatura
+          <span>|</span>
+          <img src="./assets/icon/logo_umi.png" alt="" /> Umidade</span>
+      </div>
     </div>
-  </body>
+
+    <div class="container_historico">
+      <div class="container_historico_filho">
+        <div class="container_media">
+          <div class="container_media_texto">
+            <span>Média de temperatura</span>
+            <span>(Semana)</span>
+          </div>
+          <div class="container_media_img">
+            <img src="./assets/icon/logo_temp.png" alt="" />
+            <span id="span_mediaTemperatura">26°C</span>
+          </div>
+        </div>
+
+        <div class="container_media">
+          <div class="container_media_texto">
+            <span>Média de umidade</span>
+            <span>(Semana)</span>
+          </div>
+          <div class="container_media_img">
+            <img src="./assets/icon/logo_umi.png" alt="" />
+            <span id="span_mediaUmidade">97%</span>
+          </div>
+        </div>
+      </div>
+
+  <div class="container_grafico_historico">
+        <div class="grafico" style="width: 95%">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -351,7 +338,7 @@
           resposta.json().then((json) => {
             console.log(json);
             console.log(JSON.stringify(json));
-           // alert("O gráfico foi plotado");
+            // alert("O gráfico foi plotado");
             json.forEach((semana) => {
               dadosGrafico.push(semana.alertas);
               nrmsSemanas.push(`Semana: ${semana.nmrSemana}`);
@@ -400,12 +387,12 @@
       },
     });
 
-    setInterval(()=>{
+    setInterval(() => {
       graficoVisaoGeral.update()
-    },1000)
+    }, 1000)
   }, 300);
 
-  function armazenarId(nomeDoTanque){
+  function armazenarId(nomeDoTanque) {
     sessionStorage.NOME_TANQUE = nomeDoTanque
     window.location.href = "./dashboard_visaounica.html"
   }
