@@ -190,6 +190,9 @@ let horas = []
               umidades.push(leituras.umidade)
               horas.push(leituras.hora)
             })
+            temperaturas.reverse()
+            umidades.reverse()
+            horas.reverse()
             tempoReal.data.datasets[0].data = temperaturas
             tempoReal.data.datasets[1].data = umidades
             tempoReal.data.labels = horas
